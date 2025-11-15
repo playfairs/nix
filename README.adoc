@@ -1,4 +1,4 @@
-= Invra's Nix Configuration
+= playfairs's Nix Configuration forked from my friend :)
 
 This Nix flake is your all-in-one system configuration toolkit. It provides:
 

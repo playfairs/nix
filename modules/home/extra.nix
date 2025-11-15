@@ -37,6 +37,10 @@
       pika
       linearmouse
       obs-studio
+      fzf
+      iina
+      ani-cli
+      nasm
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

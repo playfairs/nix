@@ -41,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    configs.url = "git+file:///home/playfairs/.nix/configs?branch=main";
+    configs.url = "github:playfairs/nix-conf";
   };
 
   outputs =

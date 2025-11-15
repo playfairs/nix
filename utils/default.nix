@@ -33,6 +33,7 @@ let
       pkg:
       builtins.elem (lib.getName pkg) [
         "nvidia-x11"
+        "spotify"
         "nvidia-settings"
         "davinci-resolve"
         "steam-unwrapped"
