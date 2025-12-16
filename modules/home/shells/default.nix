@@ -26,6 +26,7 @@
       ":q" = "exit";
       l = "ls -l";
       la = "ls-al";
+      please = "sudo";
     };
 
     extraEnv = ''
@@ -41,6 +42,8 @@
         "/nix/var/nix/profiles/default/bin"
         ($"/etc/profiles/per-user/(whoami)/bin")
         "/run/current-system/sw/bin"
+        :$"($env.HOME)/go/bin"
+        "(go env GOPATH | str trim)/bin"
       ]
     '';
 

@@ -83,11 +83,11 @@
     },
     "configs": {
       "locked": {
-        "lastModified": 1762295715,
-        "narHash": "sha256-qcL5ABwAJ+Z8GGgygVnikkJrKPF1GvEWtjP8NQuf0NM=",
+        "lastModified": 1765865215,
+        "narHash": "sha256-9Cb04gH1I5x5VTM1iilKgSQQ+im79iHl4m7Kvz2KpEs=",
         "owner": "playfairs",
         "repo": "nix-conf",
-        "rev": "cca725260b0fea2eb3dd90aed7facb52216a3e03",
+        "rev": "ef824f7df78b44bfdfad4cebdc92f991fbee20bf",
         "type": "github"
       },
       "original": {

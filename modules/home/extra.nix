@@ -38,6 +38,9 @@
       iina
       ani-cli
       nasm
+      bun
+      postgresql
+      alacritty
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

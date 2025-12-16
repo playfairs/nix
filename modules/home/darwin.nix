@@ -87,7 +87,7 @@ lib.optionalAttrs (!linux) {
       "com.apple.dock" = {
         autohide = system.dock.autohide or false;
         orientation = system.dock.orientation or "bottom";
-        tilesize = system.dock.size or 64;
+        tilesize = system.dock.size or 100;
         minimize-to-application = true;
         show-recents = false;
         wvous-br-corner = 1;
