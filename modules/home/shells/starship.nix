@@ -10,7 +10,7 @@ let
     directoryBg = "#403850";
 
     gitFg = "#9ccfd8";
-    gitBg = "#37414d";
+    gitBg = "#286983";
   };
   # Background is 35-parts #1A1825 to 10-parts foreground.
 in
