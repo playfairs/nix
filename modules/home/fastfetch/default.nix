@@ -77,8 +77,16 @@ in
         }
         {
           type = "localip";
-          key = "    Local IP (No, you don't have my IP.):";
+          key = "    Local IP:";
           keyColor = "yellow";
+        }
+        {
+          type = "command";
+          key = "  󰖟  Tailscaled IP:";
+          keyColor = "yellow";
+          text = ''
+            sh -c 'tailscale ip -4 2>/dev/null'
+          '';
         }
         {
           type = "custom";
