@@ -77,7 +77,7 @@ in
         }
         {
           type = "localip";
-          key = "    Local IP:";
+          key = "    Local IP (No, you don't have my IP.):";
           keyColor = "yellow";
         }
         {
