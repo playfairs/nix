@@ -28,8 +28,8 @@ in
     settings = {
       logo = {
         source = ./art.png;
-        width = 52;
-        height = 20;
+        width = 72;
+        height = 30;
         type = "kitty-direct";
       };
       display.separator = " ";
