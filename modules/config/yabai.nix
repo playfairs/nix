@@ -7,7 +7,7 @@ let
 in
 {
   services.yabai = {
-    enable = true;
+    enable = false;
     config = {
       layout = "bsp";
       left_padding = padding;
@@ -32,7 +32,7 @@ in
   };
 
   services.skhd = {
-    enable = true;
+    enable = false;
 
     skhdConfig = ''
       cmd - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty

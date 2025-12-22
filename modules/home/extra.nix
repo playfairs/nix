@@ -41,6 +41,7 @@
       bun
       postgresql
       alacritty
+      neovim
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard
