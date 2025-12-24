@@ -100,6 +100,6 @@ lib.optionalAttrs (!linux) {
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/flake.jpg;
+    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/astolfo.jpg;
   };
 }
