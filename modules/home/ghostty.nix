@@ -14,6 +14,8 @@
       background-opacity = 0.85;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
+      window-height = 40
+      window-width = 190
       window-save-state = "never";
       font-size = 11;
       cursor-style = "bar";
