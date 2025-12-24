@@ -3,7 +3,7 @@
   ...
 }:
 {
-  stylix.targets.ghostty.enable = false;
+  stylix.targets.ghostty.enable = true;
 
   programs.ghostty = {
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
@@ -11,7 +11,7 @@
 
     settings = {
       theme = "Rose Pine";
-      background-opacity = 0.85;
+      background-opacity = 0.80;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-height = 40;
