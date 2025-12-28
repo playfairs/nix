@@ -42,6 +42,8 @@
       postgresql
       alacritty
       neovim
+      zed-editor
+      windsurf
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

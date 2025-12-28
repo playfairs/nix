@@ -51,11 +51,11 @@
       #!/bin/nu
       $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate rose-pine)
 
-      if not ("NU_EXISTING_INSTANCE" in $env) {
-          ${pkgs.fastfetch}/bin/fastfetch
+      if not ((("NU_EXISTING_INSTANCE" in $env)) and ($env.NU_EXISTING_INSTANCE == true)) {
+        ${pkgs.fastfetch}/bin/fastfetch
       }
 
-      $env.NU_EXISTING_INSTANCE = true
+      $env.NU_EXISTING_INSTANCE = false
 
       mkdir ($nu.data-dir | path join "vendor/autoload")
       ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
