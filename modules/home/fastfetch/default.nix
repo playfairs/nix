@@ -77,7 +77,7 @@ in
         }
         {
           type = "localip";
-          key = "    Local IP (No, not my real IP you stupid larp):";
+          key = "    Local IP:";
           keyColor = "yellow";
         }
         {
