@@ -8,6 +8,7 @@
     [
       dbgate
       # prismlauncher
+      dev
       viu
       chromium
       ffmpeg

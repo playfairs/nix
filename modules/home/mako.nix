@@ -12,8 +12,8 @@
     settings = {
       border-radius = 10;
       border-size = 3;
-      default-timeout = 5000;
-      width = 350;
+      default-timeout = 2000;
+      width = 450;
       height = 250;
       icons = 1;
       text-color = "#e0def4";
@@ -21,12 +21,7 @@
       margin = "5,5,0,0";
       border-color = "#ebbcba";
       background-color = "#191724";
-      anchor = "top-right";
-
-      "category=spotify" = {
-        default-timeout = 1000;
-        group-by = "category";
-      };
+      anchor = "top-center";
     };
   };
 }

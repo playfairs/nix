@@ -8,46 +8,45 @@
       "margin-left": 0,
       "margin-right": 0,
       "modules-left": [
-          "custom/launcher",
-          "hyprland/workspaces",
+        "custom/launcher",
+        "ext/workspaces",
+        "dwl/window"
       ],
       "modules-center": [
-        "hyprland/window"
       ],
       "modules-right": [
-          "network",
-          "pulseaudio",
-          "battery",
-          "tray",
-          "clock",
+        "network",
+        "pulseaudio",
+        "battery",
+        "tray",
+        "clock",
       ],
       "custom/launcher": {
-          "format": "{}",
-          "tooltip": true,
-          "exec": "echo '{\"text\":\"󱄅 \",\"tooltip\":\"Drun | Run\"}'",
-          "return-type": "json",
-          "on-click": "bash -c 'pkill rofi  || rofi -show drun'",
-          "on-click-right": "bash -c 'pkill rofi  || rofi -show drun'",
+        "format": "{}",
+        "tooltip": true,
+        "exec": "echo '{\"text\":\"󱄅 \",\"tooltip\":\"Drun | Run\"}'",
+        "return-type": "json",
+        "on-click": "bash -c 'pkill tofi-drun || tofi-drun --drun-launch=true'",
       },
       "hyprland/workspaces": {
-          "format": "",
-          "format-icons": {
-              "active": "",
-              "default": ""
-          },
-          "on-scroll-up": "hyprctl dispatch workspace e-1",
-          "on-scroll-down": "hyprctl dispatch workspace e+1",
-          "on-click": "activate"
+        "format": "",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-click": "activate"
       },
       "cpu": {
-          "format": " {usage}%",
-          "tooltip": true,
-          "interval": 2
+        "format": " {usage}%",
+        "tooltip": true,
+        "interval": 2
       },
       "memory": {
-          "format": " {}%",
-          "tooltip": true,
-          "interval": 2
+        "format": " {}%",
+        "tooltip": true,
+        "interval": 2
       },
       "temperature": {
           "critical-threshold": 40,
