@@ -27,10 +27,6 @@ lib.optionalAttrs linux {
   };
   programs = {
     niri.enable = flakeConfig.desktop.niri.enable or false;
-    sway = {
-      enable = flakeConfig.desktop.swayfx.enable or false;
-      package = pkgs.swayfx;
-    };
     hyprland = {
       enable = flakeConfig.desktop.hyprland.enable or false;
       xwayland.enable = true;

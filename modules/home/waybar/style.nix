@@ -38,7 +38,7 @@
     border: none;
     border-radius: 0;
     font-family: 'JetBrains Mono Nerd Font';
-    font-size: 13px;
+    font-size: 16px;
     min-height: 0;
   }
 
@@ -85,8 +85,8 @@
     color: @text;
     border-radius: 5px;
     padding: 5px 1rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     margin-right: 15px;
   }
 
@@ -98,11 +98,13 @@
   /* Launcher Module */
   #custom-launcher {
     color: #9ccfd8;
-    font-size: 20px;
+    font-size: 27px;
+    font-weight: bold;
     padding-top: 0px;
     padding-bottom: 0px;
-    padding-right: 13px;
-    margin-left: 15px
+    padding-left: 9px;
+    padding-right: 0px;
+    margin-left: 30px
   }
 
   /* =============================== */
@@ -121,7 +123,7 @@
     color: @mauve;
     border-radius: 100%;
     min-height: 14px;
-    min-width: 14px;
+    min-width: 17px;
     margin: 5px 8px;
     padding: 0px;
     box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
@@ -204,6 +206,7 @@
   /* Clock Module */
   #clock {
     color: @flamingo;
+    margin-right: 30px;
   }
 
   /* =============================== */

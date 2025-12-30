@@ -21,8 +21,8 @@ let
     extraOverlays = with flakeInputs; [
       discord-rpc-lsp.overlays.default
       sketchierbar.overlays.default
+      nix-dev.overlays.default
       ffm.overlays.default
-      # ghostty.overlays.default // Currently the comp version is really unstable.
       zen-browser.overlay
       ip.overlay
     ];
@@ -84,6 +84,7 @@ let
       modules = [
         ../modules/config
         flakeInputs.stylix.nixosModules.stylix
+        flakeInputs.mango.nixosModules.mango
       ];
       specialArgs = specialArgs;
     };

@@ -1,9 +1,0 @@
-[dependencies]
-clap = {version = "4.5.45", features = ["derive"]}
-git2 = "0.20.2"
-rpassword = "7.4.0"
-
-[package]
-name = "gc"
-version = "0.1.0"
-edition = "2024"
