@@ -39,7 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    configs.url = "github:playfairs/nix-conf";
+    configs.url = ./configs;
   };
 
   outputs =
