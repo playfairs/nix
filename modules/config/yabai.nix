@@ -1,10 +1,13 @@
 {
+  linux,
   pkgs,
+  lib,
   ...
 }:
 let
   padding = 6;
 in
+lib.optionalAttrs (!linux)
 {
   services.yabai = {
     enable = false;

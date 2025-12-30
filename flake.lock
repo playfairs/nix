@@ -83,18 +83,14 @@
     },
     "configs": {
       "locked": {
-        "lastModified": 1766544411,
-        "narHash": "sha256-Az/6HtM62paCmSwZJ2RrU1gaUk3tTQFO5YN0p6JQPhg=",
-        "owner": "playfairs",
-        "repo": "nix-conf",
-        "rev": "d9a4c1fc53220d241ed24eddec3d6dcdb47dc805",
-        "type": "github"
+        "path": "configs",
+        "type": "path"
       },
       "original": {
-        "owner": "playfairs",
-        "repo": "nix-conf",
-        "type": "github"
-      }
+        "path": "configs",
+        "type": "path"
+      },
+      "parent": []
     },
     "damage-control": {
       "locked": {
