@@ -1,4 +1,4 @@
-= playfairs's Nix Configuration forked from my friend :)
+= playfairs's Nix Configuration forked from my pet dinosaur :)
 
 This Nix flake is your all-in-one system configuration toolkit. It provides:
 

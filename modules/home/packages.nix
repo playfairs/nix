@@ -13,6 +13,8 @@
       chromium
       ffmpeg
       file
+      telegram-desktop
+      whatsapp-electron
       fd
       tree
       unzip

@@ -29,7 +29,7 @@
         fixYoutubeEmbeds.enable = true;
         imageZoom.enable = true;
         noF1.enable = true;
-        onePingPerDm.enable = true;
+        OnePingPerDM.enable = true;
         openInApp.enable = true;
         quickReply.enable = true;
         spotifyControls.enable = true;
