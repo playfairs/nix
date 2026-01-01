@@ -60,6 +60,14 @@ in
           keyColor = "red";
         }
         {
+          type = "command";
+          key = "    Datetime";
+          keyColor = "red";
+          text = ''
+            sh -c 'date +"%A %d/%m/%Y %H:%M:%S"'
+          '';
+        }
+        {
           type = "packages";
           key = "  󰏓  Packages:";
           keyColor = "green";
