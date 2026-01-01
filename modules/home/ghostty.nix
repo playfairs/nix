@@ -11,11 +11,12 @@
 
     settings = {
       theme = "Rose Pine";
-      background-opacity = 0.95;
+      background-opacity = 0.70;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";
-      font-size = 14;
+      font-size = 9;
+      cursor-style = "bar";
     };
   };
 }

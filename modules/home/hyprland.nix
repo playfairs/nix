@@ -45,6 +45,10 @@ lib.optionalAttrs linux {
         "mako &"
       ];
 
+      exec = [
+        "swww img ${flakeConfig.user.wallpaper or ../../wallpapers/flake.jpg}"
+      ];
+
       # General settings
       general = {
         gaps_in = 2.5;
@@ -55,11 +59,11 @@ lib.optionalAttrs linux {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 5;
         active_opacity = 1;
         inactive_opacity = 0.8;
         shadow = {
-          enabled = false;
+          enabled = true;
         };
         blur = {
           enabled = true;
