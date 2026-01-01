@@ -124,6 +124,7 @@ lib.optionalAttrs linux {
         "SUPER SHIFT, 4, movetoworkspace, 4"
         "SUPER, 5, workspace, 5"
         "SUPER SHIFT, 5, movetoworkspace, 5"
+        ", Print, exec, flameshot gui"
       ];
 
       bindl = [

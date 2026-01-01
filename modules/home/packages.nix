@@ -10,9 +10,14 @@
       # prismlauncher
       dev
       viu
+      brightnessctl
       chromium
       ffmpeg
+      spotify
       file
+      flameshot
+      hyprshot
+      minesweep-rs
       telegram-desktop
       whatsapp-electron
       fd
