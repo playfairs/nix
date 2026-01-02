@@ -38,6 +38,13 @@
       };
     };
 
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix/9e9e48ca16628bf09a02bc5449d4b0761e15eebd";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
     nixcord = {
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";

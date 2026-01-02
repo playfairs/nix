@@ -10,6 +10,7 @@ let
   getModulesFromDirRec = import ./lib/getModulesFromDirRec.nix { inherit lib; };
   specialArgs = rec {
     inherit (flakeInputs)
+      spicetify-nix
       home-manager
       nixpkgs-stable
       plasma-manager
@@ -25,7 +26,7 @@ let
       ffm.overlays.default
       zen-browser.overlay
       ip.overlay
-    ];
+   ];
     linux = (lib.strings.hasSuffix "x86" configName || lib.strings.hasSuffix "aarch64" configName);
     darwin = (!linux);
     allowUnfreePredicate =
@@ -62,6 +63,7 @@ let
         flakeInputs.zen-browser.homeModules.zen-browser
         flakeInputs.nixcord.homeModules.nixcord
         flakeInputs.stylix.homeModules.stylix
+        flakeInputs.spicetify-nix.homeManagerModules.spicetify
       ];
       extraSpecialArgs = specialArgs;
     };

@@ -2,7 +2,7 @@
   {
       "layer": "top",
       "position": "top",
-      "height": 25,
+      "height": 20,
       "spacing": 0,
       "margin-top": 0,
       "margin-left": 0,
@@ -10,7 +10,7 @@
       "modules-left": [
         "custom/launcher",
         "ext/workspaces",
-        "dwl/window"
+        "hyprland/window"
       ],
       "modules-center": [
       ],

@@ -14,6 +14,7 @@
       chromium
       ffmpeg
       spotify
+      spicetify-cli
       file
       flameshot
       hyprshot
