@@ -10,17 +10,12 @@
       # prismlauncher
       dev
       viu
-      brightnessctl
       chromium
       ffmpeg
       spotify
       spicetify-cli
       file
       flameshot
-      hyprshot
-      minesweep-rs
-      telegram-desktop
-      whatsapp-electron
       fd
       tree
       unzip
@@ -60,7 +55,11 @@
       wayvnc
       helvum
       easyeffects
+      telegram-desktop
+      whatsapp-electron
+      brightnessctl
       vlc
+      hyprshot
       gimp3
       pavucontrol
       # davinci-resolve
