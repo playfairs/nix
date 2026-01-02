@@ -41,6 +41,7 @@ let
         "steam"
         "bitwig-studio-unwrapped"
         "discord"
+        "obsidian"
       ];
     custils = import ./. {
       inherit
