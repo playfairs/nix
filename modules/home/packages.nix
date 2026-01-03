@@ -43,9 +43,12 @@
       ani-cli
       nasm
       bun
+      obsidian
+      shottr
       postgresql
       alacritty
       neovim
+      lastfm
       zed-editor
       ffmpeg
       pgadmin4

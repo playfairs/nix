@@ -1,5 +1,7 @@
 {
   pkgs,
+  darwin,
+  lib,
   ...
 }:
 {
@@ -27,6 +29,10 @@
       l = "ls -l";
       la = "ls-al";
       please = "sudo";
+      fuck = "touch";
+      nv = "nvim";
+    } // lib.optionalAttrs darwin {
+      hm = "nh home switch -c macmini";
     };
 
     extraEnv = ''

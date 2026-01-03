@@ -1,5 +1,7 @@
 {
+  darwin,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -15,8 +17,11 @@
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";
-      font-size = 9;
+      font-size = if darwin then 12 else 9;
       cursor-style = "bar";
+    } // lib.optionalAttrs darwin {
+      window-height = 40;
+      window-width = 180;
     };
   };
 }

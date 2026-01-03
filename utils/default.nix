@@ -42,6 +42,8 @@ let
         "bitwig-studio-unwrapped"
         "discord"
         "obsidian"
+        "lastfm"
+        "shottr"
       ];
     custils = import ./. {
       inherit
