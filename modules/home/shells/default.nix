@@ -31,6 +31,7 @@
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
+      vimproved = "vim";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
     };
