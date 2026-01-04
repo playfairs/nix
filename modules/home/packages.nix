@@ -50,6 +50,7 @@
       neovim
       lastfm
       zed-editor
+      neovim
       ffmpeg
       pgadmin4
     ]
