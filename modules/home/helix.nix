@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "base16_transparent";
+      theme = "vesper";
 
       editor = {
         line-number = "relative";
