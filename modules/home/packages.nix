@@ -29,6 +29,7 @@
       uutils-findutils
       uutils-coreutils-noprefix
       steam
+      nmap
     ]
     ++ lib.optionals (!(stdenv.isLinux && stdenv.isAarch64)) [
       insomnia
