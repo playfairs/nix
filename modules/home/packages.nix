@@ -29,6 +29,7 @@
       uutils-findutils
       uutils-coreutils-noprefix
       steam
+      tetris
       nmap
     ]
     ++ lib.optionals (!(stdenv.isLinux && stdenv.isAarch64)) [
@@ -54,6 +55,7 @@
       neovim
       ffmpeg
       pgadmin4
+      youtube-tui
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard

@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "base16_terminal";
+      theme = "vim_dark_high_contrast";
 
       editor = {
         line-number = "relative";
