@@ -32,6 +32,7 @@
       fuck = "touch";
       nv = "nvim";
       vimproved = "vim";
+      hmm = "echo 'bros unsure'";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
     };
