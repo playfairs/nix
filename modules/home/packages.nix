@@ -56,6 +56,7 @@
       ffmpeg
       pgadmin4
       youtube-tui
+      oneko
 
       (writeShellScriptBin "random-shot" ''
         DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
