@@ -56,6 +56,14 @@
       ffmpeg
       pgadmin4
       youtube-tui
+
+      (writeShellScriptBin "random-shot" ''
+        DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
+
+        file=$(${findutils}/bin/find "$DIR" -type f | ${coreutils}/bin/shuf -n 1)
+
+        open "$file"
+      '')
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard
