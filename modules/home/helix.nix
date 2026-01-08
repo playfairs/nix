@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "iceberg-dark";
 
       editor = {
         line-number = "relative";
