@@ -56,7 +56,6 @@
       ffmpeg
       pgadmin4
       youtube-tui
-      oneko
 
       (writeShellScriptBin "random-shot" ''
         DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
@@ -77,6 +76,7 @@
       vlc
       hyprshot
       gimp3
+      oneko
       pavucontrol
       # davinci-resolve
       wayvnc
