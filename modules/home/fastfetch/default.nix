@@ -52,7 +52,12 @@ in
           type = "command";
           key = "  󱦟  OS Age:";
           keyColor = "31";
-          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days";
+          text = "birth_install=$(stat -f %B /)
+current=$(date +%s)
+time_progression=$((current - birth_install))
+days_difference=$((time_progression / 86400))
+echo $days_difference days
+";
         }
         {
           type = "uptime";

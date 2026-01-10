@@ -44,6 +44,7 @@ let
         "obsidian"
         "lastfm"
         "shottr"
+        "zelda64recomp"
       ];
     custils = import ./. {
       inherit
