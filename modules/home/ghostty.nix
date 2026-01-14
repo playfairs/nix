@@ -12,7 +12,7 @@
     enable = true;
 
     settings = {
-      theme = "Rose Pine";
+      theme = "Rose Pine Dawn";
       background-opacity = 0.90;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;

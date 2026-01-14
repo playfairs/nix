@@ -3,14 +3,24 @@
 }:
 let
   colours = {
-    usernameFg = "#ebbcba";
-    usernameBg = "#483d47";
+    # usernameFg = "# ebbcba"; # Rose Pine
+    # usernameBg = "# 483d47"; # Rose Pine
 
-    directoryFg = "#c4a7e7";
-    directoryBg = "#403850";
+    usernameFg = "#483d47"; # Rose Pine Dawn
+    usernameBg = "#ebbcba"; # Rose Pine Dawn
 
-    gitFg = "#9ccfd8";
-    gitBg = "#286983";
+    # directoryFg = "# c4a7e7"; # Rose Pine
+    # directoryBg = "# 403850"; # Rose Pine
+
+    directoryFg = "#403850"; # Rose Pine Dawn
+    directoryBg = "#c4a7e7"; # Rose Pine Dawn
+
+    # gitFg = "# 9ccfd8"; # Rose Pine
+    # gitBg = "# 286983"; # Rose Pine
+
+    gitFg = "#286983"; # Rose Pine Dawn
+    gitBg = "#9ccfd8"; # Rose Pine Dawn
+
   };
   # Background is 35-parts #1A1825 to 10-parts foreground.
 in
