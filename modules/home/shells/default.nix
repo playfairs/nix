@@ -27,7 +27,7 @@
       fuckoff = "exit";
       ":q" = "exit";
       l = "ls -l";
-      la = "ls-al";
+      la = "ls -la";
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
