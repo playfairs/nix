@@ -34,6 +34,7 @@
       vimproved = "vim";
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
+      copy = "cp";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
     };
