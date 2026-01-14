@@ -50,6 +50,14 @@ in
         }
         {
           type = "command";
+          key = "  󱄅  Nix:";
+          keyColor = "red";
+          text = ''
+            nix --version
+          '';
+        }
+        {
+          type = "command";
           key = "  󱦟  OS Age:";
           keyColor = "31";
           text = "birth_install=$(stat -f %B /)
