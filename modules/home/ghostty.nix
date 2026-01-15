@@ -13,7 +13,7 @@
 
     settings = {
       theme = "Rose Pine";
-      background-opacity = 0.90;
+      background-opacity = 0.80;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";
