@@ -96,15 +96,3 @@ image::./.res/demo_4.png[Demo 4]
 ====
 image::./.res/demo_5.png[Demo 5]
 ====
-
----
-
-== Documentation
-You can find the docs
-link:https://gitlab.com/invra/nix-conf/-/wikis/home[here].
-
----
-
-== Contribution
-
-Check out the link:./CONTRIBUTING.adoc[Contributions write-up] and link:./TODO.org[Todo-list]
