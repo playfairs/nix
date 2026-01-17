@@ -10,6 +10,7 @@
       # prismlauncher
       dev
       viu
+      java-language-server
       chromium
       ffmpeg
       spotify

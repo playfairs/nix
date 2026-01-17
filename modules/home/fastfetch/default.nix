@@ -27,7 +27,7 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./art.png;
+        source = ./flake.png;
         width = 72;
         height = 30;
         type = "kitty-direct";
