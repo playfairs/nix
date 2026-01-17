@@ -41,7 +41,9 @@
     ];
   };
 
-  programs = lib.optionalAttrs linux {
+  programs = {
+    nushell.enable = true;
+  } // lib.optionalAttrs linux {
     nix-ld.enable = true;
     steam = {
       enable = (!pkgs.stdenv.isx86_64);

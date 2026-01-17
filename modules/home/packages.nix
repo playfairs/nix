@@ -10,6 +10,7 @@
       # prismlauncher
       dev
       viu
+      neofetch
       java-language-server
       chromium
       ffmpeg
@@ -44,6 +45,7 @@
       fzf
       iina
       ani-cli
+      utm
       nasm
       bun
       obsidian
