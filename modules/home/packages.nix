@@ -79,7 +79,6 @@
       vlc
       hyprshot
       gimp3
-      oneko
       pavucontrol
       # davinci-resolve
       wayvnc
