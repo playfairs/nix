@@ -27,7 +27,7 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./flake.png;
+        source = ./nixos-wallpaper-catppuccin-mocha.png;
         width = 72;
         height = 30;
         type = "kitty-direct";

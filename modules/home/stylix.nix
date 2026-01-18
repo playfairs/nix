@@ -9,7 +9,7 @@
   stylix = lib.optionalAttrs linux {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-    image = flakeConfig.user.wallpaper or ../../wallpapers/flake.png;
+    image = flakeConfig.user.wallpaper or ../../wallpapers/nixos-wallpaper-catppuccin-mocha.png;
     icons = {
       enable = true;
       dark = "Papirus-Dark";
