@@ -33,6 +33,7 @@
       steam
       tetris
       nmap
+      # playerctl
     ]
     ++ lib.optionals (!(stdenv.isLinux && stdenv.isAarch64)) [
       insomnia
