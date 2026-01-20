@@ -18,6 +18,7 @@
         git
         helix
         home-manager
+        neovim
       ]
       ++ lib.optionals linux [
         ghostty
