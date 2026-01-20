@@ -77,6 +77,7 @@
       telegram-desktop
       whatsapp-electron
       brightnessctl
+      nugget-doom
       vlc
       hyprshot
       gimp3
