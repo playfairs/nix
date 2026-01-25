@@ -45,6 +45,7 @@ let
         "lastfm"
         "shottr"
         "zelda64recomp"
+        "windsurf"
       ];
     custils = import ./. {
       inherit
