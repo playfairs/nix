@@ -15,6 +15,7 @@
       chromium
       ffmpeg
       spotify
+      nodejs
       spicetify-cli
       file
       flameshot
@@ -48,6 +49,7 @@
       ani-cli
       utm
       nasm
+      windsurf
       bun
       obsidian
       shottr
