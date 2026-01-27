@@ -9,6 +9,9 @@
       dbgate
       # prismlauncher
       dev
+      fortune
+      cowsay
+      kittysay
       viu
       neofetch
       java-language-server
