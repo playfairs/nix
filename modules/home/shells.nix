@@ -90,7 +90,8 @@ in
 
       if not ((("NU_EXISTING_INSTANCE" in $env)) and ($env.NU_EXISTING_INSTANCE == true)) {
         sleep 50ms
-        ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay
+        # ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay
+        ${pkgs.fastfetch}/bin/fastfetch
       }
 
       $env.NU_EXISTING_INSTANCE = false
