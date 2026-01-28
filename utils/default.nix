@@ -24,7 +24,6 @@ let
       sketchierbar.overlays.default
       nix-dev.overlays.default
       ffm.overlays.default
-      zen-browser.overlay
       ip.overlay
    ];
     linux = (lib.strings.hasSuffix "x86" configName || lib.strings.hasSuffix "aarch64" configName);
@@ -65,9 +64,9 @@ let
       modules = [
         ../modules/home
         flakeInputs.plasma-manager.homeManagerModules.plasma-manager
-        flakeInputs.zen-browser.homeModules.zen-browser
         flakeInputs.nixcord.homeModules.nixcord
         flakeInputs.stylix.homeModules.stylix
+        flakeInputs.zen-browser.homeModules.beta
         flakeInputs.spicetify-nix.homeManagerModules.spicetify
       ];
       extraSpecialArgs = specialArgs;

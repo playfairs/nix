@@ -7,7 +7,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     stylix.url = "github:danth/stylix";
-    zen-browser.url = "gitlab:invra/zen-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ip.url = "gitlab:hiten-tandon/some-nix-darwin-packages";
     discord-rpc-lsp.url = "gitlab:invra/discord-rpc-lsp";
     treefmt-nix.url = "github:numtide/treefmt-nix";

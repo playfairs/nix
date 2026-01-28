@@ -127,18 +127,6 @@
         "type": "github"
       }
     },
-    "darwin-universal-src": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-WBcU0LoBBPPE7FWOutIga49Vl0kP1Hk4tlAoJI+I0ag=",
-        "type": "file",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.macos-universal.dmg"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.macos-universal.dmg"
-      }
-    },
     "discord-rpc-lsp": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -410,6 +398,27 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "zen-browser",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768434960,
+        "narHash": "sha256-cJbFn17oyg6qAraLr+NVeNJrXsrzJdrudkzI4H2iTcg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "b4d88c9ac42ae1a745283f6547701da43b6e9f9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "ip": {
       "inputs": {
         "chromium": "chromium",
@@ -443,32 +452,6 @@
       "original": {
         "type": "file",
         "url": "https://dl.linearmouse.org/v0.10.0/LinearMouse.dmg"
-      }
-    },
-    "linux-aarch-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1762686492,
-        "narHash": "sha256-nUzCptiIm590p7t80bwgi921wBBeD65ZqkbH4pSBDHQ=",
-        "type": "tarball",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.linux-aarch64.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.linux-aarch64.tar.xz"
-      }
-    },
-    "linux-x86-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1762697774,
-        "narHash": "sha256-q1IK39GdPhO+/baGOO9A3aUehwCtwBfRkDVFXCthC54=",
-        "type": "tarball",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.linux-x86_64.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/zen-browser/desktop/releases/download/1.17.6b/zen.linux-x86_64.tar.xz"
       }
     },
     "mango": {
@@ -631,15 +614,15 @@
     },
     "nixpkgs_12": {
       "locked": {
-        "lastModified": 1757487488,
-        "narHash": "sha256-zwE/e7CuPJUWKdvvTCB7iunV4E/+G0lKfv4kk/5Izdg=",
-        "owner": "NixOS",
+        "lastModified": 1768127708,
+        "narHash": "sha256-1Sm77VfZh3mU0F5OqKABNLWxOuDeHIlcFjsXeeiPazs=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+        "rev": "ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -1223,23 +1206,21 @@
     },
     "zen-browser": {
       "inputs": {
-        "darwin-universal-src": "darwin-universal-src",
-        "linux-aarch-src": "linux-aarch-src",
-        "linux-x86-src": "linux-x86-src",
+        "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1763284718,
-        "narHash": "sha256-dN5TkivT1I3HKgPf3diKhX3aU9kr0tBIARYrMzY3psk=",
-        "owner": "invra",
-        "repo": "zen-flake",
-        "rev": "1c3d74108da867dd6e93f7174b50f3d0ea549cfa",
-        "type": "gitlab"
+        "lastModified": 1769589275,
+        "narHash": "sha256-hU6J/bU8mHhJrV/asVDQ9oY7gcH/MMSOGtr4iOYy8lc=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "a318ae926a6f96cce4cb8498ad986b33a6d44b21",
+        "type": "github"
       },
       "original": {
-        "owner": "invra",
-        "repo": "zen-flake",
-        "type": "gitlab"
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "type": "github"
       }
     }
   },
