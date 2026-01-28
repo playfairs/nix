@@ -51,6 +51,7 @@
       iina
       ani-cli
       utm
+      haskellPackages.brainfuck
       nasm
       windsurf
       bun
@@ -61,10 +62,8 @@
       neovim
       lastfm
       zed-editor
-      neovim
       ffmpeg
       pgadmin4
-      youtube-tui
 
       (writeShellScriptBin "random-shot" ''
         DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
