@@ -111,7 +111,7 @@ lib.optionalAttrs linux {
             "${config.home.homeDirectory}/.nix-profile/bin/discord"
         }"
         "SUPER, V, exec, clipman pick -t rofi"
-        "SUPER, B, exec, ${pkgs.zen}/bin/zen"
+        # "SUPER, B, exec, ${pkgs.zen}/bin/zen"
         "SUPER, Q, killactive"
         "SUPER ALT SHIFT, Q, exit"
         "SUPER LSHIFT, S, exec, ${pkgs.hyprshot}/bin/hyprshot -m region --clipboard-only"
