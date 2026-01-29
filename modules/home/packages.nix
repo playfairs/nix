@@ -18,6 +18,7 @@
       chromium
       ffmpeg
       spotify
+      ani-cli
       nodejs
       spicetify-cli
       file
@@ -49,7 +50,6 @@
       obs-studio
       fzf
       iina
-      ani-cli
       utm
       haskellPackages.brainfuck
       nasm
