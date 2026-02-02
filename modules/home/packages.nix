@@ -50,6 +50,7 @@
       obs-studio
       fzf
       iina
+      aria2
       utm
       haskellPackages.brainfuck
       nasm
