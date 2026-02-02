@@ -15,6 +15,11 @@
     nix-dev.url = "gitlab:invra/nix-dev";
     ffm.url = "gitlab:invra/ffm";
 
+    nushell = {
+      url = "github:nushell/nushell?dir=scripts/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";

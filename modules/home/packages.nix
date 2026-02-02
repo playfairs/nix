@@ -18,7 +18,7 @@
       chromium
       ffmpeg
       spotify
-      ani-cli
+      # ani-cli
       nodejs
       spicetify-cli
       file
@@ -55,6 +55,7 @@
       nasm
       windsurf
       bun
+      urban-cli
       obsidian
       shottr
       postgresql
@@ -78,6 +79,7 @@
       wayvnc
       helvum
       easyeffects
+      ani-cli
       telegram-desktop
       whatsapp-electron
       brightnessctl

@@ -3,6 +3,7 @@
   darwin,
   lib,
   flakeConfig,
+  nushell,
   ...
 }:
 let
@@ -36,13 +37,15 @@ in
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
       copy = "cp";
+      urban = "urban-cli -m 1";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
     };
   };
 
   programs.nushell = {
-    enable = true;
+    enable = false;
+    package = nushell.packages.${pkgs.stdenv.hostPlatform.system}.nushell;
 
     settings = {
       show_banner = false;
@@ -59,6 +62,7 @@ in
       fuckoff = "exit";
       ":q" = "exit";
       l = "ls -l";
+      urban = "urban-cli -m 1";
       la = "ls -la";
       please = "sudo";
       fuck = "touch";

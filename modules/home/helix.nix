@@ -111,7 +111,7 @@
     extraPackages = with pkgs; [
       nil
       nixd
-      marksman
+      # marksman
       markdownlint-cli2
       bash-language-server
       discord-rpc-lsp

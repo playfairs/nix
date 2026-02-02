@@ -17,6 +17,7 @@ let
       nixcord
       stylix
       zen-browser
+      nushell
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
