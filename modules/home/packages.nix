@@ -48,6 +48,7 @@
       pika
       linearmouse
       obs-studio
+      discord-rpc
       fzf
       iina
       aria2
