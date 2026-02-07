@@ -44,7 +44,7 @@ in
   };
 
   programs.nushell = {
-    enable = true;
+    enable = false;
     package = nushell.packages.${pkgs.stdenv.hostPlatform.system}.nushell;
 
     settings = {

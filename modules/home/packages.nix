@@ -55,6 +55,7 @@
       utm
       haskellPackages.brainfuck
       nasm
+      firefox-esr
       windsurf
       bun
       urban-cli
