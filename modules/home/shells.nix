@@ -40,6 +40,9 @@ in
   
   programs.zsh = {
     enable = true;
+    initContent = ''
+      fortune | cowsay
+    '';
     autosuggestion.enable = true;
     
     shellAliases = {
