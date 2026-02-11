@@ -21,6 +21,23 @@ let
 
 in
 {
+  home.sessionVariables = {
+    # EDITOR = "${pkgs.helix}/bin/hx";
+    # VISUAL = "${pkgs.helix}/bin/hx";
+
+    NH_FLAKE = "$HOME/.nix";
+    NH_OS_FLAKE = "$HOME/.nix";
+    NH_DARWIN_FLAKE = "$HOME/.nix";
+    NH_HOME_FLAKE = "$HOME/.nix";
+  };
+
+  home.sessionPath = [
+    "$HOME/.nix-profile/bin"
+    "/nix/var/nix/profiles/default/bin"
+    "/etc/profiles/per-user/${user.username}/bin"
+    "/run/current-system/sw/bin"
+  ];
+  
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -75,34 +92,34 @@ in
       hm = "nh home switch -c macmini";
     };
 
-    extraConfig = ''
-      #!/bin/nu
-      $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate rose-pine)
-      $env.EDITOR = "${pkgs.helix}/bin/hx";
-      $env.VISUAL = "${pkgs.helix}/bin/hx";
-      $env.NH_FLAKE = $"($env.HOME)/.nix";
-      $env.NH_OS_FLAKE = $"($env.HOME)/.nix";
-      $env.NH_DARWIN_FLAKE = $"($env.HOME)/.nix";
-      $env.NH_HOME_FLAKE = $"($env.HOME)/.nix";
-      $env.PATH = $env.PATH
-      | append [
-        "/${if darwin then "Users" else "home"}/${user.username}/.nix-profile/bin"
-        "/nix/var/nix/profiles/default/bin"
-        "/etc/profiles/per-user/${user.username}/bin"
-        "/run/current-system/sw/bin"
-      ]
+    # extraConfig = ''
+    #   #!/bin/nu
+    #   $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate rose-pine)
+    #   $env.EDITOR = "${pkgs.helix}/bin/hx";
+    #   $env.VISUAL = "${pkgs.helix}/bin/hx";
+    #   $env.NH_FLAKE = $"($env.HOME)/.nix";
+    #   $env.NH_OS_FLAKE = $"($env.HOME)/.nix";
+    #   $env.NH_DARWIN_FLAKE = $"($env.HOME)/.nix";
+    #   $env.NH_HOME_FLAKE = $"($env.HOME)/.nix";
+    #   $env.PATH = $env.PATH
+    #   | append [
+    #     "/${if darwin then "Users" else "home"}/${user.username}/.nix-profile/bin"
+    #     "/nix/var/nix/profiles/default/bin"
+    #     "/etc/profiles/per-user/${user.username}/bin"
+    #     "/run/current-system/sw/bin"
+    #   ]
 
-      if not ((("NU_EXISTING_INSTANCE" in $env)) and ($env.NU_EXISTING_INSTANCE == true)) {
-        sleep 50ms
-        ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay
-        # ${pkgs.fastfetch}/bin/fastfetch
-      }
+    #   if not ((("NU_EXISTING_INSTANCE" in $env)) and ($env.NU_EXISTING_INSTANCE == true)) {
+    #     sleep 50ms
+    #     ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay
+    #     # ${pkgs.fastfetch}/bin/fastfetch
+    #   }
 
-      $env.NU_EXISTING_INSTANCE = false
+    #   $env.NU_EXISTING_INSTANCE = false
 
-      mkdir ($nu.data-dir | path join "vendor/autoload")
-      ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-    '';
+    #   mkdir ($nu.data-dir | path join "vendor/autoload")
+    #   ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+    # '';
   };
 
   programs.carapace = {
