@@ -15,6 +15,7 @@
       viu
       neofetch
       java-language-server
+      godot
       chromium
       ffmpeg
       spotify
