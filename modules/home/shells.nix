@@ -49,6 +49,7 @@ in
       fuckoff = "exit";
       ":q" = "exit";
       l = "ls -l";
+      ani = "ani-cli --dub";
       la = "ls -la";
       please = "sudo";
       fuck = "touch";
