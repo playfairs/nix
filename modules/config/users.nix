@@ -14,7 +14,7 @@ in
     users.${user.username} = {
       name = user.username;
       description = user.displayName;
-      shell = pkgs.nushell;
+      shell = pkgs.zsh;
     }
     // lib.optionalAttrs linux {
       isNormalUser = true;

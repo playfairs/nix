@@ -41,7 +41,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      fortune | cowsay
+      fastfetch
     '';
     autosuggestion.enable = true;
     
