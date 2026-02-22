@@ -14,6 +14,8 @@
       kittysay
       viu
       neofetch
+      autotrace
+      uv
       java-language-server
       godot
       chromium
@@ -52,6 +54,7 @@
       discord-rpc
       fzf
       iina
+      duti
       aria2
       utm
       haskellPackages.brainfuck
