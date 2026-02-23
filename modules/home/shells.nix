@@ -41,7 +41,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      fastfetch
+      fastfetch --logo none | lolcat -a -d 1 -s 100 -t
     '';
     autosuggestion.enable = true;
     

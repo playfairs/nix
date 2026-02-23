@@ -11,6 +11,7 @@
       dev
       fortune
       cowsay
+      lolcat
       kittysay
       viu
       neofetch
