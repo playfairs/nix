@@ -12,6 +12,8 @@
       fortune
       cowsay
       lolcat
+      gum
+      pv
       kittysay
       viu
       neofetch
