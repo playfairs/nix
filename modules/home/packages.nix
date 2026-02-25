@@ -13,6 +13,7 @@
       cowsay
       lolcat
       gum
+      latexminted
       pv
       kittysay
       viu
