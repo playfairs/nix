@@ -95,6 +95,7 @@
       whatsapp-electron
       brightnessctl
       nugget-doom
+      ciscoPacketTracer9
       vlc
       hyprshot
       gimp3
