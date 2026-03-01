@@ -41,6 +41,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
+      # fastfetch --logo none
       fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
     '';
     autosuggestion.enable = true;
@@ -50,6 +51,7 @@ in
       ":q" = "exit";
       l = "ls -l";
       ani = "ani-cli --dub";
+      anid = "ani-cli -d -q 1440p --dub -e 1-999";
       la = "ls -la";
       please = "sudo";
       fuck = "touch";

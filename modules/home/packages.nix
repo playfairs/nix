@@ -84,6 +84,40 @@
 
         open "$file"
       '')
+      (writeShellScriptBin "hx-open" ''
+        exec ${helix}/bin/hx "$@"
+      '')
+
+      (runCommand "Helix.app" { } ''
+          APP="$out/Applications/Helix.app"
+
+          mkdir -p "$APP/Contents/MacOS"
+
+          cat > "$APP/Contents/MacOS/helix" <<EOF
+        #!/bin/bash
+        exec ${helix}/bin/hx "\$@"
+        EOF
+
+          chmod +x "$APP/Contents/MacOS/helix"
+
+          cat > "$APP/Contents/Info.plist" <<EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>CFBundleExecutable</key>
+          <string>helix</string>
+          <key>CFBundleIdentifier</key>
+          <string>dev.playfairs.helix</string>
+          <key>CFBundleName</key>
+          <string>Helix</string>
+          <key>CFBundlePackageType</key>
+          <string>APPL</string>
+        </dict>
+        </plist>
+        EOF
+      '')
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       wl-clipboard
