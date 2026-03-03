@@ -41,17 +41,30 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      # fastfetch --logo none
-      fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
+      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
     '';
+
+    # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
+    # fastfetch --logo none
+    # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
+
+  
+    # initExtra = ''
+    # # Works but is broken and doesn't tab correctly
+    # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    # '';
+    # 
     autosuggestion.enable = true;
-    
+    syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
+
     shellAliases = {
       fuckoff = "exit";
       ":q" = "exit";
       l = "ls -l";
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
+      uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
       la = "ls -la";
       please = "sudo";
       fuck = "touch";
