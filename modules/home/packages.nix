@@ -25,6 +25,7 @@
       chromium
       ffmpeg
       spotify
+      zsh-bd
       # ani-cli
       nodejs
       spicetify-cli
@@ -57,6 +58,7 @@
       obs-studio
       discord-rpc
       fzf
+      cmatrix
       iina
       duti
       aria2
