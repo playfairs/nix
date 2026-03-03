@@ -36,6 +36,7 @@ in
     "/nix/var/nix/profiles/default/bin"
     "/etc/profiles/per-user/${user.username}/bin"
     "/run/current-system/sw/bin"
+    "$HOME/.spicetify"
   ];
   
   programs.zsh = {
