@@ -62,10 +62,12 @@ in
       fuckoff = "exit";
       ":q" = "exit";
       l = "ls -l";
+      la = "ls -la";
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
       uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
-      la = "ls -la";
+      lazy = "lazygit";
+      edit = "hx"; # why the hell not
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
@@ -76,6 +78,8 @@ in
       urban = "urban-cli -m 1";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
+      "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
+      mh = "nh home switch -c macmini"; # Also manage to type this occasionally
     };
   };
 
