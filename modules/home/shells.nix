@@ -68,7 +68,7 @@ in
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
       uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
       lazy = "lazygit";
-      edit = "hx"; # why the hell not
+      edit = "hx";
       please = "sudo";
       fuck = "touch";
       nv = "nvim";

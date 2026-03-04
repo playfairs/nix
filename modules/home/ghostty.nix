@@ -13,11 +13,12 @@
 
     settings = {
       theme = "Rose Pine";
-      background-opacity = 0.80;
+      background-opacity = 0.90;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";
       font-size = if darwin then 14 else 9;
+      font-family = "Playfair Display";
       cursor-style = "bar";
     } // lib.optionalAttrs darwin {
       window-height = 40;
