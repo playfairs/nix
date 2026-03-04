@@ -18,7 +18,7 @@
       quit-after-last-window-closed = true;
       window-save-state = "never";
       font-size = if darwin then 14 else 9;
-      font-family = "Playfair Display";
+      font-family = "PT Mono";
       cursor-style = "bar";
     } // lib.optionalAttrs darwin {
       window-height = 40;
