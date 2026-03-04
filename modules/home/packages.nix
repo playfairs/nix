@@ -9,6 +9,7 @@
       dbgate
       # prismlauncher
       dev
+      binwalk
       fortune
       cowsay
       lolcat

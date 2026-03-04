@@ -77,6 +77,7 @@ in
       ff = "fastfetch";
       copy = "cp";
       urban = "urban-cli -m 1";
+      py = "python3";
     } // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
       "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
