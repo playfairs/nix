@@ -21,6 +21,7 @@ in
     ++ (with pkgs; [
       dbgate
       dev
+      pnpm
       binwalk
       fortune
       cowsay
