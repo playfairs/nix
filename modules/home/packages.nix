@@ -1,17 +1,30 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, lib, ... }:
+
+let
+  scriptsDir = ../../scripts;
+
+  scriptBins =
+    lib.mapAttrsToList
+      (name: type:
+        if type == "regular"
+        then pkgs.writeShellScriptBin name (builtins.readFile "${scriptsDir}/${name}")
+        else null
+      )
+      (builtins.readDir scriptsDir);
+
+  scripts = lib.filter (x: x != null) scriptBins;
+
+in
 {
   home.packages =
-    with pkgs;
-    [
+    scripts
+    ++ (with pkgs; [
       dbgate
-      # prismlauncher
       dev
       binwalk
       fortune
       cowsay
+      inetutils
       lolcat
       gum
       latexminted
@@ -27,7 +40,6 @@
       ffmpeg
       spotify
       zsh-bd
-      # ani-cli
       nodejs
       spicetify-cli
       file
@@ -39,6 +51,7 @@
       nixd
       yt-dlp
       tldr
+      # ani-cli
       yazi
       wget
       uutils-diffutils
@@ -47,12 +60,13 @@
       steam
       tetris
       nmap
-      # playerctl
+    ])
+
+    ++ lib.optionals (!(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64)) [
+      pkgs.insomnia
     ]
-    ++ lib.optionals (!(stdenv.isLinux && stdenv.isAarch64)) [
-      insomnia
-    ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [
+
+    ++ lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
       utm
       pika
       linearmouse
@@ -63,7 +77,6 @@
       iina
       duti
       aria2
-      utm
       haskellPackages.brainfuck
       nasm
       firefox-esr
@@ -71,58 +84,58 @@
       bun
       urban-cli
       obsidian
+      ffmpeg
       shottr
       postgresql
       alacritty
       neovim
       lastfm
       zed-editor
-      ffmpeg
       pgadmin4
 
       (writeShellScriptBin "random-shot" ''
         DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
-
         file=$(${findutils}/bin/find "$DIR" -type f | ${coreutils}/bin/shuf -n 1)
-
         open "$file"
       '')
+
       (writeShellScriptBin "hx-open" ''
         exec ${helix}/bin/hx "$@"
       '')
 
       (runCommand "Helix.app" { } ''
-          APP="$out/Applications/Helix.app"
+        APP="$out/Applications/Helix.app"
 
-          mkdir -p "$APP/Contents/MacOS"
+        mkdir -p "$APP/Contents/MacOS"
 
-          cat > "$APP/Contents/MacOS/helix" <<EOF
-        #!/bin/bash
-        exec ${helix}/bin/hx "\$@"
-        EOF
+        cat > "$APP/Contents/MacOS/helix" <<EOF
+#!/bin/bash
+exec ${helix}/bin/hx "\$@"
+EOF
 
-          chmod +x "$APP/Contents/MacOS/helix"
+        chmod +x "$APP/Contents/MacOS/helix"
 
-          cat > "$APP/Contents/Info.plist" <<EOF
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-          <key>CFBundleExecutable</key>
-          <string>helix</string>
-          <key>CFBundleIdentifier</key>
-          <string>dev.playfairs.helix</string>
-          <key>CFBundleName</key>
-          <string>Helix</string>
-          <key>CFBundlePackageType</key>
-          <string>APPL</string>
-        </dict>
-        </plist>
-        EOF
+        cat > "$APP/Contents/Info.plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleExecutable</key>
+  <string>helix</string>
+  <key>CFBundleIdentifier</key>
+  <string>dev.playfairs.helix</string>
+  <key>CFBundleName</key>
+  <string>Helix</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+</dict>
+</plist>
+EOF
       '')
-    ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ])
+
+    ++ lib.optionals pkgs.stdenv.isLinux (with pkgs; [
       wl-clipboard
       wayvnc
       helvum
@@ -137,12 +150,11 @@
       hyprshot
       gimp3
       pavucontrol
-      # davinci-resolve
-      wayvnc
       libreoffice-qt6-still
       kdePackages.kdeconnect-kde
-    ]
-    ++ (lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) [
+    ])
+
+    ++ lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) (with pkgs; [
       wineWowPackages.waylandFull
       winetricks
     ]);

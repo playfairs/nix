@@ -66,7 +66,7 @@ in
       la = "ls -la";
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
-      uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
+      # uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
       lazy = "lazygit";
       edit = "hx";
       please = "sudo";
