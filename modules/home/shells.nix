@@ -72,6 +72,7 @@ in
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
+      neovim = "nvim";
       vimproved = "vim";
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
