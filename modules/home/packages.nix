@@ -25,6 +25,7 @@ in
       binwalk
       fortune
       cowsay
+      portaudio
       inetutils
       lolcat
       gum
