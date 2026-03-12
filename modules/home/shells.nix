@@ -42,7 +42,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
+      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
     '';
 
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
