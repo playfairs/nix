@@ -42,12 +42,12 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
+      fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
     '';
 
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
     # fastfetch --logo none
-    # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
+    # echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
 
   
     # initExtra = ''
@@ -173,9 +173,13 @@ in
     enableNushellIntegration = true;
     enableZshIntegration = true;
     settings = {
-      character = {
-        error_symbol = "[ 󱞪 :](bold red)";
-        success_symbol = "[ 󱞪 :](bold green)";
+      character = { # 󱞪 (for later copying)
+        error_symbol = ''
+          [ 󱞪 :](bold red)
+          '';
+        success_symbol = ''
+          [ 󱞪 :](bold green)
+          '';
         vimcmd_replace_one_symbol = "[<](bold purple)";
         vimcmd_replace_symbol = "[<](bold purple)";
         vimcmd_symbol = "[<](bold green)";
