@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+echo "Starting number? "
+read start
+
+echo "Choose operation:"
+echo "(1) subtraction"
+echo "(2) addition"
+echo "(3) multiplication"
+echo "(4) division"
+read op
+
+echo "Number to apply each round:"
+read step
+
+case $op in
+    1) sym="-" ;;
+    2) sym="+" ;;
+    3) sym="*" ;;
+    4) sym="/" ;;
+    *) echo "Invalid option"; exit 1 ;;
+esac
+
+current=$start
+count=0
+total_time=0
+longest=0
+shortest=999999
+
+echo
+echo "Start solving. One mistake ends the run."
+echo
+
+while true; do
+    correct=$(echo "$current $sym $step" | bc)
+
+    printf "%s %s %s = " "$current" "$sym" "$step"
+
+    start_time=$(date +%s.%N)
+    read answer
+    end_time=$(date +%s.%N)
+
+    time_taken=$(echo "$end_time - $start_time" | bc)
+
+    printf "\rtook %.2fs\n" "$time_taken"
+
+    if [[ "$answer" != "$correct" ]]; then
+        echo
+        echo "wrong, the correct answer was $correct"
+        break
+    fi
+
+    total_time=$(echo "$total_time + $time_taken" | bc)
+
+    if (( $(echo "$time_taken > $longest" | bc -l) )); then
+        longest=$time_taken
+    fi
+
+    if (( $(echo "$time_taken < $shortest" | bc -l) )); then
+        shortest=$time_taken
+    fi
+
+    count=$((count + 1))
+    current=$correct
+done
+
+if [[ $count -gt 0 ]]; then
+    avg=$(echo "$total_time / $count" | bc -l)
+
+    echo
+    echo "stats"
+    echo "-------------"
+    echo "Correct answers: $count"
+    printf "Total time: %.2fs\n" "$total_time"
+    printf "Fastest: %.2fs\n" "$shortest"
+    printf "Slowest: %.2fs\n" "$longest"
+    printf "Average: %.2fs\n" "$avg"
+else
+    echo "No correct answers."
+fi
