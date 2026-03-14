@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+start=1000
+current=$start
+
+while true; do
+    correct=$((current - 7))
+
+    read -p "$current-7 = " answer
+
+    if [[ "$answer" -eq "$correct" ]]; then
+        current=$correct
+    else
+        echo "Wrong. Restarting..."
+        current=$start
+    fi
+done
