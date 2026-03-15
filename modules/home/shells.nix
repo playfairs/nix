@@ -43,18 +43,25 @@ in
     enable = true;
     initContent = ''
       echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
+
+      bindkey '^[[1;2A' history-substring-search-up
+      bindkey '^[[1;2B' history-substring-search-down
+      bindkey '^R' fzf-history-widget
+      bindkey -s '^[[104;6u' 'hm\n'
+
+      fzf_open_hx() {
+        local file
+        file=$(fzf) && hx "$file"
+      }
+      bindkey -s '^F' 'fzf_open_hx\n'
+
+
     '';
 
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
     # fastfetch --logo none
     # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
 
-  
-    # initExtra = ''
-    # # Works but is broken and doesn't tab correctly
-    # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-    # '';
-    # 
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
@@ -146,6 +153,11 @@ in
     #   mkdir ($nu.data-dir | path join "vendor/autoload")
     #   ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
     # '';
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.carapace = {
