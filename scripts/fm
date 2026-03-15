@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR="$HOME/.config/fm"
+SECRETS_FILE="$CONFIG_DIR/secrets"
+
+if [[ ! -f "$SECRETS_FILE" ]]; then
+  mkdir -p "$CONFIG_DIR"
+
+  cat > "$SECRETS_FILE" <<EOF
+LASTFM_API_KEY=
+LASTFM_USER=
+EOF
+
+  echo "Created $SECRETS_FILE"
+  echo "Fill in your Last.fm API key and username."
+  exit 1
+fi
+
+source "$SECRETS_FILE"
+
+if [[ -z "$LASTFM_API_KEY" || -z "$LASTFM_USER" ]]; then
+  echo "Missing LASTFM_API_KEY or LASTFM_USER in $SECRETS_FILE"
+  exit 1
+fi
+
+data=$(curl -s "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=$LASTFM_USER&api_key=$LASTFM_API_KEY&format=json&limit=1")
+
+artist=$(echo "$data" | jq -r '.recenttracks.track[0].artist["#text"]')
+track=$(echo "$data" | jq -r '.recenttracks.track[0].name')
+playing=$(echo "$data" | jq -r '.recenttracks.track[0]["@attr"].nowplaying')
+
+if [[ "$playing" == "true" ]]; then
+  echo "Now Playing: $artist — $track"
+else
+  echo "Last Played: $artist — $track"
+fi
