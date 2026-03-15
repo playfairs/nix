@@ -67,7 +67,12 @@ in
         done
 
         [[ -z "$file" ]] && file=$(fd "$1" | head -n1)
-        [[ -n "$file" ]] && command hx "$file"
+
+        if [[ -n "$file" ]]; then
+          command hx "$file"
+        else
+          command hx "$1"
+        fi
       }
 
     '';
