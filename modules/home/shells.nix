@@ -44,8 +44,6 @@ in
     initContent = ''
       echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
 
-      bindkey '^[[1;2A' history-substring-search-up
-      bindkey '^[[1;2B' history-substring-search-down
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
 
@@ -55,6 +53,22 @@ in
       }
       bindkey -s '^F' 'fzf_open_hx\n'
 
+      hx () {
+        if [[ -e "$1" ]]; then
+          command hx "$@"
+          return
+        fi
+
+        local file
+
+        for ext in nix rs py js ts json toml yam yml md; do
+          file=$(fd "$1" -e $ext | head -n1)
+          [[ -n "$file" ]] && break
+        done
+
+        [[ -z "$file" ]] && file=$(fd "$1" | head -n1)
+        [[ -n "$file" ]] && command hx "$file"
+      }
 
     '';
 
