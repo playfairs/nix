@@ -61,7 +61,7 @@ in
 
         local file
 
-        for ext in nix rs py js ts json toml yam yml md; do
+        for ext in nix rs py js ts json toml yam yml md go html; do
           file=$(fd "$1" -e $ext | head -n1)
           [[ -n "$file" ]] && break
         done
