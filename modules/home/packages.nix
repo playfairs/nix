@@ -147,7 +147,6 @@ EOF
       whatsapp-electron
       brightnessctl
       nugget-doom
-      ciscoPacketTracer9
       vlc
       hyprshot
       gimp3
@@ -157,8 +156,6 @@ EOF
     ])
 
     ++ lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) (with pkgs; [
-      wineWowPackages.waylandFull
-      winetricks
     ]);
 
   programs.ripgrep.enable = true;
