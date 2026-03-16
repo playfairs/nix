@@ -2,28 +2,154 @@
 
 CONFIG_DIR="$HOME/.config/fm"
 SECRETS_FILE="$CONFIG_DIR/secrets"
+API_ROOT="https://ws.audioscrobbler.com/2.0/"
+
 
 if [[ ! -f "$SECRETS_FILE" ]]; then
   mkdir -p "$CONFIG_DIR"
 
   cat > "$SECRETS_FILE" <<EOF
 LASTFM_API_KEY=
+LASTFM_API_SECRET=
 LASTFM_USER=
+LASTFM_SESSION_KEY=
 EOF
 
   echo "Created $SECRETS_FILE"
-  echo "Fill in your Last.fm API key and username."
+  echo
+  echo "Fill in:"
+  echo "  LASTFM_API_KEY"
+  echo "  LASTFM_API_SECRET"
+  echo "  LASTFM_USER"
+  echo
+  echo "Then run: fm auth"
   exit 1
 fi
 
 source "$SECRETS_FILE"
+
+require() {
+  if ! command -v "$1" >/dev/null; then
+    echo "Missing dependency: $1"
+    exit 1
+  fi
+}
+
+require curl
+require jq
+require md5sum
+
+sign() {
+  printf "%s$LASTFM_API_SECRET" "$1" | md5sum | awk '{print $1}'
+}
+
+open_url() {
+  url="$1"
+
+  if command -v open >/dev/null; then
+    open "$url"
+  elif command -v xdg-open >/dev/null; then
+    xdg-open "$url"
+  else
+    echo "$url"
+  fi
+}
+
+cmd="$1"
+
+if [[ "$cmd" == "auth" ]]; then
+
+  if [[ -z "$LASTFM_API_KEY" || -z "$LASTFM_API_SECRET" ]]; then
+    echo "Missing LASTFM_API_KEY or LASTFM_API_SECRET in $SECRETS_FILE"
+    exit 1
+  fi
+
+  echo "Requesting auth token..."
+
+  token=$(curl -s \
+    "$API_ROOT?method=auth.gettoken&api_key=$LASTFM_API_KEY&format=json" \
+    | jq -r '.token')
+
+  if [[ "$token" == "null" || -z "$token" ]]; then
+    echo "Failed to get auth token"
+    exit 1
+  fi
+
+  url="https://www.last.fm/api/auth/?api_key=$LASTFM_API_KEY&token=$token"
+
+  echo
+  echo "Authorize this app:"
+  echo "$url"
+  echo
+
+  open_url "$url"
+
+  read -p "Press enter after authorizing..."
+
+  sig=$(sign "api_key${LASTFM_API_KEY}methodauth.getSessiontoken${token}")
+
+  session=$(curl -s -X POST "$API_ROOT" \
+    -d "method=auth.getSession" \
+    -d "api_key=$LASTFM_API_KEY" \
+    -d "token=$token" \
+    -d "api_sig=$sig" \
+    -d "format=json")
+
+  session_key=$(echo "$session" | jq -r '.session.key')
+
+  if [[ "$session_key" == "null" || -z "$session_key" ]]; then
+    echo "Authentication failed."
+    exit 1
+  fi
+
+  sed -i.bak "s|LASTFM_SESSION_KEY=.*|LASTFM_SESSION_KEY=$session_key|" "$SECRETS_FILE"
+
+  echo
+  echo "Authentication successful."
+  echo "Session key saved."
+  exit 0
+fi
+
+if [[ "$cmd" == "love" || "$cmd" == "like" ]]; then
+
+  if [[ -z "$LASTFM_SESSION_KEY" ]]; then
+    echo "You must run: fm auth"
+    exit 1
+  fi
+
+  data=$(curl -s \
+    "$API_ROOT?method=user.getrecenttracks&user=$LASTFM_USER&api_key=$LASTFM_API_KEY&format=json&limit=1")
+
+  artist=$(echo "$data" | jq -r '.recenttracks.track[0].artist["#text"]')
+  track=$(echo "$data" | jq -r '.recenttracks.track[0].name')
+
+  if [[ -z "$artist" || "$artist" == "null" ]]; then
+    echo "No track found"
+    exit 1
+  fi
+
+  sig=$(sign "api_key${LASTFM_API_KEY}artist${artist}methodtrack.lovesk${LASTFM_SESSION_KEY}track${track}")
+
+  curl -s -X POST "$API_ROOT" \
+    -d "method=track.love" \
+    -d "artist=$artist" \
+    -d "track=$track" \
+    -d "api_key=$LASTFM_API_KEY" \
+    -d "sk=$LASTFM_SESSION_KEY" \
+    -d "api_sig=$sig" \
+    -d "format=json" > /dev/null
+
+  echo "♥ Loved: $artist — $track"
+  exit 0
+fi
 
 if [[ -z "$LASTFM_API_KEY" || -z "$LASTFM_USER" ]]; then
   echo "Missing LASTFM_API_KEY or LASTFM_USER in $SECRETS_FILE"
   exit 1
 fi
 
-data=$(curl -s "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=$LASTFM_USER&api_key=$LASTFM_API_KEY&format=json&limit=1")
+data=$(curl -s \
+  "$API_ROOT?method=user.getrecenttracks&user=$LASTFM_USER&api_key=$LASTFM_API_KEY&format=json&limit=1")
 
 artist=$(echo "$data" | jq -r '.recenttracks.track[0].artist["#text"]')
 track=$(echo "$data" | jq -r '.recenttracks.track[0].name')

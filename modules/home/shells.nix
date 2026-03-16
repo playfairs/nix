@@ -42,7 +42,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
+      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
 
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
