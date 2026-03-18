@@ -46,7 +46,7 @@ lib.optionalAttrs linux {
       ];
 
       exec = [
-        "swww img ${flakeConfig.user.wallpaper or ../../wallpapers/nixos-wallpaper-catppuccin-mocha.png}"
+        "swww img ${flakeConfig.user.wallpaper or ../../wallpapers/image.png}"
       ];
 
       # General settings
