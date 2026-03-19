@@ -146,6 +146,7 @@ EOF
       telegram-desktop
       whatsapp-electron
       brightnessctl
+      prismlauncher
       nugget-doom
       vlc
       hyprshot
