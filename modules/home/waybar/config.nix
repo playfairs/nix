@@ -2,7 +2,7 @@
   {
       "layer": "top",
       "position": "top",
-      "height": 20,
+      "height": 1,
       "spacing": 0,
       "margin-top": 0,
       "margin-left": 0,

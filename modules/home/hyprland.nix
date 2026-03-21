@@ -51,15 +51,15 @@ lib.optionalAttrs linux {
 
       # General settings
       general = {
-        gaps_in = 2.5;
-        gaps_out = 5;
-        border_size = 3;
-        "col.active_border" = "rgb(ebbcba) rgb(ebbcba) 45deg";
+        gaps_in = 4;
+        gaps_out = 8;
+        border_size = 2;
+        "col.active_border" = "rgb(bfdfff) rgb(bfdfff) 45deg";
         "col.inactive_border" = "rgba(00000000)";
       };
 
       decoration = {
-        rounding = 1;
+        rounding = 0;
         active_opacity = 1;
         inactive_opacity = 0.8;
         shadow = {
@@ -67,8 +67,8 @@ lib.optionalAttrs linux {
         };
         blur = {
           enabled = true;
-          size = 5;
-          passes = 2;
+          size = 1;
+          passes = 4;
         };
       };
 

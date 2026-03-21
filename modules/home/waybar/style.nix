@@ -38,7 +38,7 @@
     border: none;
     border-radius: 0;
     font-family: 'JetBrains Mono Nerd Font';
-    font-size: 16px;
+    font-size: 13px;
     min-height: 0;
   }
 
@@ -84,10 +84,10 @@
     background-color: @surface;
     color: @text;
     border-radius: 5px;
-    padding: 5px 1rem;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    margin-right: 15px;
+    padding: 3px 1rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 8px;
   }
 
   #custom-power {
@@ -121,9 +121,9 @@
   #workspaces button {
     background-color: @surface3;
     color: @mauve;
-    border-radius: 100%;
-    min-height: 14px;
-    min-width: 17px;
+    border-radius: 50%;
+    min-height: 12px;
+    min-width: 20px;
     margin: 5px 8px;
     padding: 0px;
     box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
