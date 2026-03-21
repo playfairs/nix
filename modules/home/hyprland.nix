@@ -46,7 +46,7 @@ lib.optionalAttrs linux {
       ];
 
       exec = [
-        "swww img ${flakeConfig.user.wallpaper or ../../wallpapers/image.png}"
+        "swww img ${flakeConfig.user.wallpaper or ../../wallpapers/powerplant.jpg}"
       ];
 
       # General settings
@@ -59,7 +59,7 @@ lib.optionalAttrs linux {
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 1;
         active_opacity = 1;
         inactive_opacity = 0.8;
         shadow = {

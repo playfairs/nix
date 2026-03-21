@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+if command -v pbcopy >/dev/null 2>&1; then
+  COPY_CMD="pbcopy"
+elif command -v wl-copy >/dev/null 2>&1; then
+  COPY_CMD="wl-copy"
+elif command -v xclip >/dev/null 2>&1; then
+  COPY_CMD="xclip -selection clipboard"
+else
+  echo "No clipboard tool found (pbcopy, wl-copy, xclip)"
+  exit 1
+fi
+
+data=$(cat <<EOF
+200B Zero Width Space
+200C Zero Width Non-Joiner
+200D Zero Width Joiner
+2060 Word Joiner
+00A0 Non-Breaking Space
+3164 Hangul Filler
+2800 Braille Blank
+FEFF Zero Width No-Break Space (BOM)
+2063 Invisible Separator
+EOF
+)
+
+selection=$(echo "$data" | fzf --prompt="Select invisible char > " --preview '
+hex=$(echo {} | awk "{print \$1}")
+char=$(printf "\\u$hex")
+printf "Code: U+%s\nPreview: [%b]\n" "$hex" "$char"
+')
+
+[ -z "$selection" ] && exit 0
+
+hex=$(echo "$selection" | awk '{print $1}')
+char=$(printf "\\u$hex")
+
+printf "%b" "$char" | eval $COPY_CMD
+
+echo "Copied U+$hex to clipboard"
