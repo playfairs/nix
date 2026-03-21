@@ -22,7 +22,6 @@
       ]
       ++ lib.optionals linux [
         ghostty
-        zen
         pciutils
         xwayland-satellite
         swww
@@ -54,5 +53,6 @@
     dconf.enable = true;
     thunar.enable = true;
     nano.enable = false;
+    zsh.enable = true;
   };
 }
