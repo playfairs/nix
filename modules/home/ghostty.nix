@@ -20,7 +20,8 @@
       font-size = if darwin then 14 else 9;
       font-family = "PT Mono";
       cursor-style = "bar";
-    } // lib.optionalAttrs darwin {
+    }
+    // lib.optionalAttrs darwin {
       window-height = 40;
       window-width = 160;
     };

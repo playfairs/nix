@@ -7,8 +7,7 @@
 let
   padding = 6;
 in
-lib.optionalAttrs (!linux)
-{
+lib.optionalAttrs (!linux) {
   services.yabai = {
     enable = false;
     config = {

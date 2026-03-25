@@ -10,7 +10,7 @@
 let
   hyprland = flakeConfig.desktop.hyprland or { };
 
-  monitors = builtins.map (monitor: {
+  monitors = map (monitor: {
     name = monitor.name;
     resolution = monitor.resolution;
     refreshRate = monitor.refreshRate;

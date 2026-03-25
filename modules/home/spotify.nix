@@ -19,7 +19,7 @@ in
       # theme = spice-pkgs.themes.sleek;
       # colorScheme = "RosePine";
       enabledExtensions = with spice-pkgs.extensions; [
-        beautifulLyrics        
+        beautifulLyrics
       ];
     };
     spotify-player = {

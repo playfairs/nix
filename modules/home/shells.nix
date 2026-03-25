@@ -8,21 +8,11 @@
 }:
 let
   inherit (flakeConfig) user;
-  colours = {
-    usernameFg = "#ebbcba";
-    usernameBg = "#483d47";
-
-    directoryFg = "#c4a7e7";
-    directoryBg = "#403850";
-
-    gitFg = "#9ccfd8";
-    gitBg = "#286983";
-  };
 
 in
 {
   imports = [
-  ./elvish.nix
+    ./elvish.nix
   ];
 
   home.sessionVariables = {
@@ -42,7 +32,7 @@ in
     "/run/current-system/sw/bin"
     "$HOME/.spicetify"
   ];
-  
+
   programs.zsh = {
     enable = true;
     initContent = ''
@@ -109,7 +99,8 @@ in
       copy = "cp";
       urban = "urban-cli -m 1";
       py = "python3";
-    } // lib.optionalAttrs darwin {
+    }
+    // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
       "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
       mh = "nh home switch -c macmini"; # Also manage to type this occasionally
@@ -144,7 +135,8 @@ in
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
       copy = "cp";
-    } // lib.optionalAttrs darwin {
+    }
+    // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";
     };
 
@@ -194,7 +186,7 @@ in
     enableZshIntegration = true;
     icons = "always";
   };
-    
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -208,7 +200,8 @@ in
     enableNushellIntegration = true;
     enableZshIntegration = true;
     settings = {
-      character = { # 󱞪 (for later copying)
+      character = {
+        # 󱞪 (for later copying)
         error_symbol = "[ 󱞪 :](bold red)";
         success_symbol = "[ 󱞪 :](bold green)";
         vimcmd_replace_one_symbol = "[<](bold purple)";

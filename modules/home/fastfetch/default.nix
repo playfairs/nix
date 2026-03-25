@@ -150,90 +150,98 @@ echo $days_difference days
           key = "  󰋊  Disk:";
           keyColor = "green";
         }
-      ] ++ (map (type: {
+      ]
+      ++ (map (type: {
         type = "custom";
         key = "    ${type}:";
         format = "${flakeConfig.development.scm.git.username or flakeConfig.development.git.username}";
-      }) (flakeConfig.development.scm.types or flakeConfig.development.git.types or [])) ++ [
+      }) (flakeConfig.development.scm.types or flakeConfig.development.git.types or [ ]))
+      ++ [
         {
           type = "custom";
           key = " ";
           format = "╰─────────────────────────────────────────────────────────────────╯";
         }
-      ] ++ [
+      ]
+      ++ [
         {
           type = "custom";
           format = "╭──────────────────────────── Spotify ────────────────────────────╮";
         }
-      ] ++ (
-        if isDarwin then [
-          {
-            type = "command";
-            key = "  󰝚  Track:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "Spotify" >/dev/null; then
-                osascript -e 'tell application "Spotify" to if player state is playing then name of current track as string'
-              else
-                echo "Not running"
-              fi
-            '';
-          }
-          {
-            type = "command";
-            key = "  󰀄  Artist:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "Spotify" >/dev/null; then
-                osascript -e 'tell application "Spotify" to if player state is playing then artist of current track as string'
-              fi
-            '';
-          }
-          {
-            type = "command";
-            key = "  󰓃  Album:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "Spotify" >/dev/null; then
-                osascript -e 'tell application "Spotify" to if player state is playing then album of current track as string'
-              fi
-            '';
-          }
-        ] else [
-          {
-            type = "command";
-            key = "  󰝚  Track:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "spotify" >/dev/null; then
-                playerctl -p spotify metadata --format '{{title}}' 2>/dev/null || echo "Paused"
-              else
-                echo "Not running"
-              fi
-            '';
-          }
-          {
-            type = "command";
-            key = "  󰀄  Artist:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "spotify" >/dev/null; then
-                playerctl -p spotify metadata --format '{{artist}}' 2>/dev/null
-              fi
-            '';
-          }
-          {
-            type = "command";
-            key = "  󰓃  Album:";
-            keyColor = "green";
-            text = ''
-              if pgrep -x "spotify" >/dev/null; then
-                playerctl -p spotify metadata --format '{{album}}' 2>/dev/null
-              fi
-            '';
-          }
-        ]
-      ) ++ [
+      ]
+      ++ (
+        if isDarwin then
+          [
+            {
+              type = "command";
+              key = "  󰝚  Track:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "Spotify" >/dev/null; then
+                  osascript -e 'tell application "Spotify" to if player state is playing then name of current track as string'
+                else
+                  echo "Not running"
+                fi
+              '';
+            }
+            {
+              type = "command";
+              key = "  󰀄  Artist:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "Spotify" >/dev/null; then
+                  osascript -e 'tell application "Spotify" to if player state is playing then artist of current track as string'
+                fi
+              '';
+            }
+            {
+              type = "command";
+              key = "  󰓃  Album:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "Spotify" >/dev/null; then
+                  osascript -e 'tell application "Spotify" to if player state is playing then album of current track as string'
+                fi
+              '';
+            }
+          ]
+        else
+          [
+            {
+              type = "command";
+              key = "  󰝚  Track:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "spotify" >/dev/null; then
+                  playerctl -p spotify metadata --format '{{title}}' 2>/dev/null || echo "Paused"
+                else
+                  echo "Not running"
+                fi
+              '';
+            }
+            {
+              type = "command";
+              key = "  󰀄  Artist:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "spotify" >/dev/null; then
+                  playerctl -p spotify metadata --format '{{artist}}' 2>/dev/null
+                fi
+              '';
+            }
+            {
+              type = "command";
+              key = "  󰓃  Album:";
+              keyColor = "green";
+              text = ''
+                if pgrep -x "spotify" >/dev/null; then
+                  playerctl -p spotify metadata --format '{{album}}' 2>/dev/null
+                fi
+              '';
+            }
+          ]
+      )
+      ++ [
         {
           type = "custom";
           format = "╰─────────────────────────────────────────────────────────────────╯";

@@ -26,7 +26,7 @@ let
       nix-dev.overlays.default
       ffm.overlays.default
       ip.overlay
-   ];
+    ];
     linux = (lib.strings.hasSuffix "x86" configName || lib.strings.hasSuffix "aarch64" configName);
     darwin = (!linux);
     allowUnfreePredicate =

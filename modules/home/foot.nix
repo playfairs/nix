@@ -14,4 +14,3 @@ lib.optionalAttrs linux {
     };
   };
 }
-

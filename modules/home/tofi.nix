@@ -30,4 +30,3 @@ lib.optionalAttrs linux {
     };
   };
 }
-
