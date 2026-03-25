@@ -104,6 +104,11 @@ in
       hm = "nh home switch -c macmini";
       "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
       mh = "nh home switch -c macmini"; # Also manage to type this occasionally
+      skip = "osascript -e 'tell app \"Spotify\" to next track'";
+      prev = "osascript -e 'tell app \"Spotify\" to previous track'";
+      np="osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
+      savetrack = "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
+      loop = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
     };
   };
 
