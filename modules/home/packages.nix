@@ -25,6 +25,7 @@ in
       binwalk
       fortune
       cowsay
+      gzip
       portaudio
       inetutils
       lolcat
@@ -33,7 +34,6 @@ in
       pv
       kittysay
       viu
-      neofetch
       autotrace
       uv
       java-language-server
