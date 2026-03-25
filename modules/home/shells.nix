@@ -21,6 +21,10 @@ let
 
 in
 {
+  imports = [
+  ./elvish.nix
+  ];
+
   home.sessionVariables = {
     # EDITOR = "${pkgs.helix}/bin/hx";
     # VISUAL = "${pkgs.helix}/bin/hx";

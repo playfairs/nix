@@ -21,11 +21,14 @@ in
     ++ (with pkgs; [
       dbgate
       dev
+      elvish
+      mksh
       pnpm
       binwalk
       fortune
       cowsay
       gzip
+      mpv
       portaudio
       inetutils
       lolcat
