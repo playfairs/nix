@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+clear
+
+mpv "https://www.youtube.com/watch?v=FtutLA63Cp8" \
+    --vo=caca \
+    --ytdl-format="best" \
+    --scale=bilinear \
+    --volume=100
