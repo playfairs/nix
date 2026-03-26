@@ -47,6 +47,7 @@ let
         "zelda64recomp"
         "windsurf"
         "cisco-packet-tracer"
+        "rar"
       ];
     custils = import ./. {
       inherit

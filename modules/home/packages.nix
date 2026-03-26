@@ -24,6 +24,8 @@ in
       mksh
       pnpm
       binwalk
+      rar
+      mednafen
       fortune
       cowsay
       gzip
