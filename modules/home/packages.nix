@@ -20,6 +20,7 @@ in
     ++ (with pkgs; [
       dbgate
       dev
+      ddgr
       elvish
       mksh
       pnpm
