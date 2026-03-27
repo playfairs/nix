@@ -27,11 +27,19 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./flake.png;
-        width = 72;
-        height = 30;
+        source = ./rosepinetheme.png;
+        width = 50;
+        height = 25;
+        # width = 72;
+        # height = 30;
         type = "kitty-direct";
       };
+      padding = { # I did this wrong, I'll fix it later
+        top = 0;
+        left = 0;
+        right = 0;
+      };
+
       display.separator = " ";
       modules = [
         {
