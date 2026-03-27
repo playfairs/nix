@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 LENGTH"
+    exit 1
+fi
+
+length="$1"
+dict="/usr/share/dict/words"
+
+if [ ! -f "$dict" ]; then
+    echo "Dictionary not found at $dict"
+    exit 1
+fi
+
+result=$(grep -E "^[a-zA-Z]{$length}$" "$dict" | shuf -n 1)
+
+if [ -z "$result" ]; then
+    echo "No word found with length $length"
+    exit 1
+fi
+
+echo "$result"
