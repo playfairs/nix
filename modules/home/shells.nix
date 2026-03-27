@@ -36,7 +36,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
+      fastfetch
 
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
@@ -74,14 +74,18 @@ in
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
     # fastfetch --logo none
     # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
+    # echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
+
 
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
     shellAliases = {
-      fuckoff = "exit";
       ":q" = "exit";
+      ".." = "cd ..";
+      "-" = "cd -";
+      fuckoff = "exit";
       l = "ls -l";
       la = "ls -la";
       ani = "ani-cli --dub";
