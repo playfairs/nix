@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  nix-dev,
+  ...
+}:
 
 let
   scriptsDir = ../../scripts;
@@ -19,12 +24,15 @@ in
     scripts
     ++ (with pkgs; [
       dbgate
-      dev
+      # dev
+      (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ddgr
       elvish
       mksh
       pnpm
+      yazi
       binwalk
+      hexedit
       rar
       mednafen
       fortune

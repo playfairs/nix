@@ -103,6 +103,7 @@ in
       copy = "cp";
       urban = "urban-cli -m 1";
       py = "python3";
+      boo = "ghostty +boo";
     }
     // lib.optionalAttrs darwin {
       hm = "nh home switch -c macmini";

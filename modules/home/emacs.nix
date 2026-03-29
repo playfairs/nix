@@ -3,6 +3,6 @@
 }:
 {
   programs.emacs = {
-    enable = true;
+    enable = false;
   };
 }

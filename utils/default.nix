@@ -18,12 +18,13 @@ let
       stylix
       zen-browser
       nushell
+      nix-dev
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
       discord-rpc-lsp.overlays.default
       sketchierbar.overlays.default
-      nix-dev.overlays.default
+      # nix-dev.overlays.default
       ffm.overlays.default
       ip.overlay
     ];
