@@ -30,6 +30,7 @@ in
       elvish
       mksh
       pnpm
+      audacity
       yazi
       binwalk
       hexedit
