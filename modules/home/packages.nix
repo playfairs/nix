@@ -27,6 +27,7 @@ in
       # dev
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ddgr
+      codeblocks
       elvish
       mksh
       pnpm
