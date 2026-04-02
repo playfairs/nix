@@ -14,6 +14,7 @@
     sketchierbar.url = "gitlab:invra/sketchierbar";
     nix-dev.url = "gitlab:invra/nix-dev";
     ffm.url = "gitlab:invra/ffm";
+    nix-sweep.url = "github:jzbor/nix-sweep";
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";
