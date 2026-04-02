@@ -19,6 +19,7 @@ let
       zen-browser
       nushell
       nix-dev
+      nix-sweep
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
