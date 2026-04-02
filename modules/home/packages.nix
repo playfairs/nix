@@ -2,6 +2,7 @@
   pkgs,
   lib,
   nix-dev,
+  nix-sweep,
   ...
 }:
 
@@ -26,6 +27,7 @@ in
       dbgate
       # dev
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ddgr
       codeblocks
       elvish
