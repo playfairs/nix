@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+EPOCH=0
+WORKER_ID=1
+PROCESS_ID=1
+SEQUENCE_FILE="/tmp/snowflake_seq"
+
+gen() {
+    local now
+    now=$(date +%s%3N)
+
+    local timestamp=$((now - EPOCH))
+
+    if [[ -f "$SEQUENCE_FILE" ]]; then
+        read -r last_time seq < "$SEQUENCE_FILE"
+    else
+        last_time=0
+        seq=0
+    fi
+
+    if [[ "$now" == "$last_time" ]]; then
+        seq=$(( (seq + 1) & 4095 ))
+    else
+        seq=0
+    fi
+
+    echo "$now $seq" > "$SEQUENCE_FILE"
+
+    local snowflake=$(( (timestamp << 22) | (WORKER_ID << 17) | (PROCESS_ID << 12) | seq ))
+
+    echo "$snowflake"
+}
+
+gen
