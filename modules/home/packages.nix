@@ -30,11 +30,16 @@ in
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ddgr
       codeblocks
+      listadmin
       elvish
       mksh
       pnpm
       audacity
+      gnupg
       yazi
+      discord-canary
+      # discord-development
+      discord-ptb
       binwalk
       hexedit
       rar

@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+RESET="\033[0m"
+BOLD="\033[1m"
+DIM="\033[2m"
+
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+BLUE="\033[34m"
+CYAN="\033[36m"
+WHITE="\033[37m"
+
+get_usage_color() {
+    local used=$1
+    local size=$2
+    local percent=$((used * 100 / size))
+
+    if (( percent < 50 )); then
+        echo -e "$GREEN"
+    elif (( percent < 80 )); then
+        echo -e "$YELLOW"
+    else
+        echo -e "$RED"
+    fi
+}
+
+mapfile -t drives < <(df -B1 --output=source,size,used,target -x tmpfs -x devtmpfs | tail -n +2)
+
+total_used=0
+total_size=0
+drive_count=0
+
+echo -e "${BOLD}${BLUE}Drive Statistics${RESET}"
+
+to_gb() {
+    awk "BEGIN {printf \"%.2f\", $1 / (1024^3)}"
+}
+
+to_tb() {
+    awk "BEGIN {printf \"%.2f\", $1 / (1024^4)}"
+}
+
+for drive in "${drives[@]}"; do
+    source=$(awk '{print $1}' <<< "$drive")
+    size=$(awk '{print $2}' <<< "$drive")
+    used=$(awk '{print $3}' <<< "$drive")
+    mount=$(awk '{print $4}' <<< "$drive")
+
+    name=$(basename "$source")
+
+    color=$(get_usage_color "$used" "$size")
+
+    echo -e "${BOLD}${CYAN}$name${RESET}: ${color}{$used / $size}${RESET}"
+
+    echo -e "  ${DIM}Used:${RESET}  ${color}$(printf "%'d" "$used") Bytes | $(to_gb "$used") GB | $(to_tb "$used") TB${RESET}"
+    echo -e "  ${DIM}Total:${RESET} ${WHITE}$(printf "%'d" "$size") Bytes | $(to_gb "$size") GB | $(to_tb "$size") TB${RESET}"
+    echo -e "  ${DIM}Mount:${RESET} ${DIM}$mount${RESET}"
+    echo
+
+    total_used=$((total_used + used))
+    total_size=$((total_size + size))
+    ((drive_count++))
+done
+
+total_color=$(get_usage_color "$total_used" "$total_size")
+
+echo -e "${BOLD}${BLUE}Totals${RESET}"
+echo -e "${BOLD}Total Drives:${RESET} $drive_count"
+echo -e "${BOLD}Storage:${RESET} ${total_color}{$total_used / $total_size}${RESET}"
+
+echo -e "  ${DIM}Used:${RESET}  ${total_color}$(printf "%'d" "$total_used") Bytes | $(to_gb "$total_used") GB | $(to_tb "$total_used") TB${RESET}"
+echo -e "  ${DIM}Total:${RESET} ${WHITE}$(printf "%'d" "$total_size") Bytes | $(to_gb "$total_size") GB | $(to_tb "$total_size") TB${RESET}"
