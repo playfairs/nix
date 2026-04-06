@@ -32,8 +32,10 @@ in
       codeblocks
       listadmin
       elvish
+      oneko
       mksh
       pnpm
+      stockfish
       audacity
       gnupg
       yazi
