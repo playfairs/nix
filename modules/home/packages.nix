@@ -32,6 +32,7 @@ in
       codeblocks
       listadmin
       elvish
+      hors
       oneko
       mksh
       pnpm
