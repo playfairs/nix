@@ -27,11 +27,11 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./rosepinetheme.png;
-        width = 50;
-        height = 25;
-        # width = 72;
-        # height = 30;
+        source = ./flake.png;
+        #width = 50;
+        #height = 25;
+        width = 72;
+        height = 30;
         type = "kitty-direct";
       };
       padding = { # I did this wrong, I'll fix it later
