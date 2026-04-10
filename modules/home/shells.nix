@@ -220,7 +220,7 @@ in
         format = "[$hostname]($style)";
       };
       time = {
-        disabled = false;
+        disabled = true;
         format = "[ $time]($style)";
         use_12hr = true;
       };
