@@ -211,6 +211,23 @@ in
     enableNushellIntegration = true;
     enableZshIntegration = true;
     settings = {
+      username = {
+        show_always = true;
+        format = "[$user]($style)";
+      };
+      hostname = {
+        ssh_only = false;
+        format = "[$hostname]($style)";
+      };
+      time = {
+        disabled = false;
+        format = "[ $time]($style)";
+        use_12hr = true;
+      };
+      fill = {
+        symbol = " ";
+        style = "bright-white";
+      };
       character = {
         # 󱞪 (for later copying)
         error_symbol = "[ 󱞪 :](bold red)";
@@ -221,7 +238,8 @@ in
         vimcmd_visual_symbol = "[<](bold yellow)";
       };
       continuation_prompt = "[.](bright-black) ";
-      format = "$directory$git_branch$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$time\n$character";
+      format = "$directory$git_branch$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$fill$username@$hostname $time\n$character";
+      # right_format = "$username@$hostname";
       bun.symbol = "bun ";
       c.symbol = "c ";
       cmake.symbol = "cmake ";
