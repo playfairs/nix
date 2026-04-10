@@ -11,7 +11,8 @@ in
 {
   programs.yazi = {
     enable = true;
-
+    shellWrapperName = "y";
+    
     theme.flavor = {
       dark = "rose-pine-moon";
     };
@@ -40,6 +41,7 @@ in
         micro_workers = 5;
         macro_workers = 10;
         bizarre_retry = 5;
+
       };
     };
   };
