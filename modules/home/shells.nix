@@ -69,6 +69,10 @@ in
         fi
       }
 
+      if [ -n "$SSH_CONNECTION" ]; then
+        ( ~/.ssh-monitor/ssh-alert.sh >/dev/null 2>&1 & )
+      fi
+
     '';
 
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
