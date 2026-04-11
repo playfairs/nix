@@ -12,7 +12,7 @@
     discord-rpc-lsp.url = "gitlab:invra/discord-rpc-lsp";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     sketchierbar.url = "gitlab:invra/sketchierbar";
-    nix-dev.url = "gitlab:invra/nix-dev";
+    nix-dev.url = "hg+https://hg.sr.ht/~invra/inc";
     ffm.url = "gitlab:invra/ffm";
     nix-sweep.url = "github:jzbor/nix-sweep";
 
