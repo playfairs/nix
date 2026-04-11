@@ -26,16 +26,22 @@ in
     ++ (with pkgs; [
       dbgate
       # dev
-      (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ddgr
       codeblocks
+      mercurial
       listadmin
+      bb
+      chezmoi
       elvish
+      assh
       hors
       oneko
       mksh
       pnpm
+      onefetch
+      tailscale
       stockfish
       audacity
       gnupg
@@ -87,6 +93,7 @@ in
       steam
       tetris
       nmap
+      fast-cli-zig
     ])
 
     ++ lib.optionals (!(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64)) [
@@ -98,10 +105,10 @@ in
       [
         utm
         pika
-        linearmouse
         obs-studio
         discord-rpc
         fzf
+        msmtp
         cmatrix
         iina
         duti
