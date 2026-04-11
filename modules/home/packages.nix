@@ -31,6 +31,7 @@ in
       ddgr
       codeblocks
       mercurial
+      jujutsu
       listadmin
       bb
       chezmoi
