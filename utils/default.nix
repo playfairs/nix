@@ -20,6 +20,7 @@ let
       nushell
       nix-dev
       nix-sweep
+      tiffiny
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [

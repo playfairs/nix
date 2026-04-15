@@ -15,6 +15,7 @@
     nix-dev.url = "hg+https://hg.sr.ht/~invra/inc";
     ffm.url = "gitlab:invra/ffm";
     nix-sweep.url = "github:jzbor/nix-sweep";
+    tiffiny.url = "github:playfairs/tiffiny";
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";

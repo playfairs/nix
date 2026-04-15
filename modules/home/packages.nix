@@ -3,6 +3,7 @@
   lib,
   nix-dev,
   nix-sweep,
+  tiffiny,
   ...
 }:
 
@@ -28,6 +29,7 @@ in
       # dev
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
       ddgr
       codeblocks
       mercurial
@@ -178,7 +180,7 @@ in
       [
         wl-clipboard
         wayvnc
-        helvum
+        crosspipe
         easyeffects
         ani-cli
         telegram-desktop
