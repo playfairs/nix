@@ -35,6 +35,7 @@ in
       mercurial
       jujutsu
       listadmin
+      mat2
       bb
       chezmoi
       elvish
