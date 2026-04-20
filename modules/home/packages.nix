@@ -34,6 +34,7 @@ in
       codeblocks
       mercurial
       jujutsu
+      krunker
       listadmin
       mat2
       bb

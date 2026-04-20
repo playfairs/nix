@@ -54,6 +54,7 @@ let
         "windsurf"
         "cisco-packet-tracer"
         "rar"
+        "krunker"
       ];
     custils = import ./. {
       inherit
