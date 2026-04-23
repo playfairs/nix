@@ -16,6 +16,7 @@
     ffm.url = "gitlab:invra/ffm";
     nix-sweep.url = "github:jzbor/nix-sweep";
     tiffiny.url = "github:playfairs/tiffiny";
+    asteride.url = "github:playfairs/AsterIDE";
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";

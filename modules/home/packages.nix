@@ -4,6 +4,7 @@
   nix-dev,
   nix-sweep,
   tiffiny,
+  asteride,
   ...
 }:
 
@@ -31,6 +32,7 @@ in
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
       ddgr
+      nyancat
       codeblocks
       mercurial
       jujutsu
@@ -109,6 +111,7 @@ in
       with pkgs;
       [
         utm
+        (asteride.packages.${pkgs.stdenv.hostPlatform.system}.asteride)
         pika
         obs-studio
         discord-rpc
@@ -131,7 +134,7 @@ in
         alacritty
         neovim
         lastfm
-        zed-editor
+        # zed-editor
         pgadmin4
 
         (writeShellScriptBin "random-shot" ''
