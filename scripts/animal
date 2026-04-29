@@ -6,20 +6,24 @@ animal="${1:-cat}"
 get_url() {
   case "$animal" in
     cat)
-      curl -fsSL https://api.thecatapi.com/v1/images/search | jq -r '.[0].url'
+      curl -fsSL https://api.thecatapi.com/v1/images/search \
+        | grep -o '"url":"[^"]*' | cut -d '"' -f4
       ;;
     dog)
-      curl -fsSL https://dog.ceo/api/breeds/image/random | jq -r '.message'
+      curl -fsSL https://dog.ceo/api/breeds/image/random \
+        | grep -o '"message":"[^"]*' | cut -d '"' -f4
       ;;
     fox)
-      curl -fsSL https://randomfox.ca/floof/ | jq -r '.image'
+      curl -fsSL https://randomfox.ca/floof/ \
+        | grep -o '"image":"[^"]*' | cut -d '"' -f4
       ;;
     duck)
-      curl -fsSL https://random-d.uk/api/v2/random | jq -r '.url'
+      curl -fsSL https://random-d.uk/api/v2/random \
+        | grep -o '"url":"[^"]*' | cut -d '"' -f4
       ;;
     *)
-      echo "unknown animal: $animal" >&2
-      echo "valid: cat | dog | fox | duck" >&2
+      echo "what is a $animal" >&2
+      echo "i only know of cat | dog | fox | duck" >&2
       exit 1
       ;;
   esac
@@ -27,7 +31,7 @@ get_url() {
 
 url="$(get_url)"
 
-if [[ -z "${url:-}" || "$url" == "null" ]]; then
+if [[ -z "${url:-}" ]]; then
   echo "failed to fetch $animal :c" >&2
   exit 1
 fi
@@ -39,6 +43,8 @@ copy_to_clipboard() {
     printf "%s" "$1" | wl-copy
   elif command -v xclip >/dev/null 2>&1; then
     printf "%s" "$1" | xclip -selection clipboard
+  elif command -v xsel >/dev/null 2>&1; then
+    printf "%s" "$1" | xsel --clipboard --input
   else
     return 1
   fi
@@ -46,7 +52,7 @@ copy_to_clipboard() {
 
 copy_to_clipboard "$url" || echo "no clipboard tool found" >&2
 
-output="here’s your $animal 
+output="here’s your $animal
 $url"
 
 if command -v lolcat >/dev/null 2>&1; then
