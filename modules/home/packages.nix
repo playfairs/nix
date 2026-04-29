@@ -39,6 +39,7 @@ in
       krunker
       listadmin
       mat2
+      ansi
       bb
       chezmoi
       elvish

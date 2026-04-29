@@ -36,7 +36,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`" | lolcat
+      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
       
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
@@ -91,16 +91,25 @@ in
       fuckoff = "exit";
       l = "ls -l";
       la = "ls -la";
+
+      # Ani Cli stuff
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
       # uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
+
+      # every misspelling of lazygit / lazy I have done
       lazy = "lazygit";
+      ";azy" = "lazygit";
+      azy = "lazygit";
+      laz = "lazygit";
+      
       edit = "hx";
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
       neovim = "nvim";
       vimproved = "vim";
+      
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
       copy = "cp";

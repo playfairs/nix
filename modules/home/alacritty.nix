@@ -24,7 +24,7 @@ lib.optionalAttrs darwin {
         }
       ];
       window = {
-        opacity = 0.85;
+        opacity = 0.80;
         decorations = "Buttonless";
         padding = {
           x = 10;
@@ -48,7 +48,7 @@ lib.optionalAttrs darwin {
           family = "JetBrainsMono Nerd Font";
           style = "Italic";
         };
-        size = 14;
+        size = 16;
       };
     };
   };

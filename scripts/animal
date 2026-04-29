@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+animal="${1:-cat}"
+
+get_url() {
+  case "$animal" in
+    cat)
+      curl -fsSL https://api.thecatapi.com/v1/images/search | jq -r '.[0].url'
+      ;;
+    dog)
+      curl -fsSL https://dog.ceo/api/breeds/image/random | jq -r '.message'
+      ;;
+    fox)
+      curl -fsSL https://randomfox.ca/floof/ | jq -r '.image'
+      ;;
+    duck)
+      curl -fsSL https://random-d.uk/api/v2/random | jq -r '.url'
+      ;;
+    *)
+      echo "unknown animal: $animal" >&2
+      echo "valid: cat | dog | fox | duck" >&2
+      exit 1
+      ;;
+  esac
+}
+
+url="$(get_url)"
+
+if [[ -z "${url:-}" || "$url" == "null" ]]; then
+  echo "failed to fetch $animal :c" >&2
+  exit 1
+fi
+
+copy_to_clipboard() {
+  if command -v pbcopy >/dev/null 2>&1; then
+    printf "%s" "$1" | pbcopy
+  elif command -v wl-copy >/dev/null 2>&1; then
+    printf "%s" "$1" | wl-copy
+  elif command -v xclip >/dev/null 2>&1; then
+    printf "%s" "$1" | xclip -selection clipboard
+  else
+    return 1
+  fi
+}
+
+copy_to_clipboard "$url" || echo "no clipboard tool found" >&2
+
+output="here’s your $animal 
+$url"
+
+if command -v lolcat >/dev/null 2>&1; then
+  printf "%s\n" "$output" | lolcat
+else
+  printf "%s\n" "$output"
+fi
