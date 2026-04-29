@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "base16_transparent";
+      theme = "rose_pine";
 
       editor = {
         line-number = "relative";
