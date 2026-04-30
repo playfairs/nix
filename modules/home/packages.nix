@@ -36,6 +36,7 @@ in
       codeblocks
       mercurial
       jujutsu
+      emacs
       krunker
       listadmin
       mat2
