@@ -20,9 +20,6 @@ in
     # VISUAL = "${pkgs.helix}/bin/hx";
 
     NH_FLAKE = "$HOME/.nix";
-    NH_OS_FLAKE = "$HOME/.nix";
-    NH_DARWIN_FLAKE = "$HOME/.nix";
-    NH_HOME_FLAKE = "$HOME/.nix";
   };
 
   home.sessionPath = [
