@@ -65,7 +65,7 @@ in
       fortune
       cowsay
       gzip
-      mpv
+      # mpv
       portaudio
       inetutils
       lolcat
@@ -91,7 +91,7 @@ in
       unzip
       nil
       nixd
-      yt-dlp
+      # yt-dlp
       tldr
       # ani-cli
       yazi

@@ -91,25 +91,18 @@ in
       fuckoff = "exit";
       l = "ls -l";
       la = "ls -la";
-
-      # Ani Cli stuff
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
       # uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
-
-      # every misspelling of lazygit / lazy I have done
       lazy = "lazygit";
-      ";azy" = "lazygit";
       azy = "lazygit";
-      laz = "lazygit";
-      
+      laz = "lazygit"; 
       edit = "hx";
       please = "sudo";
       fuck = "touch";
       nv = "nvim";
       neovim = "nvim";
       vimproved = "vim";
-      
       hmm = "echo 'bros unsure'";
       ff = "fastfetch";
       copy = "cp";
@@ -132,8 +125,8 @@ in
   };
 
   programs.nushell = {
-    enable = false;
-    package = nushell.packages.${pkgs.stdenv.hostPlatform.system}.nushell;
+    enable = true;
+    package = pkgs.nushell;
 
     settings = {
       show_banner = false;
