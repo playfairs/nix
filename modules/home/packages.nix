@@ -37,7 +37,6 @@ in
       mercurial
       jujutsu
       emacs
-      krunker
       listadmin
       mat2
       ansi
