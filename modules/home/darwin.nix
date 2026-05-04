@@ -53,8 +53,8 @@ lib.optionalAttrs (!linux) {
       };
 
       "com.apple.WindowManager" = {
-        EnableStandardClickToShowDesktop = false;
-        GloballyEnabled = false;
+        EnableStandardClickToShowDesktop = true;
+        GloballyEnabled = flakeConfig.system.stageManager.enable or false;
       };
 
       "com.apple.menuextra.clock" = {
@@ -100,6 +100,6 @@ lib.optionalAttrs (!linux) {
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/ani.jpg;
+    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/saturn2.png;
   };
 }

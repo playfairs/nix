@@ -13,7 +13,7 @@
 
     settings = {
       theme = "Rose Pine Moon";
-      background-opacity = 0.80;
+      background-opacity = 0;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";
@@ -23,8 +23,8 @@
       cursor-style = "bar";
     }
     // lib.optionalAttrs darwin {
-      window-height = 41;
-      window-width = 170;
+      window-height = 45;
+      window-width = 175;
     };
   };
 }
