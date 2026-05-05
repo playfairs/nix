@@ -33,7 +33,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
+      echo "$(whoami)@$(hostname): hi $(whoami)"
       
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
@@ -75,6 +75,7 @@ in
     # Throwing this out of initContent because putting comments inside it makes it slower since it still tries to run stuff
     # fastfetch --logo none
     # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
+    # echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
 
 
     autosuggestion.enable = true;
