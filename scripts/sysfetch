@@ -20,7 +20,7 @@ arch="$(uname -m)"
 uptime="$(uptime | sed 's/.*up //; s/, [0-9]* users.*//')"
 session="${XDG_SESSION_TYPE:-unknown}"
 
-echo -e "${cyan}╭─ system identity${reset}"
+echo -e "${cyan}╭─ sysfetch ${reset}"
 echo -e "${cyan}│${reset} ${green}user${reset}     : $user"
 echo -e "${cyan}│${reset} ${green}host${reset}     : $host"
 echo -e "${cyan}│${reset} ${green}os${reset}       : $os ($arch)"
