@@ -33,8 +33,8 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      echo "$(whoami)@$(hostname): hi $(whoami)"
-      
+      sysfetch
+
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
 
