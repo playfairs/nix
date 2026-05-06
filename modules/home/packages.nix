@@ -34,7 +34,6 @@ in
       (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
       (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
-      nheko
       nyancat
       codeblocks
       mercurial
