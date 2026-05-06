@@ -22,6 +22,7 @@ let
       nix-sweep
       tiffiny
       asteride
+      sysfetch
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
