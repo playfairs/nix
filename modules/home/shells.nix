@@ -33,7 +33,7 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      sysfetch
+      systemfetch
 
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'

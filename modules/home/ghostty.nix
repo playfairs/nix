@@ -23,8 +23,8 @@
       cursor-style = "bar";
     }
     // lib.optionalAttrs darwin {
-      window-height = 45;
-      window-width = 175;
+      window-height = 59;
+      window-width = 215;
     };
   };
 }
