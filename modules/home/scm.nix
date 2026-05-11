@@ -39,13 +39,17 @@ in
     enable = true;
     settings = {
       user = {
-        name = gitConfig.username or "default-username";
-        email = gitConfig.email or "default@example.com";
+        name = gitConfig.username or "playfairs";
+        email = gitConfig.email or "root@playfairs.cc";
       };
       alias = {
         p = "push -v";
         c = "commit";
-        a = "commit --amend";
+        ac = "commit --amend";
+        pp = "pull";
+        a = "add .";
+        s = "switch";
+        b = "branch";
       };
       init.defaultBranch = gitConfig.defaultBranch or "main";
       core.quotepath = "off";
