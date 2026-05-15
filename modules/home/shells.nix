@@ -240,7 +240,7 @@ in
         vimcmd_visual_symbol = "[<](bold yellow)";
       };
       continuation_prompt = "[.](bright-black) ";
-      format = "$directory$git_branch$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$fill$username@$hostname $time\n$character";
+      format = "$directory$git_branch$custom$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$fill$username@$hostname $time\n$character";
       # right_format = "$username@$hostname";
       bun.symbol = "bun ";
       c.symbol = "c ";
@@ -252,11 +252,16 @@ in
         format = "via [$symbol($version )(target $tfm )]($style)";
         symbol = ".net ";
       };
+      custom.last_commit = {
+        command = "git log -1 --pretty=format:'%h'";
+        when = "git rev-parse --is-inside-work-tree";
+        format = "[$output]($style) ";
+        style = "yellow";
+      };
       git_branch = {
         symbol = "git ";
         truncation_symbol = "...";
       };
-      git_commit.tag_symbol = " tag ";
       git_status = {
         ahead = ">";
         behind = "<";
