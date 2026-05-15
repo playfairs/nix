@@ -60,7 +60,10 @@
       theme = "term16_dark";
 
       editor = {
-        line-number = "relative";
+        path-completion = true;
+        line-number = "absolute";
+        continue-comments = true;
+        auto-completion = true;
         color-modes = true;
         bufferline = "multiple";
         scrolloff = 100;
