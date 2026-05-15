@@ -34,10 +34,8 @@ in
       (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
       (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
-      nyancat
       codeblocks
       mercurial
-      jujutsu
       emacs
       listadmin
       mat2
@@ -52,15 +50,10 @@ in
       pnpm
       onefetch
       tailscale
-      stockfish
       audacity
       gnupg
       yazi
-      discord-canary
-      # discord-development
-      discord-ptb
       binwalk
-      hexedit
       rar
       mednafen
       fortune
@@ -79,7 +72,6 @@ in
       uv
       java-language-server
       godot
-      chromium
       ffmpeg
       spotify
       zsh-bd
@@ -101,7 +93,6 @@ in
       uutils-findutils
       uutils-coreutils-noprefix
       steam
-      tetris
       nmap
       fast-cli-zig
     ])
@@ -120,25 +111,19 @@ in
         discord-rpc
         fzf
         msmtp
-        cmatrix
         iina
         duti
         aria2
-        haskellPackages.brainfuck
-        nasm
         firefox-esr
         windsurf
         bun
         urban-cli
-        obsidian
         ffmpeg
         shottr
-        postgresql
         alacritty
         neovim
         lastfm
         # zed-editor
-        pgadmin4
 
         (writeShellScriptBin "random-shot" ''
           DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
