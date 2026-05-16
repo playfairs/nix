@@ -41,33 +41,19 @@ in
       mat2
       ansi
       bb
-      chezmoi
-      elvish
-      assh
-      hors
-      oneko
-      mksh
       pnpm
       onefetch
       tailscale
       audacity
       gnupg
       yazi
-      binwalk
       rar
-      mednafen
-      fortune
-      cowsay
       gzip
       # mpv
       portaudio
       inetutils
-      lolcat
       gum
-      latexminted
       pv
-      kittysay
-      viu
       autotrace
       uv
       java-language-server
@@ -85,7 +71,6 @@ in
       nil
       nixd
       # yt-dlp
-      tldr
       # ani-cli
       yazi
       wget
@@ -93,8 +78,6 @@ in
       uutils-findutils
       uutils-coreutils-noprefix
       steam
-      nmap
-      fast-cli-zig
     ])
 
     ++ lib.optionals (!(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64)) [
