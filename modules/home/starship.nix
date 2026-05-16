@@ -42,7 +42,7 @@ let
       style = "yellow";
     };
     git_branch = {
-      symbol = " ";
+      symbol = "󰊢 on ";
       truncation_symbol = "...";
     };
     git_status = {
@@ -122,8 +122,8 @@ let
         };
       };
       git_branch = {
-        format = "[[ $symbol $branch ](fg:${colours.gitFg} bg:${colours.gitBg})]($style)";
-        symbol = " ";
+        format = "[[ $symbol$branch ](fg:${colours.gitFg} bg:${colours.gitBg})]($style)";
+        symbol = "󰊢 ";
       };
       git_status = {
         format = "[[($all_status$ahead_behind )](fg:${colours.gitFg} bg:${colours.gitBg})]($style)";
@@ -194,7 +194,7 @@ let
       git_branch = {
         format = "[$symbol$branch]($style) ";
         style  = "branch";
-        symbol = " ";
+        symbol = "󰊢 on ";
         truncation_symbol = "...";
       };
       git_status = {
@@ -228,7 +228,7 @@ let
     };
 
     catppuccin = {
-      format = "$username$hostname $directory$git_branch$custom$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell $time\n$character";
+      format = "$directory$git_branch$custom$git_status$package$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$time\n$character";
       continuation_prompt = "[.](bright-black) ";
       palette = "catppuccin_mocha";
       palettes.catppuccin_mocha = {
@@ -268,7 +268,7 @@ let
       git_branch = {
         format = "[$symbol$branch]($style) ";
         style  = "blue";
-        symbol = " ";
+        symbol = "󰊢 on ";
         truncation_symbol = "...";
       };
       git_status = {
@@ -301,7 +301,7 @@ let
     };
 
     gruvbox = {
-      format = "$username$hostname $directory$git_branch$custom$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell\n$character";
+      format = "$directory$git_branch$custom$git_status$package$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell\n$character";
       continuation_prompt = "[.](bright-black) ";
       palette = "gruvbox_material";
       palettes.gruvbox_material = {
@@ -341,7 +341,7 @@ let
       git_branch = {
         format = "[$symbol$branch]($style) ";
         style  = "yellow";
-        symbol = " ";
+        symbol = "󰊢 on";
         truncation_symbol = "...";
       };
       git_status = {
