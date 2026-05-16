@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "term16_dark";
+      theme = "nyxvamp-veil";
 
       editor = {
         path-completion = true;

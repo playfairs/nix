@@ -8,11 +8,11 @@
 }:
 let
   inherit (flakeConfig) user;
-
 in
 {
   imports = [
     ./elvish.nix
+    ./starship.nix
   ];
 
   home.sessionVariables = {
@@ -87,6 +87,7 @@ in
       fuckoff = "exit";
       l = "ls -l";
       la = "ls -la";
+      lks = "ls";
       ani = "ani-cli --dub";
       anid = "ani-cli -d -q 1440p --dub -e 1-999";
       # uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
@@ -208,74 +209,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  programs.starship = {
-    enable = true;
-    enableNushellIntegration = true;
-    enableZshIntegration = true;
-    settings = {
-      username = {
-        show_always = true;
-        format = "[$user]($style)";
-      };
-      hostname = {
-        ssh_only = false;
-        format = "[$hostname]($style)";
-      };
-      time = {
-        disabled = true;
-        format = "[ $time]($style)";
-        use_12hr = true;
-      };
-      fill = {
-        symbol = " ";
-        style = "bright-white";
-      };
-      character = {
-        # 󱞪 (for later copying)
-        error_symbol = "[ 󱞪 :](bold red)";
-        success_symbol = "[ 󱞪 :](bold green)";
-        vimcmd_replace_one_symbol = "[<](bold purple)";
-        vimcmd_replace_symbol = "[<](bold purple)";
-        vimcmd_symbol = "[<](bold green)";
-        vimcmd_visual_symbol = "[<](bold yellow)";
-      };
-      continuation_prompt = "[.](bright-black) ";
-      format = "$directory$git_branch$custom$git_status$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$fill$username@$hostname $time\n$character";
-      # right_format = "$username@$hostname";
-      bun.symbol = "bun ";
-      c.symbol = "c ";
-      cmake.symbol = "cmake ";
-      cpp.symbol = "c++ ";
-      deno.symbol = "deno ";
-      directory.read_only = " ro";
-      dotnet = {
-        format = "via [$symbol($version )(target $tfm )]($style)";
-        symbol = ".net ";
-      };
-      custom.last_commit = {
-        command = "git log -1 --pretty=format:'%h'";
-        when = "git rev-parse --is-inside-work-tree";
-        format = "[$output]($style) ";
-        style = "yellow";
-      };
-      git_branch = {
-        symbol = "git ";
-        truncation_symbol = "...";
-      };
-      git_status = {
-        ahead = ">";
-        behind = "<";
-        deleted = "x";
-        diverged = "<>";
-        renamed = "r";
-      };
-      haskell.symbol = "haskell ";
-      haxe.symbol = "haxe ";
-      nix_shell.symbol = "nix ";
-      package.symbol = "pkg ";
-      rust.symbol = "rust ";
-      swift.symbol = "swift ";
-      zig.symbol = "zig ";
-    };
-  };
+  my.starship.style = "default";
 }
