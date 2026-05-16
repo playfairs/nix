@@ -42,7 +42,7 @@ let
       style = "yellow";
     };
     git_branch = {
-      symbol = "git ";
+      symbol = " ";
       truncation_symbol = "...";
     };
     git_status = {
@@ -114,8 +114,8 @@ let
           Pictures = " ";
           Movies = " ";
           Videos = " ";
-          Dev = " ";
-          Developer = " ";
+          Dev = " ";
+          Developer = " ";
           dotfiles = " ";
           nix = "󱄅 ";
           ".nix" = "󱄅 ";
@@ -123,7 +123,7 @@ let
       };
       git_branch = {
         format = "[[ $symbol $branch ](fg:${colours.gitFg} bg:${colours.gitBg})]($style)";
-        symbol = "";
+        symbol = " ";
       };
       git_status = {
         format = "[[($all_status$ahead_behind )](fg:${colours.gitFg} bg:${colours.gitBg})]($style)";
@@ -151,7 +151,7 @@ let
       };
       time = {
         disabled = false;
-        format = "[[   $time ](fg:#908caa bg:#2a273f)]($style)";
+        format = "[[ $time ](fg:#908caa bg:#2a273f)]($style)";
         style = "bg:#584951";
         time_format = "%R";
       };
