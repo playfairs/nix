@@ -37,6 +37,7 @@ in
       codeblocks
       mercurial
       emacs
+      cloudflared
       listadmin
       mat2
       ansi
@@ -155,6 +156,7 @@ in
       with pkgs;
       [
         wl-clipboard
+        megasync
         wayvnc
         crosspipe
         easyeffects

@@ -57,6 +57,7 @@ let
         "cisco-packet-tracer"
         "rar"
         "krunker"
+        "megasync"
       ];
     custils = import ./. {
       inherit
