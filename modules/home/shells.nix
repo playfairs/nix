@@ -209,5 +209,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "filled";
+  my.starship.style = "default";
 }
