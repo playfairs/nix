@@ -46,6 +46,7 @@ in
       onefetch
       tailscale
       audacity
+      stats
       gnupg
       yazi
       rar
