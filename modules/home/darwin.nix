@@ -54,7 +54,8 @@ lib.optionalAttrs (!linux) {
 
       "com.apple.WindowManager" = {
         EnableStandardClickToShowDesktop = true;
-        GloballyEnabled = flakeConfig.system.stageManager.enable or false;
+        GloballyEnabled = false;
+        # GloballyEnabled = flakeConfig.system.stageManager.enable or false;
       };
 
       "com.apple.menuextra.clock" = {
