@@ -11,6 +11,9 @@ lib.optionalAttrs darwin {
     theme = "rose_pine";
 
     settings = {
+      cursor.style = {
+        shape = "Beam";
+      };
       keyboard.bindings = [
         {
           key = "+";
@@ -24,7 +27,7 @@ lib.optionalAttrs darwin {
         }
       ];
       window = {
-        opacity = 0.80;
+        opacity = 0.50;
         decorations = "Buttonless";
         padding = {
           x = 10;
