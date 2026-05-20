@@ -98,6 +98,7 @@ in
         msmtp
         iina
         duti
+        yabai
         aria2
         firefox-esr
         windsurf
