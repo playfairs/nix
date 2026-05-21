@@ -13,7 +13,7 @@
 
     settings = {
       theme = "Rose Pine Moon";
-      background-opacity = 0;
+      background-opacity = 0.50;
       macos-titlebar-style = "hidden";
       quit-after-last-window-closed = true;
       window-save-state = "never";

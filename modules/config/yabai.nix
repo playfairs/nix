@@ -5,7 +5,7 @@
   ...
 }:
 let
-  padding = 10;
+  padding = 5;
 in
 lib.optionalAttrs (!linux) {
   services.yabai = {
@@ -23,7 +23,7 @@ lib.optionalAttrs (!linux) {
       normal_window_border_color = "0x002E3440";
       insert_feedback_color = "0xFFA3BE8C";
 
-      border_width = 5;
+      border_width = 2;
       mouse_modifier = "alt";
       mouse_action1 = "move";
       move_action2 = "resize";
@@ -37,7 +37,7 @@ lib.optionalAttrs (!linux) {
     enable = true;
 
     skhdConfig = ''
-      option - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty
+      cmd - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty
     '';
   };
 }

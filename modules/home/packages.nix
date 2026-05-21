@@ -94,12 +94,10 @@ in
         pika
         obs-studio
         discord-rpc
-        skhd
         fzf
         msmtp
         iina
         duti
-        yabai
         aria2
         firefox-esr
         windsurf
