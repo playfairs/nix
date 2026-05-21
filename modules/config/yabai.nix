@@ -37,7 +37,7 @@ lib.optionalAttrs (!linux) {
     enable = true;
 
     skhdConfig = ''
-      cmd - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty
+      cmd - return : ${pkgs.alacritty}/Applications/Alacritty.app/Contents/MacOS/alacritty
     '';
   };
 }
