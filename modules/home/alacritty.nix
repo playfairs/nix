@@ -27,7 +27,7 @@ lib.optionalAttrs darwin {
         }
       ];
       window = {
-        opacity = 0.50;
+        opacity = 0.60;
         decorations = "Buttonless";
         padding = {
           x = 10;
