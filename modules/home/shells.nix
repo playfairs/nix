@@ -8,6 +8,50 @@
 }:
 let
   inherit (flakeConfig) user;
+
+  commonAliases = {
+    ":q"        = "exit";
+    "fuckoff"   = "exit";
+    ".."        = "cd ..";
+    "-"         = "cd -";
+    "l"         = "ls -l";
+    "la"        = "ls -la";
+    "lks"       = "ls";
+    "please"    = "sudo";
+    "fuck"      = "touch";
+    "copy"      = "cp";
+    "nv"        = "nvim";
+    "neovim"    = "nvim";
+    "vimproved" = "vim";
+    "hmm"       = "echo 'bros unsure'";
+    "ff"        = "fastfetch";
+    "urban"     = "urban-cli -m 1";
+    "py"        = "python3";
+    "lazy"      = "lazygit";
+    "azy"       = "lazygit";
+    "laz"       = "lazygit";
+  };
+
+  darwinAliases = lib.optionalAttrs darwin {
+    "hm"        = "nh home switch -c macmini";
+    "hm,"       = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
+    "mh"        = "nh home switch -c macmini"; # Also manage to type this occasionally
+    "skip"      = "osascript -e 'tell app \"Spotify\" to next track'";
+    "prev"      = "osascript -e 'tell app \"Spotify\" to previous track'";
+    "np"        = "osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
+    "savetrack" = "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
+    "loop"      = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
+    "encrypt"   = "f() { tar -czf - $1 | gpg -c -o $1.tar.gz.gpg }; f";
+    "unlock"    = "f() { gpg -d $1 | tar -xzf - }; f";
+  };
+
+  posixAliases = {
+    "ani"      = "ani-cli --dub";
+    "anid"     = "ani-cli -d -q 1440p --dub -e 1-999";
+    "edit"     = "hx";
+    "boo"      = "ghostty +boo";
+  };
+
 in
 {
   imports = [
@@ -75,51 +119,17 @@ in
     # fastfetch --logo none | lolcat -a -d 8 -s 1000 -t
     # echo "hi ${user.username}, the current time is `date +'%I:%M:%S %p'`"
 
-
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
 
-    shellAliases = {
-      ":q" = "exit";
-      ".." = "cd ..";
-      "-" = "cd -";
-      fuckoff = "exit";
-      l = "ls -l";
-      la = "ls -la";
-      lks = "ls";
-      ani = "ani-cli --dub";
-      anid = "ani-cli -d -q 1440p --dub -e 1-999";
-      # uuid = "uuidgen | tr '[:upper:]' '[:lower:]'";
-      lazy = "lazygit";
-      azy = "lazygit";
-      laz = "lazygit"; 
-      edit = "hx";
-      please = "sudo";
-      fuck = "touch";
-      nv = "nvim";
-      neovim = "nvim";
-      vimproved = "vim";
-      hmm = "echo 'bros unsure'";
-      ff = "fastfetch";
-      copy = "cp";
-      urban = "urban-cli -m 1";
-      py = "python3";
-      boo = "ghostty +boo";
-    }
-    // lib.optionalAttrs darwin {
-      hm = "nh home switch -c macmini";
-      "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
-      mh = "nh home switch -c macmini"; # Also manage to type this occasionally
-      skip = "osascript -e 'tell app \"Spotify\" to next track'";
-      prev = "osascript -e 'tell app \"Spotify\" to previous track'";
-      np="osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
-      savetrack = "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
-      loop = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
-      encrypt = "f() { tar -czf - $1 | gpg -c -o $1.tar.gz.gpg }; f";
-      unlock = "f() { gpg -d $1 | tar -xzf - }; f";
-    };
+    shellAliases = commonAliases // posixAliases // darwinAliases;
   };
+
+  # programs.bash = {
+  #   enable = true;
+  #   shellAliases = commonAliases // posixAliases // darwinAliases;
+  # };
 
   programs.nushell = {
     enable = true;
@@ -136,52 +146,8 @@ in
       };
     };
 
-    shellAliases = {
-      fuckoff = "exit";
-      ":q" = "exit";
-      l = "ls -l";
-      urban = "urban-cli -m 1";
-      la = "ls -la";
-      please = "sudo";
-      fuck = "touch";
-      nv = "nvim";
-      vimproved = "vim";
-      hmm = "echo 'bros unsure'";
-      ff = "fastfetch";
-      copy = "cp";
-    }
-    // lib.optionalAttrs darwin {
-      hm = "nh home switch -c macmini";
-    };
-
-    # extraConfig = ''
-    #   #!/bin/nu
-    #   $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate rose-pine)
-    #   $env.EDITOR = "${pkgs.helix}/bin/hx";
-    #   $env.VISUAL = "${pkgs.helix}/bin/hx";
-    #   $env.NH_FLAKE = $"($env.HOME)/.nix";
-    #   $env.NH_OS_FLAKE = $"($env.HOME)/.nix";
-    #   $env.NH_DARWIN_FLAKE = $"($env.HOME)/.nix";
-    #   $env.NH_HOME_FLAKE = $"($env.HOME)/.nix";
-    #   $env.PATH = $env.PATH
-    #   | append [
-    #     "/${if darwin then "Users" else "home"}/${user.username}/.nix-profile/bin"
-    #     "/nix/var/nix/profiles/default/bin"
-    #     "/etc/profiles/per-user/${user.username}/bin"
-    #     "/run/current-system/sw/bin"
-    #   ]
-
-    #   if not ((("NU_EXISTING_INSTANCE" in $env)) and ($env.NU_EXISTING_INSTANCE == true)) {
-    #     sleep 50ms
-    #     ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay
-    #     # ${pkgs.fastfetch}/bin/fastfetch
-    #   }
-
-    #   $env.NU_EXISTING_INSTANCE = false
-
-    #   mkdir ($nu.data-dir | path join "vendor/autoload")
-    #   ${pkgs.starship}/bin/starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-    # '';
+    # posixAliases intentionally excluded; nushell has different syntax
+    shellAliases = commonAliases // darwinAliases;
   };
 
   programs.fzf = {
@@ -191,6 +157,7 @@ in
 
   programs.carapace = {
     enable = true;
+    enableZshIntegration = true;
     enableNushellIntegration = true;
     enableBashIntegration = true;
   };
