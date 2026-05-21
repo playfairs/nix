@@ -39,6 +39,7 @@ in
       emacs
       cloudflared
       listadmin
+      pokemon-colorscripts-mac
       mat2
       ansi
       bb
