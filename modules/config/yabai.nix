@@ -5,7 +5,7 @@
   ...
 }:
 let
-  padding = 5;
+  padding = 0;
 in
 lib.optionalAttrs (!linux) {
   services.yabai = {
@@ -18,7 +18,8 @@ lib.optionalAttrs (!linux) {
       top_padding = padding;
       window_gap = padding;
 
-      window_border = "on";
+      # Must disable SIP for these settings to work
+      window_border = "off";
       active_window_border_color = "0xFF88C0D0";
       normal_window_border_color = "0x002E3440";
       insert_feedback_color = "0xFFA3BE8C";
@@ -38,6 +39,7 @@ lib.optionalAttrs (!linux) {
 
     skhdConfig = ''
       cmd - return : ${pkgs.alacritty}/Applications/Alacritty.app/Contents/MacOS/alacritty
+      alt - return : yabai -m window --toggle native-fullscreen
     '';
   };
 }
