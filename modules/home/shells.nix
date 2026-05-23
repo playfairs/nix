@@ -20,6 +20,7 @@ let
     "fuck"      = "touch";
     "copy"      = "cp";
     "nv"        = "nvim";
+    "nvm"       = "nvim";
     "neovim"    = "nvim";
     "vimproved" = "vim";
     "hmm"       = "echo 'bros unsure'";
