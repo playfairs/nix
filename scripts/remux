@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+    echo "Usage: remux <input.mkv> [output.mp4]"
+    exit 1
+fi
+
+INPUT="$1"
+
+if [[ ! -f "$INPUT" ]]; then
+    echo "File not found: $INPUT"
+    exit 1
+fi
+
+if ! command -v ffmpeg >/dev/null 2>&1; then
+    echo "ffmpeg is not installed"
+    exit 1
+fi
+
+EXT="${INPUT##*.}"
+BASENAME="${INPUT%.*}"
+
+if [[ $# -ge 2 ]]; then
+    OUTPUT="$2"
+else
+    OUTPUT="${BASENAME}.mp4"
+fi
+
+echo "Remuxing:"
+echo "  Input : $INPUT"
+echo "  Output: $OUTPUT"
+
+ffmpeg \
+    -i "$INPUT" \
+    -c copy \
+    -map 0 \
+    -movflags +faststart \
+    "$OUTPUT"
+
+echo "Done."
