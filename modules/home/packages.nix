@@ -95,6 +95,7 @@ in
         pika
         obs-studio
         discord-rpc
+        discord-canary
         fzf
         msmtp
         iina
