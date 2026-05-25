@@ -38,7 +38,7 @@ lib.optionalAttrs (!linux) {
     enable = true;
 
     skhdConfig = ''
-      cmd - return : ${pkgs.alacritty}/Applications/Alacritty.app/Contents/MacOS/alacritty
+      cmd - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty
       alt - return : yabai -m window --toggle native-fullscreen
     '';
   };
