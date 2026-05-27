@@ -3,9 +3,9 @@
   lib,
   nix-dev,
   nix-sweep,
-  tiffiny,
+  # tiffiny,
   asteride,
-  sysfetch,
+  # sysfetch,
   ...
 }:
 
@@ -31,8 +31,8 @@ in
       # dev
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
-      (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
-      (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
+      # (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
+      # (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
       codeblocks
       mercurial
@@ -101,7 +101,7 @@ in
         iina
         duti
         aria2
-        firefox-esr
+        # firefox-esr
         windsurf
         bun
         urban-cli
