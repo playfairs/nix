@@ -108,11 +108,11 @@ let
         truncation_length = 3;
         truncation_symbol = "…/";
         substitutions = {
-          Downloads = " ";
+          Downloads = " ";
           Documents = "󰈙 ";
           Music = " ";
           Pictures = " ";
-          Movies = " ";
+          Movies = "󱜋 ";
           Videos = " ";
           Dev = " ";
           Developer = " ";

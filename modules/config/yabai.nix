@@ -19,10 +19,10 @@ lib.optionalAttrs (!linux) {
       window_gap = padding;
 
       # Must disable SIP for these settings to work
-      window_border = "off";
-      active_window_border_color = "0xFF88C0D0";
-      normal_window_border_color = "0x002E3440";
-      insert_feedback_color = "0xFFA3BE8C";
+      # window_border = "off";
+      # active_window_border_color = "0xFF88C0D0";
+      # normal_window_border_color = "0x002E3440";
+      # insert_feedback_color = "0xFFA3BE8C";
 
       border_width = 2;
       mouse_modifier = "alt";

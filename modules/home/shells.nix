@@ -41,6 +41,7 @@ let
     "np"        = "osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
     "savetrack" = "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
     "loop"      = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
+    "lsblk"     = "diskutil list";
   };
 
   posixAliases = {
@@ -174,5 +175,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "default";
+  my.starship.style = "filled";
 }
