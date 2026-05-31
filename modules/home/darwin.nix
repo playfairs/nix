@@ -101,6 +101,6 @@ lib.optionalAttrs (!linux) {
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/ichigo.jpg;
+    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/600x100.png;
   };
 }
