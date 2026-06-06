@@ -27,10 +27,10 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./flake.png;
+        source = ./heresy.png;
         #width = 50;
         #height = 25;
-        width = 72;
+        width = 70;
         height = 30;
         type = "kitty-direct";
       };

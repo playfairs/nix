@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1780116475,
-        "narHash": "sha256-9rWHyjUQQ3nr2iKxlIkkd5igwbdhtZZcRtYvrHMTwZs=",
+        "lastModified": 1780475051,
+        "narHash": "sha256-0Nn9U6Bkgn3Hh+6ziAYHroEbXge22Ub+bU482esFBPg=",
         "owner": "playfairs",
         "repo": "AsterIDE",
-        "rev": "19435a4d0ceda4882ece28a1539e89522e775484",
+        "rev": "ad17a7bcfd4629ee5e677ed3595eb297299c0b9b",
         "type": "github"
       },
       "original": {

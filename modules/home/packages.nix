@@ -95,6 +95,7 @@ in
         pika
         obs-studio
         discord-rpc
+        darktable
         discord-canary
         fzf
         msmtp
@@ -102,7 +103,6 @@ in
         duti
         aria2
         # firefox-esr
-        windsurf
         bun
         urban-cli
         ffmpeg
