@@ -86,13 +86,13 @@ lib.optionalAttrs (!linux) {
       };
 
       "com.apple.dock" = {
-        autohide = system.dock.autohide or false;
+        autohide = system.dock.autohide or true;
         orientation = system.dock.orientation or "bottom";
         tilesize = system.dock.size or 100;
         minimize-to-application = true;
         show-recents = false;
         wvous-br-corner = 1;
-        size-immutable = true;
+        size-immutable = false;
       };
 
       "com.apple.CloudSubscriptionFeatures.optIn"."545129924" = false; # Disable AI bullshit

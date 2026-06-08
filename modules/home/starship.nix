@@ -341,7 +341,7 @@ let
       git_branch = {
         format = "[$symbol$branch]($style) ";
         style  = "yellow";
-        symbol = "󰊢 on";
+        symbol = "󰊢 on ";
         truncation_symbol = "...";
       };
       git_status = {

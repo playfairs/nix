@@ -35,6 +35,7 @@ in
       # (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
       codeblocks
+      nyancat
       mercurial
       emacs
       cloudflared
