@@ -49,6 +49,7 @@ in
       tailscale
       audacity
       stats
+      mednafen
       gnupg
       yazi
       rar
