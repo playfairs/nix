@@ -103,8 +103,8 @@
           y = ":clipboard-yank";
           space = {
             space = "@<space>f";
-            w = ":wq!";
-            W = ":w!";
+            w = ":w!";
+            W = ":wq!";
             q = ":bc";
           };
         };

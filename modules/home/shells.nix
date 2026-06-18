@@ -175,5 +175,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "gruvbox";
+  my.starship.style = "tokyo_night";
 }
