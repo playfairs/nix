@@ -105,7 +105,7 @@
             space = "@<space>f";
             w = ":w!";
             W = ":wq!";
-            q = ":bc";
+            q = ":qa";
           };
         };
         select.y = ":clipboard-yank";
