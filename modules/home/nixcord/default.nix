@@ -9,7 +9,7 @@
   };
 
   programs.nixcord = {
-    enable = true;
+    enable = false;
     discord.enable = !(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
     vesktop.enable = (pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
     quickCss = import ./quickcss.nix;
@@ -29,7 +29,7 @@
         fixYoutubeEmbeds.enable = true;
         imageZoom.enable = true;
         noF1.enable = true;
-        OnePingPerDM.enable = true;
+        onePingPerDm.enable = true;
         openInApp.enable = true;
         quickReply.enable = true;
         spotifyControls.enable = true;
