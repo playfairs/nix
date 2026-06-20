@@ -5,13 +5,13 @@
   ...
 }:
 let
-  padding = 6;
+  padding = 5;
 in
 lib.optionalAttrs (!linux) {
   services.yabai = {
     enable = true;
 
-    extraConfig = "exec ${pkgs.jankyborders}/bin/borders active_color=0xffc4a7e7 inactive_color=0x00000000 width=7.0";
+    extraConfig = "exec ${pkgs.jankyborders}/bin/borders active_color=0xffc4a7e7 inactive_color=0x00000000 width=8.0";
     config = {
       layout = "bsp";
 

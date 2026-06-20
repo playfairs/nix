@@ -39,6 +39,7 @@ in
       mercurial
       emacs
       cloudflared
+      fsharp
       listadmin
       pokemon-colorscripts-mac
       mat2
