@@ -165,8 +165,12 @@ let
     };
 
     tokyo_night = {
-      format = "$directory$git_branch$custom$git_status$package$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell\n$character";
+      format = "$directory$git_branch$git_status$package$bun$deno$rust$golang$haskell$haxe$zig$c$cpp$cmake$swift$dotnet$nix_shell$fill$custom\n$character";
       continuation_prompt = "[.](bright-black) ";
+      fill = {
+        symbol = " ";
+        style = "bright-white";
+      };
       palette = "tokyo_night";
       palettes.tokyo_night = {
         dir       = "#7dcfff";
