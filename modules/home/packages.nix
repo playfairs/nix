@@ -40,6 +40,7 @@ in
       emacs
       cloudflared
       fsharp
+      cargo
       listadmin
       pokemon-colorscripts-mac
       mat2
