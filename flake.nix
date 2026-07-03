@@ -18,7 +18,6 @@
     # tiffiny.url = "github:playfairs/tiffiny";
     asteride.url = "github:playfairs/AsterIDE";
     # sysfetch.url = "github:playfairs/sysfetch";
-    
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";
