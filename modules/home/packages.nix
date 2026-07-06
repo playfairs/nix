@@ -36,6 +36,7 @@ in
       ddgr
       codeblocks
       nyancat
+      stockfish
       mercurial
       emacs
       cloudflared
