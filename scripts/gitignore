@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+usage() {
+    cat <<EOF
+Usage: gitignore [OPTIONS] <path>
+
+Options:
+  -w, --wildcard   Ignore all files/folders with the same name anywhere.
+  -h, --help       Show this help.
+EOF
+}
+
+wildcard=false
+target=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -w|--wildcard)
+            wildcard=true
+            shift
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -*)
+            echo "Unknown option: $1" >&2
+            exit 1
+            ;;
+        *)
+            if [[ -n "$target" ]]; then
+                echo "Only one path may be specified." >&2
+                exit 1
+            fi
+            target="$1"
+            shift
+            ;;
+    esac
+done
+
+if [[ -z "$target" ]]; then
+    usage
+    exit 1
+fi
+
+repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Not inside a Git repository." >&2
+    exit 1
+}
+
+gitignore="$repo_root/.gitignore"
+
+if $wildcard; then
+    entry="$(basename "$target")"
+else
+    entry="$target"
+fi
+
+touch "$gitignore"
+
+if grep -Fxq "$entry" "$gitignore"; then
+    echo "Already ignored: $entry"
+    exit 0
+fi
+
+echo "$entry" >> "$gitignore"
+echo "Added: $entry"
