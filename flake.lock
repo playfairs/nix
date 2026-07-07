@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1783197782,
-        "narHash": "sha256-JIr+A8CsnEr3fgPrqLVpK0n0IlQvMZop085IJoQAfEU=",
+        "lastModified": 1783313752,
+        "narHash": "sha256-qIQK5jYk5uEKesU2iYRLr1mjpAnJdWtjHBl8QqQFgeQ=",
         "owner": "Aster-IDE",
         "repo": "AsterIDE",
-        "rev": "e4b029254a5975f8f42dc562fe55d3ad0d5c9e25",
+        "rev": "f08826f01726251b1137127c31b212c34d4ad02f",
         "type": "github"
       },
       "original": {

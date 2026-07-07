@@ -103,6 +103,8 @@ in
         darktable
         discord-canary
         fzf
+        zed-editor
+        zed-discord-presence
         msmtp
         iina
         duti
