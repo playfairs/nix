@@ -34,7 +34,6 @@ in
       # (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
       # (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
-      codeblocks
       nyancat
       stockfish
       mercurial
@@ -44,14 +43,10 @@ in
       cargo
       listadmin
       pokemon-colorscripts-mac
-      mat2
       ansi
-      bb
       pnpm
       onefetch
       tailscale
-      audacity
-      stats
       mednafen
       gnupg
       yazi
@@ -65,7 +60,6 @@ in
       autotrace
       uv
       java-language-server
-      godot
       ffmpeg
       spotify
       zsh-bd
@@ -100,7 +94,6 @@ in
         pika
         obs-studio
         discord-rpc
-        darktable
         discord-canary
         fzf
         msmtp

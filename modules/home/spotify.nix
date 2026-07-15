@@ -23,7 +23,7 @@ in
       ];
     };
     spotify-player = {
-      enable = true;
+      enable = false;
 
       settings = {
         theme = "rose-pine";
