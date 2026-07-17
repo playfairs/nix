@@ -11,13 +11,8 @@
     ip.url = "gitlab:hiten-tandon/some-nix-darwin-packages";
     discord-rpc-lsp.url = "gitlab:invra/discord-rpc-lsp";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    sketchierbar.url = "gitlab:invra/sketchierbar";
     nix-dev.url = "gitlab:invra/inc";
-    ffm.url = "gitlab:invra/ffm";
-    nix-sweep.url = "github:jzbor/nix-sweep";
-    # tiffiny.url = "github:playfairs/tiffiny";
-    asteride.url = "github:Aster-IDE/AsterIDE/dev";
-    # sysfetch.url = "github:playfairs/sysfetch";
+    asteride.url = "github:Aster-IDE/AsterIDE/v2";
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";
