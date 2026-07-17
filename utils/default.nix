@@ -19,17 +19,12 @@ let
       zen-browser
       nushell
       nix-dev
-      nix-sweep
-      tiffiny
       asteride
       sysfetch
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
       discord-rpc-lsp.overlays.default
-      sketchierbar.overlays.default
-      # nix-dev.overlays.default
-      ffm.overlays.default
       ip.overlay
     ];
     linux = (lib.strings.hasSuffix "x86" configName || lib.strings.hasSuffix "aarch64" configName);

@@ -2,10 +2,7 @@
   pkgs,
   lib,
   nix-dev,
-  nix-sweep,
-  # tiffiny,
   asteride,
-  # sysfetch,
   ...
 }:
 
@@ -30,9 +27,6 @@ in
       dbgate
       # dev
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
-      (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
-      # (tiffiny.packages.${pkgs.stdenv.hostPlatform.system}.tiffiny)
-      # (sysfetch.packages.${pkgs.stdenv.hostPlatform.system}.sysfetch)
       ddgr
       nyancat
       stockfish
