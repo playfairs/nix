@@ -95,6 +95,7 @@ in
         obs-studio
         discord-rpc
         discord-canary
+        bindfs
         fzf
         msmtp
         iina
