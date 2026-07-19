@@ -30,6 +30,7 @@ let
     "lazy"      = "lazygit";
     "azy"       = "lazygit";
     "laz"       = "lazygit";
+    "asteride-dev" = "nix run github:Aster-IDE/AsterIDE/dev";
   };
 
   darwinAliases = lib.optionalAttrs darwin {
