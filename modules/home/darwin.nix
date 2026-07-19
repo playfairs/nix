@@ -70,7 +70,7 @@ lib.optionalAttrs (!linux) {
 
       "com.apple.finder" = {
         AppleShowAllExtensions = true;
-        FXPreferredViewStyle = "Nlsv"; # List view
+        FXPreferredViewStyle = "clmv"; # List view
         FXDefaultSearchScope = "SCcf"; # Search the current folder
         _FXSortFoldersFirst = true; # List with directorys at first
         FinderSpawnTab = false; # Disable finder tabs (due to WM)
