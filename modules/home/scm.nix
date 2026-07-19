@@ -50,6 +50,7 @@ in
         a = "add .";
         s = "switch";
         b = "branch";
+        m = "merge";
       };
       init.defaultBranch = gitConfig.defaultBranch or "main";
       core.quotepath = "off";
