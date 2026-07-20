@@ -87,6 +87,8 @@ in
         (asteride.packages.${pkgs.stdenv.hostPlatform.system}.asteride)
         pika
         obs-studio
+        zed-editor
+        gram
         discord-rpc
         discord-canary
         bindfs
