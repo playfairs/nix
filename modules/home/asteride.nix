@@ -13,7 +13,7 @@
     settings = {
       appearance = {
         scale = 1.0;
-        theme = "rose_pine_dawn";
+        theme = "rose_pine_moon";
       };
     };
   };
