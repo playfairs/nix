@@ -13,7 +13,7 @@
     settings = {
       appearance = {
         scale = 1.0;
-        theme = "rose_pine_moon";
+        theme = "cherry_blossom_dark";
       };
     };
   };
