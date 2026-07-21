@@ -21,6 +21,8 @@ let
       nix-dev
       asteride
       sysfetch
+      lish
+      nix-sweep
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
