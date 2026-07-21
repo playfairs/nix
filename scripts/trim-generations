@@ -95,7 +95,7 @@ else
 
         case "$asnwer" in
         [yY1] )
-            printf "ok, continuing..\n"
+            printf "ok sicko.. Continuing.\n"
             ;;
         [nN0] )
             printf "ok, doing nothing, exiting..\n"
@@ -156,7 +156,7 @@ choose () {
              nix-env --delete-generations -p $profile ${!gens[@]}
             exit 0
             ;;
-        [nN0] ) printf "Ok doing nothing exiting..\n"
+        [nN0] ) printf "Ok then..\n"
             exit 6;
             ;;
         *     ) printf "%b" "Unexpected answer '$answer'!" >&2
