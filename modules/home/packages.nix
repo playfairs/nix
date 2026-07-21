@@ -3,6 +3,8 @@
   lib,
   nix-dev,
   asteride,
+  nix-sweep,
+  lish,
   ...
 }:
 
@@ -26,6 +28,7 @@ in
     ++ (with pkgs; [
       dbgate
       # dev
+      (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
       ddgr
       nyancat
@@ -34,7 +37,7 @@ in
       emacs
       cloudflared
       fsharp
-      cargo
+      # cargo
       listadmin
       pokemon-colorscripts-mac
       ansi
@@ -85,10 +88,12 @@ in
       [
         utm
         (asteride.packages.${pkgs.stdenv.hostPlatform.system}.asteride)
+        (lish.packages.${pkgs.stdenv.hostPlatform.system}.lish)
         pika
         obs-studio
         zed-editor
         gram
+        rustup
         discord-rpc
         discord-canary
         bindfs
