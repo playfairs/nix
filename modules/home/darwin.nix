@@ -101,6 +101,6 @@ lib.optionalAttrs (!linux) {
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/nix/nix-wallpaper-nineish-catppuccin-mocha.png;
+    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/misc/earth.jpg;
   };
 }
