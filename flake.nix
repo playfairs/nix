@@ -13,6 +13,8 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     nix-dev.url = "gitlab:invra/inc";
     asteride.url = "github:Aster-IDE/AsterIDE/v2";
+    lish.url = "github:repolish/lish";
+    nix-sweep.url = "github:jzbor/nix-sweep";
 
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";
