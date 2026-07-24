@@ -79,7 +79,7 @@
             "file-modification-indicator"
             "spinner"
           ];
-          center = [ "file-name" ];
+          center = [ "file-absolute-path" ];
           right = [
             "diagnostics"
             "file-type"
@@ -93,7 +93,7 @@
         };
         indent-guides = {
           render = true;
-          character = "╎";
+          character = "|";
           skip-levels = 1;
         };
       };
@@ -106,6 +106,7 @@
             w = ":w!";
             W = ":wq!";
             q = ":qa";
+            Q = ":qa!";
           };
         };
         select.y = ":clipboard-yank";
