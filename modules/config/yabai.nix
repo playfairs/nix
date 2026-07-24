@@ -9,9 +9,9 @@ let
 in
 lib.optionalAttrs (!linux) {
   services.yabai = {
-    enable = false;
+    enable = true;
 
-    extraConfig = "exec ${pkgs.jankyborders}/bin/borders active_color=0xFFC4A7E7 inactive_color=0x6e6a86ff width=8.0";
+    extraConfig = "exec ${pkgs.jankyborders}/bin/borders active_color=0xFFC4A7E7 inactive_color=0x6e6a86ff width=10.0";
     config = {
       layout = "bsp";
 
