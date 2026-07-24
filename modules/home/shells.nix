@@ -31,6 +31,7 @@ let
     "azy"       = "lazygit";
     "laz"       = "lazygit";
     "asteride-dev" = "nix run github:Aster-IDE/AsterIDE/dev";
+    "gut"       = "git";
   };
 
   darwinAliases = lib.optionalAttrs darwin {
@@ -177,5 +178,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "tokyo_night";
+  my.starship.style = "default";
 }
