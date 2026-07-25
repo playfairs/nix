@@ -171,7 +171,6 @@ in
         nugget-doom
         vlc
         hyprshot
-        gimp3
         pavucontrol
         libreoffice-qt6-still
         kdePackages.kdeconnect-kde
