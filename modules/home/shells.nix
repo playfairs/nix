@@ -178,5 +178,5 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "catppuccin";
+  my.starship.style = "tokyo_night";
 }
