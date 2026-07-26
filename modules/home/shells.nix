@@ -178,5 +178,6 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.style = "tokyo_night";
+  my.starship.format = "format2";   # "default" | "minimal" | "format1" | "format2" | "filled"
+  my.starship.theme  = "catppuccin"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
 }
