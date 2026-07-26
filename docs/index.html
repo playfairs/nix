@@ -1,11 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nix</title>
-</head>
-<body>
-  placeholder until I get this setup
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="General documentation homepage for the repository, explaining repo purpose, structure, and key sections."
+    />
+    <title>Nix Docs</title>
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="js/style.css" />
+  </head>
+  <body data-section="home">
+    <main class="doc-shell">
+      <aside class="sidebar" aria-label="Documentation navigation">
+        <nav>
+          <a href="index.html" aria-current="page">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="html/setup.html">Setup</a>
+          <a href="html/what-is-nix.html">What is Nix?</a>
+          <a href="html/configuration.html">Architecture</a>
+          <a href="html/hosts.html">Hosts</a>
+          <a href="html/nixos.html">System</a>
+          <a href="html/home-manager.html">Home Manager</a>
+          <a href="html/desktops.html">Desktops</a>
+          <a href="html/darwin.html">macOS</a>
+          <a href="html/applications.html">Apps</a>
+          <a href="html/theming.html">Theming</a>
+          <a href="html/scripts.html">Scripts</a>
+          <a href="html/maintenance.html">Maintenance</a>
+          <a href="html/reference.html">Reference</a>
+        </nav>
+      </aside>
+      <div class="content">
+        <section class="hero">
+          <div class="hero-copy full-width">
+            <p class="eyebrow">Repository overview</p>
+            <h1>My Nix Flake with docs for all hosts and platforms.</h1>
+            <p>
+              This site explains how the repository is organized, how host
+              profiles are structured, and how the shared flake produces Home
+              Manager, NixOS, and nix-darwin configurations from the same source
+              tree.
+            </p>
+            <p>
+              The documentation is a map for the repo; it covers host layout,
+              platform specific outputs, and the commands used to build and
+              switch each machine from a single configuration source.
+            </p>
+            <p>
+              Look at setup, architecture, host profiles, or reference pages to
+              see how the repo keeps everything modular, reusable, and easy to
+              maintain. Or don't, I don't care.
+              <br />
+            </p>
+            <div class="action-row">
+              <a class="button primary" href="html/setup.html"
+                >Getting started</a
+              >
+              <a class="button" href="html/configuration.html"
+                >Explore the flake</a
+              >
+              <a class="button" href="html/hosts.html">Host layout</a>
+              <a class="button" href="html/reference.html">Quick reference</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="js/index.js"></script>
+  </body>
 </html>

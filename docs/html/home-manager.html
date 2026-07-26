@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Manager | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">User layer</p>
+          <h1>Home Manager modules</h1>
+          <p>
+            <code>modules/home</code> configures user packages, shells,
+            terminals, desktop app settings, editors, media tools, and
+            platform-specific user activation.
+          </p>
+        </header>
+        <section>
+          <h2>Base home state</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong><code>home-manager.nix</code></strong>
+              <p>
+                Sets username, platform home directory, state version
+                <code>24.11</code>, and <code>EDITOR=hx</code>.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>default.nix</code></strong>
+              <p>
+                Imports all Home Manager modules recursively and applies
+                overlays/unfree predicate.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>packages.nix</code></strong>
+              <p>
+                Wraps every file in <code>scripts/</code> as a shell command and
+                installs the main app/tool package set.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>xdg.nix</code></strong>
+              <p>
+                Sets Linux browser defaults to Zen and provides a Ghostty
+                desktop entry.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Shell workflow</h2>
+          <p>
+            <code>shells.nix</code> enables zsh, nushell, fzf, carapace, eza,
+            zoxide, and imports Starship and Elvish. It sets
+            <code>NH_FLAKE=$HOME/.nix</code> and adds Nix/Home Manager profile
+            paths to the session.
+          </p>
+          <div class="tag-row">
+            <span class="tag">zsh</span><span class="tag">nushell</span
+            ><span class="tag">elvish</span><span class="tag">starship</span
+            ><span class="tag">fzf</span><span class="tag">carapace</span
+            ><span class="tag">eza</span><span class="tag">zoxide</span>
+          </div>
+        </section>
+        <section>
+          <h2>Editors and terminals</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>helix.nix</code></td>
+                  <td>
+                    Default editor with Nix/Rust/Zig/TypeScript/Go language
+                    servers, Discord RPC LSP, custom statusline, diagnostics,
+                    and keybindings.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>ghostty.nix</code></td>
+                  <td>
+                    Ghostty on Linux and Ghostty binary on Darwin, Rose Pine
+                    theme, opacity, hidden macOS titlebar, platform font sizing.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>alacritty.nix</code></td>
+                  <td>
+                    Darwin-only Alacritty with Rose Pine, buttonless window,
+                    opacity, JetBrains Mono Nerd Font, and font-size bindings.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>foot.nix</code></td>
+                  <td>
+                    Linux Foot terminal with JetBrains Mono Nerd Font and alpha
+                    override.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>yazi.nix</code></td>
+                  <td>
+                    Yazi file manager with Rose Pine Moon flavor, natural sort,
+                    hidden files visible, and image preview settings.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>SCM and cleanup</h2>
+          <p>
+            <code>scm.nix</code> configures Git from either the old
+            <code>development.git</code> shape or the newer
+            <code>development.scm.git</code> shape, optionally enables
+            Mercurial, and installs <code>lazygit</code>, <code>glab</code>, and
+            <code>gh</code>. <code>nh.nix</code> enables automatic cleanup with
+            <code>--keep-since 4d --keep 3</code>.
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

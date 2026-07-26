@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is Nix? | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Short version</p>
+          <h1>What Nix is doing in this repo</h1>
+          <p>
+            Nix makes system state declarative. Instead of installing things one
+            by one and hoping the machine stays understandable, this repo
+            describes what each machine should look like and lets Nix build that
+            state.
+          </p>
+        </header>
+        <section>
+          <h2>The pieces</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong>Nix</strong>
+              <p>
+                The package manager and build language. It evaluates this flake
+                and realizes packages, modules, and generated files.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>NixOS</strong>
+              <p>
+                The Linux OS module system used by <code>laptop-x86</code>,
+                <code>vm-x86</code>, and <code>vm-aarch64</code>.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>nix-darwin</strong>
+              <p>
+                The macOS system layer used by <code>macbook</code>,
+                <code>macmini</code>, and <code>mac-vm</code>.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Home Manager</strong>
+              <p>
+                The user layer used everywhere for shells, terminals, editors,
+                app settings, scripts, and dotfiles.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Why flakes matter here</h2>
+          <p>
+            The lock file pins dependencies, and <code>flake.nix</code> exposes
+            named outputs. That is why commands can target
+            <code>.#macmini</code> or <code>.#laptop-x86</code> instead of
+            relying on hidden local state.
+          </p>
+        </section>
+        <section>
+          <h2>How to think about changes</h2>
+          <p>
+            Change host identity in <code>configs/hosts</code>. Change OS
+            behavior in <code>modules/config</code>. Change user programs in
+            <code>modules/home</code>. Change builder behavior in
+            <code>utils/default.nix</code>. Change scripts in
+            <code>scripts/</code>.
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

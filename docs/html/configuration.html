@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Repo map</p>
+          <h1>How the flake is wired</h1>
+          <p>
+            The repository is built around host data. A host attrset describes
+            users, desktop choices, graphics, services, network behavior, and
+            macOS Dock settings. Builders turn that host data into OS and Home
+            Manager configurations.
+          </p>
+        </header>
+        <section>
+          <h2>Top-level flow</h2>
+          <div class="flow-list">
+            <div>
+              <b>1</b
+              ><span
+                ><code>configs/flake.nix</code> imports every
+                <code>configs/hosts/*.nix</code> file into an attrset keyed by
+                filename.</span
+              >
+            </div>
+            <div>
+              <b>2</b
+              ><span
+                ><code>flake.nix</code> maps each host name through
+                <code>mkConfig</code>.</span
+              >
+            </div>
+            <div>
+              <b>3</b
+              ><span
+                >Names ending in <code>x86</code> become
+                <code>x86_64-linux</code>; names ending in
+                <code>aarch64</code> become <code>aarch64-linux</code>;
+                everything else becomes <code>aarch64-darwin</code>.</span
+              >
+            </div>
+            <div>
+              <b>4</b
+              ><span
+                ><code>utils/default.nix</code> creates
+                <code>mkHomeConfig</code>, <code>mkNixConfig</code>, and
+                <code>mkDarwinConfig</code>.</span
+              >
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Important inputs</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>nixpkgs</code>, <code>nixpkgs-stable</code></td>
+                  <td>Main package set plus a stable channel.</td>
+                </tr>
+                <tr>
+                  <td><code>home-manager</code>, <code>darwin</code></td>
+                  <td>User-level and macOS system builders.</td>
+                </tr>
+                <tr>
+                  <td><code>stylix</code></td>
+                  <td>
+                    Shared theme, fonts, wallpaper, icons, and cursor styling.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>plasma-manager</code></td>
+                  <td>Declarative KDE Plasma settings.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <code>nixcord</code>, <code>spicetify-nix</code>,
+                    <code>zen-browser</code>
+                  </td>
+                  <td>Discord/Vesktop, Spotify, and browser integrations.</td>
+                </tr>
+                <tr>
+                  <td><code>mango</code></td>
+                  <td>NixOS module for MangoWC.</td>
+                </tr>
+                <tr>
+                  <td><code>treefmt-nix</code></td>
+                  <td>Repository formatter wrapper.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Special arguments</h2>
+          <p>
+            <code>utils/default.nix</code> passes common arguments to every
+            module: <code>flakeConfig</code>, <code>linux</code>,
+            <code>darwin</code>, overlays, selected inputs, and
+            <code>allowUnfreePredicate</code>.
+          </p>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong><code>flakeConfig</code></strong>
+              <p>The current host attrset from <code>configs/hosts</code>.</p>
+            </div>
+            <div class="mini-card">
+              <strong><code>linux</code> / <code>darwin</code></strong>
+              <p>Platform booleans used to gate modules cleanly.</p>
+            </div>
+            <div class="mini-card">
+              <strong><code>extraOverlays</code></strong>
+              <p>
+                Adds <code>discord-rpc-lsp</code> and the
+                <code>ip</code> overlay.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>allowUnfreePredicate</code></strong>
+              <p>
+                Allows selected unfree packages such as Spotify, Steam, Discord,
+                Shottr, and NVIDIA packages.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Module imports</h2>
+          <p>
+            Both <code>modules/config/default.nix</code> and
+            <code>modules/home/default.nix</code> use
+            <code>custils.lib.getModulesFromDirRec</code>, so new
+            <code>.nix</code> modules are picked up automatically. NixOS
+            additionally imports the host hardware module.
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

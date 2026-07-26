@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hosts | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Machine profiles</p>
+          <h1>Host configuration reference</h1>
+          <p>
+            Each host file is data, not a module. The values are consumed by
+            shared modules through <code>flakeConfig</code>.
+          </p>
+        </header>
+        <section>
+          <h2>Host matrix</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Host</th>
+                  <th>Platform</th>
+                  <th>User</th>
+                  <th>Desktop / WM</th>
+                  <th>Notable settings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>macbook</code></td>
+                  <td>aarch64-darwin</td>
+                  <td>Invra</td>
+                  <td>macOS defaults, Dock entries</td>
+                  <td>
+                    Keyboard normalization, Caps to Escape, right Dock,
+                    Zen/Discord/Ghostty apps.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>macmini</code></td>
+                  <td>aarch64-darwin</td>
+                  <td>playfairs</td>
+                  <td>macOS defaults, Dock entries</td>
+                  <td>
+                    Bottom Dock, custom app list including Spotify, Discord,
+                    Steam, VS Code, Gram.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>mac-vm</code></td>
+                  <td>aarch64-darwin</td>
+                  <td>Invra</td>
+                  <td>macOS defaults</td>
+                  <td>
+                    Keyboard normalization, right Dock, Mercurial and Git
+                    enabled.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>laptop-x86</code></td>
+                  <td>x86_64-linux</td>
+                  <td>playfairs</td>
+                  <td>Hyprland enabled</td>
+                  <td>
+                    144 Hz eDP-1 monitor, Ly greeter, Intel IOMMU params,
+                    MongoDB and SSH requested.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>vm-x86</code></td>
+                  <td>x86_64-linux</td>
+                  <td>Invra</td>
+                  <td>Plasma enabled</td>
+                  <td>
+                    GDM greeter, NetworkManager, SSH, x86 VM hardware module.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>vm-aarch64</code></td>
+                  <td>aarch64-linux</td>
+                  <td>Invra</td>
+                  <td>Plasma enabled</td>
+                  <td>
+                    GDM greeter, modesetting driver, blacklists
+                    nouveau/nvidia/amdgpu.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Host attrset schema</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong><code>user</code></strong>
+              <p>
+                <code>username</code>, <code>displayName</code>, and initial
+                password seed for user creation.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>system</code></strong>
+              <p>
+                Host name, timezone, keyboard, Dock, graphics, networking,
+                greeter, services, boot, and hardware module path.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>desktop</code></strong>
+              <p>
+                Enables Plasma, Hyprland, Niri, or MangoWC and may carry monitor
+                definitions.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>development</code></strong>
+              <p>
+                Git and Mercurial identity, default branch, and Forge types used
+                by SCM and Fastfetch.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Hardware files</h2>
+          <p>
+            <code>configs/hosts/hardware</code> contains generated NixOS
+            hardware modules. They define filesystems, swap, kernel modules, CPU
+            microcode, and host platform. Linux host profiles point at these
+            with <code>system.hardware-module</code>.
+          </p>
+          <div class="tag-row">
+            <span class="tag">laptop-x86.nix</span
+            ><span class="tag">mainpc-x86.nix</span
+            ><span class="tag">vm-x86.nix</span
+            ><span class="tag">vm-aarch64.nix</span>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

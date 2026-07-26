@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reference | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">File map</p>
+          <h1>Quick reference</h1>
+          <p>A compact index of where the important things live.</p>
+        </header>
+        <section>
+          <h2>Key files</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Path</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>flake.nix</code></td>
+                  <td>
+                    Top-level flake inputs, host mapping, and repo outputs.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>configs/</code></td>
+                  <td>
+                    Host profiles, platform detection, and macOS bootstrap
+                    automation.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>configs/hosts/</code></td>
+                  <td>
+                    Host-specific settings and hardware module references.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>configs/hosts/hardware/</code></td>
+                  <td>Generated Linux hardware modules used by NixOS hosts.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/config/</code></td>
+                  <td>
+                    System-level modules imported by NixOS and nix-darwin.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/</code></td>
+                  <td>User-level Home Manager modules and app defaults.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/default.nix</code></td>
+                  <td>
+                    Main Home Manager module loader and common config
+                    entrypoint.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/packages.nix</code></td>
+                  <td>
+                    User package selections and wrapped repository scripts.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/shells.nix</code></td>
+                  <td>
+                    Shell and terminal configuration plus prompt and session
+                    setup.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/home-manager.nix</code></td>
+                  <td>
+                    Base Home Manager configuration and platform defaults.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/starship.nix</code></td>
+                  <td>Starship prompt themes and format settings.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/helix.nix</code></td>
+                  <td>Editor configuration and language server support.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/ghostty.nix</code></td>
+                  <td>
+                    Terminal application settings and platform integration.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>modules/home/darwin.nix</code></td>
+                  <td>macOS-specific Home Manager options and services.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/config/default.nix</code></td>
+                  <td>System module loader and common system arguments.</td>
+                </tr>
+                <tr>
+                  <td><code>modules/config/scm.nix</code></td>
+                  <td>
+                    Version control tool configuration and repository helpers.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>scripts/</code></td>
+                  <td>Shell scripts exposed into user environments.</td>
+                </tr>
+                <tr>
+                  <td><code>utils/</code></td>
+                  <td>
+                    Helper functions, builders, and reusable repo utilities.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Common edits</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong>Change user identity</strong>
+              <p>
+                Edit <code>configs/hosts/&lt;host&gt;.nix</code> under
+                <code>user</code> and <code>development.scm</code>.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Change display manager</strong>
+              <p>Edit <code>system.greeter</code> in the host file.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Add a package</strong>
+              <p>
+                Edit <code>modules/home/packages.nix</code> for user packages or
+                <code>modules/config/packages.nix</code> for system packages.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Add a script</strong>
+              <p>
+                Add an executable-style shell file to <code>scripts/</code>;
+                Home Manager wraps regular files automatically.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Change theme</strong>
+              <p>
+                Edit <code>modules/config/stylix.nix</code>,
+                <code>modules/home/stylix.nix</code>, or per-app opt-out
+                modules.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Change desktop behavior</strong>
+              <p>
+                Edit <code>modules/home/hyprland.nix</code>, <code>niri/</code>,
+                <code>mango.nix</code>, or <code>plasma.nix</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applications | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Daily tools</p>
+          <h1>Application and program configuration</h1>
+          <p>
+            The Home Manager layer configures core programs directly and
+            installs a broad package set through
+            <code>modules/home/packages.nix</code>.
+          </p>
+        </header>
+        <section>
+          <h2>Program modules</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Module</th>
+                  <th>Configuration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>asteride.nix</code></td>
+                  <td>
+                    Imports AsterIDE Home Manager module, enables AsterIDE, sets
+                    scale and cherry blossom dark theme.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>btop.nix</code></td>
+                  <td>
+                    TTY theme, vim keys, one-second updates, Celsius temps,
+                    truecolor.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>fastfetch/default.nix</code></td>
+                  <td>
+                    Custom logo, system/hardware/package/network/SCM/Spotify
+                    sections, Darwin-specific Spotify AppleScript support.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>nixcord/default.nix</code></td>
+                  <td>
+                    Nixcord disabled but Discord/Vesktop package selection and
+                    plugin config are declared; Vesktop is selected on aarch64
+                    Linux.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>obs.nix</code></td>
+                  <td>Enables OBS Studio on Linux.</td>
+                </tr>
+                <tr>
+                  <td><code>spotify.nix</code></td>
+                  <td>
+                    Spicetify and spotify-player are currently disabled, but
+                    Rose Pine player theme and Beautiful Lyrics extension are
+                    prepared.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>zen.nix</code></td>
+                  <td>
+                    Zen Browser Home Manager target is disabled, while
+                    packages/default apps still reference Zen in Linux defaults.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Package groups</h2>
+          <div class="three-col">
+            <div class="mini-card">
+              <strong>Development</strong>
+              <p>
+                nix-dev, nil, nixd, Java language server, Node.js, pnpm, uv, F#,
+                Mercurial, gh, glab, lazygit.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Media</strong>
+              <p>
+                Spotify, ffmpeg, OBS, IINA on Darwin, VLC on Linux, Flameshot,
+                Shottr, player tools.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Desktop apps</strong>
+              <p>
+                Discord variants, Telegram, WhatsApp Electron, Prism Launcher,
+                LibreOffice, KDE Connect, UTM, Zed, Gram.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>CLI utilities</strong>
+              <p>
+                fd, ripgrep, tree, wget, unzip, rar, gum, pv, file, inetutils,
+                uutils, ddgr, onefetch.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Fun and misc</strong>
+              <p>
+                nyancat, stockfish, pokemon colorscripts, mednafen, urban-cli,
+                animal/media helpers from scripts.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Platform extras</strong>
+              <p>
+                Linux adds Wayland tools and communication apps; Darwin adds app
+                wrappers, Rustup, bindfs, aria2, duti, and macOS utilities.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

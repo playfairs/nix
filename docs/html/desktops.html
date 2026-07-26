@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktops | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Linux desktop layer</p>
+          <h1>Window managers, panels, launchers, and notifications</h1>
+          <p>
+            The repo supports multiple Linux desktop paths. Host files choose
+            what is active; Home Manager modules declare the user-level
+            configuration.
+          </p>
+        </header>
+        <section>
+          <h2>Hyprland</h2>
+          <p>
+            <code>modules/home/hyprland.nix</code> reads
+            <code>desktop.hyprland</code> from the host. It maps monitor objects
+            into Hyprland monitor strings, starts <code>swww-daemon</code>,
+            Waybar, and Mako, sets wallpaper, and defines workspaces, media
+            keys, screenshots, PiP rules, opacity, blur, gaps, and bindings.
+          </p>
+          <div class="tag-row">
+            <span class="tag">SUPER+Return Ghostty</span
+            ><span class="tag">SUPER+Space rofi</span
+            ><span class="tag">SUPER+Shift+S region screenshot</span
+            ><span class="tag">ALT+Return fullscreen</span>
+          </div>
+        </section>
+        <section>
+          <h2>Niri</h2>
+          <p>
+            <code>modules/home/niri/default.nix</code> writes
+            <code>.config/niri/config.kdl</code> on Linux. The KDL config starts
+            Xwayland satellite, Waybar, Mako, and swww, sets Wayland environment
+            variables, configures keyboard/touchpad, focus ring, shadows,
+            animations, PiP rules, and extensive workspace/window bindings.
+          </p>
+        </section>
+        <section>
+          <h2>MangoWC</h2>
+          <p>
+            <code>modules/mangowc.nix</code> is a custom Home Manager module
+            that serializes MangoWC settings to
+            <code>mango/config.conf</code> and can generate
+            <code>startup.sh</code>.
+            <code>modules/home/mango.nix</code> supplies the actual MangoWC
+            settings and only enables them when
+            <code>desktop.mangowc.enable</code> is true.
+          </p>
+        </section>
+        <section>
+          <h2>Plasma</h2>
+          <p>
+            <code>modules/home/plasma.nix</code> uses plasma-manager. It enables
+            Plasma when requested, adds panel/colorizer/tiling packages,
+            configures a top autohide panel, KWin shortcuts, nine desktops,
+            KRunner position, and Picture-in-Picture window rules.
+          </p>
+        </section>
+        <section>
+          <h2>Panel, launcher, notifications</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong><code>waybar/</code></strong>
+              <p>
+                Writes Waybar JSON and CSS with launcher, workspace/window,
+                network, audio, battery, tray, and clock modules.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>tofi.nix</code></strong>
+              <p>
+                Configures a full-screen tofi launcher with Rose Pine colors and
+                large JetBrains Mono text.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>mako.nix</code></strong>
+              <p>
+                Configures Linux notifications with Rose Pine colors, top-center
+                anchor, icons, borders, and timeouts.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong><code>xdg.nix</code></strong>
+              <p>
+                Sets Linux defaults for browser URL schemes and Ghostty desktop
+                entry.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

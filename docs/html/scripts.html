@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scripts | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Wrapped commands</p>
+          <h1>Scripts included in Home Manager</h1>
+          <p>
+            <code>modules/home/packages.nix</code> reads every regular file in
+            <code>scripts/</code> and wraps it with
+            <code>pkgs.writeShellScriptBin</code>, so these become commands in
+            the user environment.
+          </p>
+        </header>
+        <section>
+          <h2>Script catalog</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>1000-7</code></td>
+                  <td>
+                    Interactive subtraction drill that restarts on wrong
+                    answers.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>animal</code></td>
+                  <td>
+                    Fetches a random cat, dog, fox, or duck image URL and copies
+                    it when possible.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>badapple</code></td>
+                  <td>
+                    Runs Bad Apple through mpv with caca terminal video output.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>calc</code></td>
+                  <td>
+                    Evaluates a math expression through <code>bc -l</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>ds</code></td>
+                  <td>
+                    Shows drive usage in bytes, GB, and TB with color
+                    thresholds.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>extract</code></td>
+                  <td>
+                    Archive extractor for tar, gz, bz2, rar, zip, 7z, and
+                    related formats.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>findbig</code></td>
+                  <td>
+                    Lists the 20 largest paths under the current directory.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>fm</code></td>
+                  <td>
+                    Last.fm helper for auth, now-playing display, and loving the
+                    current track.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>gitignore</code></td>
+                  <td>
+                    Adds a path or wildcard basename to the repository
+                    <code>.gitignore</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>invis</code></td>
+                  <td>
+                    Uses fzf to choose an invisible Unicode character and copy
+                    it.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>math</code></td>
+                  <td>Interactive timed arithmetic practice with stats.</td>
+                </tr>
+                <tr>
+                  <td><code>push</code></td>
+                  <td>
+                    Commits and pushes file-by-file changes for
+                    <code>~/.nix</code> and <code>~/.config</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>remux</code></td>
+                  <td>Remuxes media to MP4 with ffmpeg stream copy.</td>
+                </tr>
+                <tr>
+                  <td><code>snowflake</code></td>
+                  <td>
+                    Generates a Snowflake-style numeric ID with a sequence file
+                    in <code>/tmp</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>systemfetch</code></td>
+                  <td>
+                    Small shell system summary for host, OS, kernel, shell,
+                    terminal, and working directory.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>trim-generations</code></td>
+                  <td>
+                    Interactive Nix generation cleanup helper with
+                    keep-by-generation and keep-by-days logic.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>uuid</code></td>
+                  <td>
+                    Generates random lowercase hex from
+                    <code>/dev/urandom</code>; default length is 32.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>word</code></td>
+                  <td>
+                    Chooses a random dictionary word of a requested length.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Dependencies to remember</h2>
+          <p>
+            Some scripts expect external commands at runtime: <code>curl</code>,
+            <code>jq</code>, <code>fzf</code>, clipboard tools,
+            <code>mpv</code>, <code>ffmpeg</code>, <code>bc</code>,
+            <code>df</code>, <code>du</code>, <code>sort</code>,
+            <code>head</code>, and archive tools. Many are already installed by
+            <code>packages.nix</code>, but API-based scripts still need network
+            access and credentials.
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macOS | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Darwin path</p>
+          <h1>nix-darwin and macOS user config</h1>
+          <p>
+            Darwin hosts receive system modules from
+            <code>modules/config</code> and user modules from
+            <code>modules/home</code>. The macOS-specific Home Manager module
+            imports wallpaper and Dock support.
+          </p>
+        </header>
+        <section>
+          <h2>macOS defaults</h2>
+          <p>
+            <code>modules/home/darwin.nix</code> declares Finder, Dock,
+            screencapture, clock, desktop services, global keyboard/repeat,
+            metric units, window dragging, Stage Manager behavior, and
+            cloud-save preferences.
+          </p>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong>Finder</strong>
+              <p>
+                Shows extensions and hidden files, path bar, folder-first
+                sorting, no desktop icons, no extension warning, trash cleanup.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Dock</strong>
+              <p>
+                Autohide, orientation, size, no recents, app minimize behavior,
+                and host-provided entries.
+              </p>
+            </div>
+            <div class="mini-card">
+              <strong>Screenshots</strong>
+              <p>PNG screenshots to Pictures, clipboard target, no shadow.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Keyboard</strong>
+              <p>
+                Function keys, repeat speed, optional command/alt/control/fn
+                normalization and Caps to Escape.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Dock module</h2>
+          <p>
+            <code>modules/dock/default.nix</code> creates
+            <code>targets.darwin.dock</code>. It compares current Dock URIs to
+            desired entries, removes stale entries, adds desired app bundles,
+            and restarts Dock only when the list changes.
+          </p>
+          <p>
+            <code>modules/dock/packages.nix</code> builds a tiny Rust helper
+            that detects OS version so the default App Drawer path can adapt for
+            newer macOS versions.
+          </p>
+        </section>
+        <section>
+          <h2>Wallpaper module</h2>
+          <p>
+            <code>modules/wallpaper.nix</code> adds
+            <code>programs.setWallpaper</code>. When enabled, Home Manager
+            activation resolves the configured image path and tells Finder to
+            set the desktop picture.
+          </p>
+        </section>
+        <section>
+          <h2>Window manager hooks</h2>
+          <p>
+            <code>modules/aerospace.nix</code> defines a custom nix-darwin
+            service option named <code>services.airspace</code> that can launch
+            AeroSpace with an optional TOML config.
+            <code>modules/config/yabai.nix</code> contains disabled Yabai
+            settings and enabled skhd bindings for Ghostty and fullscreen
+            toggling.
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

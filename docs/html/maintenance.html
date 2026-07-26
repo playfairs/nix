@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintenance | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Care and feeding</p>
+          <h1>Maintenance, formatting, and automation</h1>
+          <p>
+            These are the repo-level tools and conventions that keep the
+            configuration usable after the initial setup.
+          </p>
+        </header>
+        <section>
+          <h2>Formatting</h2>
+          <p>
+            The formatter wrapper is built with <code>treefmt-nix</code>. It
+            enables <code>nixfmt</code>, <code>nixf-diagnose</code>,
+            <code>rustfmt</code>, <code>toml-sort</code>,
+            <code>shellcheck</code>, <code>shfmt</code>, and
+            <code>swift-format</code>.
+          </p>
+          <pre><code class="language-bash">nix fmt</code></pre>
+        </section>
+        <section>
+          <h2>Cleanup</h2>
+          <p>
+            <code>modules/home/nh.nix</code> enables <code>nh clean</code> with
+            <code>--keep-since 4d --keep 3</code>. The separate
+            <code>trim-generations</code> script offers an interactive cleanup
+            path for user, Home Manager, channels, and system profiles.
+          </p>
+        </section>
+        <section>
+          <h2>Automation project</h2>
+          <p>
+            <code>configs/auto</code> is a Rust workspace with a Swift
+            bootstrapper. The <code>bootstrap-darwin</code> target installs Nix
+            when missing, handles macOS plist patching for newer versions,
+            applies nix-darwin, and applies Home Manager unless skipped. The
+            <code>test</code> target prints OS and Nix detection state.
+          </p>
+          <pre><code class="language-bash">cd ~/.nix/configs/auto
+cargo run --bin test
+cargo run --bin bootstrap-darwin -- -f macbook</code></pre>
+        </section>
+        <section>
+          <h2>Adding a new host</h2>
+          <div class="flow-list">
+            <div>
+              <b>1</b><span>Create <code>configs/hosts/name.nix</code>.</span>
+            </div>
+            <div>
+              <b>2</b
+              ><span
+                >Use <code>-x86</code> or <code>-aarch64</code> suffix for
+                Linux, or no suffix for Darwin.</span
+              >
+            </div>
+            <div>
+              <b>3</b
+              ><span
+                >For Linux, set <code>system.hardware-module</code> to a file in
+                <code>configs/hosts/hardware</code>.</span
+              >
+            </div>
+            <div>
+              <b>4</b
+              ><span
+                >Run <code>nix flake show</code> or the relevant switch command
+                to verify the new output appears.</span
+              >
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

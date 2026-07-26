@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">Getting running</p>
+          <h1>Clone, configure hosts, and switch your flake</h1>
+          <p>
+            This repository is designed to live at <code>~/.nix</code>. The
+            top-level <code>flake.nix</code> imports host profiles from
+            <code>configs/hosts</code> and outputs Home Manager plus NixOS or
+            nix-darwin configurations based on each host name.
+          </p>
+        </header>
+
+        <section>
+          <h2>Clone the repo</h2>
+          <p>
+            Clone the repo into <code>~/.nix</code> so the built-in flake path
+            matches the docs and tooling.
+          </p>
+          <pre><code class="language-bash">git clone https://github.com/playfairs/nix ~/.nix
+cd ~/.nix</code></pre>
+          <p>
+            If you already cloned elsewhere, use that path in the flake commands
+            instead of <code>~/.nix</code>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Enter the dev shell</h2>
+          <p>
+            The repository includes <code>utils/dev/devsh.nix</code> for a
+            reproducible development shell with Rust, Nix, formatting tools, and
+            helper scripts.
+          </p>
+          <pre><code class="language-bash">nix develop</code></pre>
+          <p>Format repository nix files with the bundled formatter:</p>
+          <pre><code class="language-bash">nix fmt</code></pre>
+        </section>
+
+        <section>
+          <h2>Edit host profiles</h2>
+          <p>
+            Host names live in <code>configs/hosts/*.nix</code>. Open the host
+            file for the machine you want to customize and update settings like
+            <code>system.hostname</code>, <code>timezone</code>,
+            <code>networking</code>, <code>greeter</code>, <code>desktop</code>,
+            and <code>user</code>.
+          </p>
+          <p>Linux hosts also set a hardware module path, for example:</p>
+          <pre><code class="language-bash">system.hardware-module = ./hardware/laptop-x86.nix;</code></pre>
+          <p>The supported hosts in this repo include:</p>
+          <div class="tag-row">
+            <span class="tag">macbook</span><span class="tag">macmini</span
+            ><span class="tag">mac-vm</span><span class="tag">laptop-x86</span
+            ><span class="tag">vm-x86</span><span class="tag">vm-aarch64</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Generate Linux hardware modules</h2>
+          <p>
+            Linux host hardware modules are stored under
+            <code>configs/hosts/hardware</code>. For a new Linux machine, run
+            <code>nixos-generate-config</code> on the target system, then copy
+            or adapt the generated file into that folder and point the host
+            config at it.
+          </p>
+          <pre><code class="language-bash"># boot into the target Linux machine or chroot
+sudo nixos-generate-config --root /mnt
+# copy the generated hardware module into the repo
+cp /mnt/etc/nixos/hardware-configuration.nix ~/.nix/configs/hosts/hardware/new-host.nix</code></pre>
+          <p>Then set the host file to use it:</p>
+          <pre><code class="language-bash">system.hardware-module = ./hardware/new-host.nix;</code></pre>
+        </section>
+
+        <section>
+          <h2>Switch Home Manager</h2>
+          <p>
+            This repo includes Home Manager support for all hosts. Use the
+            built-in <code>nh</code> helper or the flake command directly.
+          </p>
+          <pre><code class="language-bash">nh home switch -c macmini
+nh home switch -c macbook
+nh home switch -c laptop-x86</code></pre>
+          <p>Or run Home Manager directly from the flake:</p>
+          <pre><code class="language-bash">home-manager switch --flake ~/.nix#macmini</code></pre>
+        </section>
+
+        <section>
+          <h2>Switch NixOS</h2>
+          <p>
+            Linux hosts with <code>x86</code> or <code>aarch64</code> suffixes
+            also build NixOS outputs.
+          </p>
+          <pre><code class="language-bash">sudo nixos-rebuild switch --flake ~/.nix#laptop-x86
+sudo nixos-rebuild switch --flake ~/.nix#vm-x86
+sudo nixos-rebuild switch --flake ~/.nix#vm-aarch64</code></pre>
+        </section>
+
+        <section>
+          <h2>Switch nix-darwin</h2>
+          <p>
+            macOS hosts use <code>darwinConfigurations</code> from the same
+            flake.
+          </p>
+          <pre><code class="language-bash">sudo darwin-rebuild switch --flake ~/.nix#macmini
+sudo darwin-rebuild switch --flake ~/.nix#macbook
+sudo darwin-rebuild switch --flake ~/.nix#mac-vm</code></pre>
+        </section>
+
+        <section>
+          <h2>macOS bootstrap helper</h2>
+          <p>
+            The repo includes a bootstrap helper in
+            <code>configs/auto</code> for installing Nix and nix-darwin, then
+            applying the host configuration.
+          </p>
+          <pre><code class="language-bash">cd ~/.nix/configs/auto
+swift ./bootstrap.swift
+cargo run --bin bootstrap-darwin -- -f macbook</code></pre>
+          <div class="callout">
+            <strong>Note:</strong> the bootstrapper writes system files and
+            invokes <code>sudo</code>. Read
+            <code>configs/auto/README.adoc</code> before running it on a fresh
+            machine.
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

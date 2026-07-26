@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Modules | Nix Docs</title>
+    <link rel="icon" href="../favicon.svg" />
+    <link rel="stylesheet" href="../js/style.css" />
+  </head>
+  <body>
+    <main class="doc-shell">
+      <aside class="sidebar">
+        <nav>
+          <a href="../index.html">Home</a>
+          <div class="sidebar-divider"></div>
+          <a href="setup.html">Setup</a>
+          <a href="what-is-nix.html">What is Nix</a>
+          <a href="configuration.html">Architecture</a>
+          <a href="hosts.html">Hosts</a>
+          <a href="nixos.html">System</a>
+          <a href="home-manager.html">Home Manager</a>
+          <a href="desktops.html">Desktops</a>
+          <a href="darwin.html">macOS</a>
+          <a href="applications.html">Apps</a>
+          <a href="theming.html">Theming</a>
+          <a href="scripts.html">Scripts</a>
+          <a href="maintenance.html">Maintenance</a>
+          <a href="reference.html">Reference</a>
+        </nav>
+      </aside>
+      <article class="content">
+        <header>
+          <p class="eyebrow">OS layer</p>
+          <h1>NixOS and shared system modules</h1>
+          <p>
+            <code>modules/config</code> is imported for both NixOS and
+            nix-darwin. Most modules use <code>lib.optionalAttrs linux</code> or
+            platform checks to apply only where they make sense.
+          </p>
+        </header>
+        <section>
+          <h2>Core modules</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>What it configures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>default.nix</code></td>
+                  <td>
+                    Imports all config modules, imports the host hardware module
+                    on Linux, sets overlays, unfree predicate, and state
+                    version.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>nix.nix</code></td>
+                  <td>
+                    Nix flakes, pipe operators, build parallelism, and Cachix
+                    substituters for nix-community and oxalica.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>boot.nix</code></td>
+                  <td>
+                    Latest Linux kernel, v4l2loopback for OBS virtual camera,
+                    systemd-boot, EFI mount, kernel params, module blacklists,
+                    and swappiness.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>hardware.nix</code></td>
+                  <td>
+                    Graphics, 32-bit graphics on x86_64, AMD OpenCL if
+                    requested, NVIDIA settings, PRIME options, and Bluetooth.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>users.nix</code></td>
+                  <td>
+                    Creates the host user with zsh, wheel/libvirtd/audio groups
+                    on Linux, and UID/home/knownUsers on Darwin.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>keyboard.nix</code></td>
+                  <td>
+                    Linux XKB layout plus Workman variant; macOS key
+                    normalization and Caps Lock to Escape.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>i18n.nix</code></td>
+                  <td>
+                    Timezone from host config and Australian/US locale support.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Desktop and services</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Behavior</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>display-manager.nix</code></td>
+                  <td>
+                    Chooses GDM, Ly, or SDDM from <code>system.greeter</code>;
+                    enables Niri and Hyprland programs from
+                    <code>desktop</code>; turns on XDG portal.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>services.nix</code></td>
+                  <td>
+                    Tailscale, Flatpak, Blueman, QEMU guest tools, Spice agent,
+                    Plasma 6, fwupd, PipeWire with JACK/Pulse/ALSA, libinput,
+                    OpenSSH, and Samba.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>networking.nix</code></td>
+                  <td>
+                    Host name, NetworkManager, firewall, DHCP, per-interface
+                    DHCP, and bridge definitions.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>packages.nix</code></td>
+                  <td>
+                    System shells and packages, KDE package exclusions, nix-ld,
+                    Steam, virt-manager, dconf, Thunar, zsh.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>virtualisation.nix</code></td>
+                  <td>
+                    libvirtd, Spice USB redirection, and a large VM variant
+                    profile.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>security.nix</code></td>
+                  <td>
+                    Linux doas, sudo-rs reboot rule, polkit; macOS Touch ID for
+                    sudo.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>Host-facing knobs</h2>
+          <div class="doc-grid">
+            <div class="mini-card">
+              <strong><code>system.graphics.wanted</code></strong>
+              <p>Feeds X server video drivers and AMD OpenCL detection.</p>
+            </div>
+            <div class="mini-card">
+              <strong><code>system.graphics.blacklists</code></strong>
+              <p>Feeds <code>boot.blacklistedKernelModules</code>.</p>
+            </div>
+            <div class="mini-card">
+              <strong><code>system.networking</code></strong>
+              <p>Controls NetworkManager, firewall, DHCP, and interfaces.</p>
+            </div>
+            <div class="mini-card">
+              <strong><code>system.greeter</code></strong>
+              <p>
+                Switches display manager between <code>gdm</code>,
+                <code>ly</code>, and <code>sddm</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
