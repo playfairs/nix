@@ -177,8 +177,8 @@ in
       ]
     )
 
-    ++ lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) ([
-    ]);
+    ++ lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) [
+    ];
 
   programs.ripgrep.enable = true;
 }

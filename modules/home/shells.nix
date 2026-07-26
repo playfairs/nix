@@ -9,49 +9,51 @@ let
   inherit (flakeConfig) user;
 
   commonAliases = {
-    ":q"        = "exit";
-    "fuckoff"   = "exit";
-    ".."        = "cd ..";
-    "-"         = "cd -";
-    "l"         = "ls -l";
-    "la"        = "ls -la";
-    "lks"       = "ls";
-    "please"    = "sudo";
-    "fuck"      = "touch";
-    "copy"      = "cp";
-    "nv"        = "nvim";
-    "nvm"       = "nvim";
-    "neovim"    = "nvim";
+    ":q" = "exit";
+    "fuckoff" = "exit";
+    ".." = "cd ..";
+    "-" = "cd -";
+    "l" = "ls -l";
+    "la" = "ls -la";
+    "lks" = "ls";
+    "please" = "sudo";
+    "fuck" = "touch";
+    "copy" = "cp";
+    "nv" = "nvim";
+    "nvm" = "nvim";
+    "neovim" = "nvim";
     "vimproved" = "vim";
-    "hmm"       = "echo 'bros unsure'";
-    "ff"        = "fastfetch";
-    "urban"     = "urban-cli -m 1";
-    "py"        = "python3";
-    "lazy"      = "lazygit";
-    "azy"       = "lazygit";
-    "laz"       = "lazygit";
+    "hmm" = "echo 'bros unsure'";
+    "ff" = "fastfetch";
+    "urban" = "urban-cli -m 1";
+    "py" = "python3";
+    "lazy" = "lazygit";
+    "azy" = "lazygit";
+    "laz" = "lazygit";
     "asteride-dev" = "nix run github:Aster-IDE/AsterIDE/dev";
-    "gut"       = "git";
+    "gut" = "git";
   };
 
   darwinAliases = lib.optionalAttrs darwin {
-    "hm"        = "nh home switch -c macmini";
-    "hm,"       = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
-    "mh"        = "nh home switch -c macmini"; # Also manage to type this occasionally
-    "skip"      = "osascript -e 'tell app \"Spotify\" to next track'";
-    "prev"      = "osascript -e 'tell app \"Spotify\" to previous track'";
-    "np"        = "osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
-    "savetrack" = "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
-    "loop"      = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
-    "lsblk"     = "diskutil list";
-    "vsc"       = "'/Volumes/BARRACUDA/Applications/Visual Studio Code.app/Contents/MacOS/Code'";
+    "hm" = "nh home switch -c macmini";
+    "hm," = "nh home switch -c macmini"; # Somehow I manage to type 'hm,' more often than not
+    "mh" = "nh home switch -c macmini"; # Also manage to type this occasionally
+    "skip" = "osascript -e 'tell app \"Spotify\" to next track'";
+    "prev" = "osascript -e 'tell app \"Spotify\" to previous track'";
+    "np" =
+      "osascript -e 'tell application \"Spotify\" to get artist of current track & \" - \" & name of current track & \" (\" & album of current track & \")\"'";
+    "savetrack" =
+      "osascript -e 'tell application \"Spotify\" to activate' -e 'tell application \"System Events\" to keystroke \"l\" using {command down, shift down}'";
+    "loop" = "osascript -e 'tell application \"Spotify\" to set repeating to true'";
+    "lsblk" = "diskutil list";
+    "vsc" = "'/Volumes/BARRACUDA/Applications/Visual Studio Code.app/Contents/MacOS/Code'";
   };
 
   posixAliases = {
-    "ani"      = "ani-cli --dub";
-    "anid"     = "ani-cli -d -q 1440p --dub -e 1-999";
-    "edit"     = "hx";
-    "boo"      = "ghostty +boo";
+    "ani" = "ani-cli --dub";
+    "anid" = "ani-cli -d -q 1440p --dub -e 1-999";
+    "edit" = "hx";
+    "boo" = "ghostty +boo";
   };
 
 in
@@ -178,6 +180,6 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.format = "format2";   # "default" | "minimal" | "format1" | "format2" | "filled"
-  my.starship.theme  = "catppuccin"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
+  my.starship.format = "format2"; # "default" | "minimal" | "format1" | "format2" | "filled"
+  my.starship.theme = "catppuccin"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
 }

@@ -52,7 +52,7 @@ in
         b = "branch";
         m = "merge";
       };
-      init.defaultBranch = gitConfig.defaultBranch or "main";
+      init.defaultBranch = gitConfig.defaultBranch or "master";
       core.quotepath = "off";
     };
   };
@@ -64,7 +64,7 @@ in
       userName = mercurial.username or "default-username";
       userEmail = mercurial.email or "default@example.com";
       extraConfig = {
-        init.defaultBranch = mercurial.defaultBranch or "main";
+        init.defaultBranch = mercurial.defaultBranch or "master";
       };
       aliases = {
         p = "push";

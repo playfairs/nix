@@ -30,7 +30,7 @@ lib.optionalAttrs linux {
     enable = hyprland.enable or false;
 
     settings = {
-      monitor = builtins.map (
+      monitor = map (
         monitor:
         "${monitor.name},${monitor.resolution}@${builtins.toString monitor.refreshRate},${monitor.position},${builtins.toString monitor.scale}"
       ) monitors;

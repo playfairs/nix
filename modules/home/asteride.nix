@@ -7,7 +7,7 @@
   imports = [
     asteride.homeModules.asteride
   ];
-  
+
   programs.asteride = {
     enable = true;
     settings = {

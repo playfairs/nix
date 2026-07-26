@@ -15,7 +15,7 @@ lib.optionalAttrs (!linux) {
       ${pkgs.jankyborders}/bin/borders active_color=0xFFC4A7E7 inactive_color=0x6e6a86ff width=10.0
 
       yabai -m rule --add app='^Gimp$' manage=off
-      '';
+    '';
     config = {
       layout = "bsp";
 

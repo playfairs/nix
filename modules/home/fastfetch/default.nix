@@ -34,7 +34,8 @@ in
         height = 30;
         type = "kitty-direct";
       };
-      padding = { # I did this wrong, I'll fix it later
+      padding = {
+        # I did this wrong, I'll fix it later
         top = 0;
         left = 0;
         right = 0;

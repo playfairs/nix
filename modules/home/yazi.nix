@@ -12,14 +12,18 @@ in
   programs.yazi = {
     enable = true;
     shellWrapperName = "y";
-    
+
     theme.flavor = {
       dark = "rose-pine-moon";
     };
 
     settings = {
       manager = {
-        ratio = [ 1 4 3 ];
+        ratio = [
+          1
+          4
+          3
+        ];
         sort_by = "natural";
         sort_sensitive = true;
         sort_reverse = false;
