@@ -51,6 +51,7 @@ in
         s = "switch";
         b = "branch";
         m = "merge";
+        gleich = "push";
       };
       init.defaultBranch = gitConfig.defaultBranch or "master";
       core.quotepath = "off";
