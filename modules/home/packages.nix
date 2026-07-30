@@ -93,6 +93,7 @@ in
         obs-studio
         zed-editor
         gram
+        godot
         rustup
         discord-rpc
         discord-canary
