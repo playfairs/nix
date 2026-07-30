@@ -422,7 +422,7 @@
         keepSpotifyActivityOnIdle = true;
       };
       spotifyShareCommands.enable = true;
-      streamerModeOnStream.enable = true;
+      streamerModeOnStream.enable = false;
       textReplace = {
         stringRules = [
           {
