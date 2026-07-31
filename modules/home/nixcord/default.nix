@@ -116,6 +116,11 @@
         expressionCloner.enable = true;
         favoriteGifSearch.enable = true;
         fixCodeblockGap.enable = true;
+        followVoiceUser = {
+          enable = true;
+          leaveWhenUserLeaves = false;
+          onlyWhenInVoice = true;
+        };
         fontLoader = {
           enable = true;
           selectedFont = "PT Sans Caption";
