@@ -32,7 +32,7 @@ lib.optionalAttrs linux {
     settings = {
       monitor = map (
         monitor:
-        "${monitor.name},${monitor.resolution}@${toString monitor.refreshRate},${monitor.position},${builtins.toString monitor.scale}"
+        "${monitor.name},${monitor.resolution}@${toString monitor.refreshRate},${monitor.position},${toString monitor.scale}"
       ) monitors;
 
       # Disable Updated to * toast.
