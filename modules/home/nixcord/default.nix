@@ -20,7 +20,7 @@
     config = {
       frameless = true;
       transparent = true;
-  
+
       plugins = {
         advancedPermissions.enable = true;
         animalese = {
