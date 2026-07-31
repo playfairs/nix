@@ -34,6 +34,7 @@ in
       nyancat
       stockfish
       mercurial
+      micro
       emacs
       cloudflared
       fsharp
