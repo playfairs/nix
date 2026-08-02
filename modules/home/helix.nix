@@ -107,6 +107,7 @@
             W = ":wq!";
             q = ":qa";
             Q = ":qa!";
+            d = "@<x>d";
           };
         };
         select.y = ":clipboard-yank";
