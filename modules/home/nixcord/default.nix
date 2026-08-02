@@ -114,7 +114,6 @@
           toolbarDevMenu = true;
         };
         expressionCloner.enable = true;
-        favoriteGifSearch.enable = true;
         fixCodeblockGap.enable = true;
         followVoiceUser = {
           enable = true;
