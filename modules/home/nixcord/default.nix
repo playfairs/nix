@@ -83,7 +83,7 @@
         };
         declutter = {
           enable = true;
-          removeNameplate = false;
+          removeNameplate = true;
           removeClanTag = false;
           alwaysShowUsername = false;
           removeServerBoostInfo = false;
@@ -410,8 +410,11 @@
                 id = "81if36tbr0v";
                 name = "3";
                 color = 10070709;
-                collapsed = false;
-                channels = [ "1529456436617150541" ];
+                collapsed = true;
+                channels = [
+                  "1529456436617150541"                    
+                  "1533432575618580554"
+                ];
               }
             ];
             "1427809899630563428" = [ ];
