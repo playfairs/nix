@@ -181,5 +181,5 @@ in
 
   home.file.".hushlogin".text = "";
   my.starship.format = "format2"; # "default" | "minimal" | "format1" | "format2" | "filled"
-  my.starship.theme = "catppuccin"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
+  my.starship.theme = "gruvbox"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
 }
