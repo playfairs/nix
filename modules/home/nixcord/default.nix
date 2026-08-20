@@ -14,6 +14,7 @@
       enable = !(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
       equicord.enable = true;
     };
+    equibop.enable = true;
     vesktop.enable = (pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
     quickCss = import ./quickcss.nix;
 
@@ -445,7 +446,7 @@
         previewMessage.enable = true;
         profileSets.enable = true;
         questify = {
-          enable = true;
+          enable = false;
           autoCompleteQuestTypes = {
             PLAY_ON_DESKTOP = true;
             PLAY_ON_XBOX = true;
