@@ -8,7 +8,7 @@
   stylix.targets.ghostty.enable = false;
 
   programs.ghostty = {
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     enable = true;
 
     settings = {

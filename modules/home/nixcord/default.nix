@@ -11,11 +11,11 @@
   programs.nixcord = {
     enable = true;
     discord = {
-      enable = !(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
+      enable = !(pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.isAarch64);
       equicord.enable = true;
     };
     equibop.enable = true;
-    vesktop.enable = (pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64);
+    vesktop.enable = (pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.isAarch64);
     quickCss = import ./quickcss.nix;
 
     config = {
@@ -416,7 +416,7 @@
                 color = 10070709;
                 collapsed = true;
                 channels = [
-                  "1529456436617150541"                    
+                  "1529456436617150541"
                   "1533432575618580554"
                 ];
               }
@@ -495,7 +495,7 @@
         };
         shikiCodeblocks = {
           enable = true;
-          theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/bc5436518111d87ea58eb56d97b3f9bec30e6b83/packages/tm-themes/themes/rose-pine-moon.json";
+          # theme = "https://raw.githubusercontent.com/shikijs/textmate-grammars-themes/refs/heads/main/packages/tm-themes/themes/rose-pine-moon.json";
         };
         showHiddenChannels = {
           showMode = 1;
@@ -505,7 +505,7 @@
           messages = false;
           discriminators = false;
           hideDefaultAtSign = true;
-          animateGradients = true;
+          animateEffects = true;
           includedNames = "{friend, nick} [{display}] (@{user})";
         };
         silentTyping = {

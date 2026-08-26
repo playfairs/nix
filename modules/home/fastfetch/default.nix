@@ -4,7 +4,7 @@
   ...
 }:
 let
-  isDarwin = pkgs.stdenv.isDarwin;
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   wmModule =
     if isDarwin then
       {
