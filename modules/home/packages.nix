@@ -30,18 +30,13 @@ in
       # dev
       (nix-sweep.packages.${pkgs.stdenv.hostPlatform.system}.default)
       (nix-dev.packages.${pkgs.stdenv.hostPlatform.system}.dev)
-      ddgr
-      nyancat
       stockfish
       mercurial
       micro
       emacs
       cloudflared
-      fsharp
       # cargo
       listadmin
-      pokemon-colorscripts-mac
-      ansi
       pnpm
       onefetch
       tailscale
@@ -53,13 +48,11 @@ in
       # mpv
       portaudio
       inetutils
-      gum
       pv
       autotrace
       uv
       java-language-server
       ffmpeg
-      spotify
       zsh-bd
       nodejs
       spicetify-cli
@@ -80,11 +73,11 @@ in
       steam
     ])
 
-    ++ lib.optionals (!(pkgs.stdenv.isLinux && pkgs.stdenv.isAarch64)) [
+    ++ lib.optionals (!(pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.isAarch64)) [
       pkgs.insomnia
     ]
 
-    ++ lib.optionals pkgs.stdenv.isDarwin (
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin (
       with pkgs;
       [
         utm
@@ -92,9 +85,8 @@ in
         (lish.packages.${pkgs.stdenv.hostPlatform.system}.lish)
         pika
         obs-studio
-        zed-editor
+        # zed-editor
         gram
-        godot
         rustup
         discord-rpc
         discord-canary
@@ -110,15 +102,8 @@ in
         ffmpeg
         shottr
         alacritty
-        neovim
+        # neovim
         lastfm
-        # zed-editor
-
-        (writeShellScriptBin "random-shot" ''
-          DIR="/Volumes/Femboy >_</Media/Flameshot Screenshots"
-          file=$(${findutils}/bin/find "$DIR" -type f | ${coreutils}/bin/shuf -n 1)
-          open "$file"
-        '')
 
         (writeShellScriptBin "hx-open" ''
           exec ${helix}/bin/hx "$@"
@@ -157,7 +142,7 @@ in
       ]
     )
 
-    ++ lib.optionals pkgs.stdenv.isLinux (
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux (
       with pkgs;
       [
         wl-clipboard
@@ -179,7 +164,7 @@ in
       ]
     )
 
-    ++ lib.optionals (pkgs.stdenv.isLinux && pkgs.stdenv.isx86_64) [
+    ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux && pkgs.stdenv.isx86_64) [
     ];
 
   programs.ripgrep.enable = true;
