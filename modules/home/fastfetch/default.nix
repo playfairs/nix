@@ -27,7 +27,7 @@ in
     enable = true;
     settings = {
       logo = {
-        source = ./heresy.png;
+        source = ./art.png;
         #width = 50;
         #height = 25;
         width = 70;
