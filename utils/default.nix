@@ -72,7 +72,7 @@ let
     flakeInputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import flakeInputs.nixpkgs { inherit system; };
       modules = [
-        ../modules/home
+        ../modules/common/home
         flakeInputs.plasma-manager.homeManagerModules.plasma-manager
         flakeInputs.nixcord.homeModules.nixcord
         flakeInputs.stylix.homeModules.stylix
@@ -87,7 +87,7 @@ let
     flakeInputs.darwin.lib.darwinSystem {
       inherit system;
       modules = [
-        ../modules/config
+        ../modules/common/config
         flakeInputs.stylix.darwinModules.stylix
       ];
       specialArgs = specialArgs;
@@ -98,7 +98,7 @@ let
     flakeInputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ../modules/config
+        ../modules/common/config
         flakeInputs.stylix.nixosModules.stylix
         flakeInputs.mango.nixosModules.mango
       ];

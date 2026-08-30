@@ -9,7 +9,7 @@
 }:
 
 let
-  scriptsDir = ../../scripts;
+  scriptsDir = ../../../scripts;
 
   scriptBins = lib.mapAttrsToList (
     name: type:
