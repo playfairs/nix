@@ -2,3 +2,4 @@ result
 *.qcow2
 .DS_Store
 .jj
+_darcs
