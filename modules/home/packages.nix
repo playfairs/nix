@@ -91,6 +91,8 @@ in
         discord-rpc
         discord-canary
         bindfs
+        tokei
+        locker
         fzf
         msmtp
         iina
