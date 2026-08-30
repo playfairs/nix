@@ -88,6 +88,7 @@ in
         # zed-editor
         gram
         rustup
+        darcs
         discord-rpc
         discord-canary
         bindfs
