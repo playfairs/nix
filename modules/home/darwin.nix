@@ -101,6 +101,6 @@ lib.optionalAttrs (!linux) {
 
   programs.setWallpaper = {
     enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/ipad.png;
+    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/misc/saturn.jpg;
   };
 }
