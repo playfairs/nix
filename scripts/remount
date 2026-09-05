@@ -1,0 +1,4 @@
+#!/bin/bash
+
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/org.nixos.skhd.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/org.nixos.skhd.plist

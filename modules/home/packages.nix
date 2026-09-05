@@ -85,8 +85,12 @@ in
         (lish.packages.${pkgs.stdenv.hostPlatform.system}.lish)
         pika
         obs-studio
+
         # zed-editor
-        gram
+        # (gram.overrideAttrs (_old: {
+        #   doCheck = false;
+        # }))
+
         rustup
         discord-rpc
         discord-canary
