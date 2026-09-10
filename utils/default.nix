@@ -23,6 +23,7 @@ let
       sysfetch
       lish
       nix-sweep
+      nox
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [

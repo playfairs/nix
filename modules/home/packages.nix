@@ -5,6 +5,7 @@
   asteride,
   nix-sweep,
   lish,
+  nox,
   ...
 }:
 
@@ -83,6 +84,7 @@ in
         utm
         (asteride.packages.${pkgs.stdenv.hostPlatform.system}.asteride)
         (lish.packages.${pkgs.stdenv.hostPlatform.system}.lish)
+        (nox.packages.${pkgs.stdenv.hostPlatform.system}.nox)
         pika
         obs-studio
 
