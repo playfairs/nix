@@ -16,6 +16,7 @@ let
     "l" = "ls -l";
     "la" = "ls -la";
     "lks" = "ls";
+    "z" = "cd";
     "please" = "sudo";
     "fuck" = "touch";
     "copy" = "cp";
