@@ -99,8 +99,8 @@ lib.optionalAttrs (!linux) {
     };
   };
 
-  programs.setWallpaper = {
-    enable = true;
-    wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/apple/Dynamic.heic;
-  };
+  # programs.setWallpaper = {
+  #   enable = true;
+  #   wallpaperPath = flakeConfig.user.wallpaper or ../../wallpapers/apple/Dynamic.heic;
+  # };
 }
