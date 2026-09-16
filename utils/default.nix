@@ -16,7 +16,6 @@ let
       plasma-manager
       nixcord
       stylix
-      zen-browser
       nushell
       nix-dev
       asteride
@@ -77,7 +76,6 @@ let
         flakeInputs.plasma-manager.homeManagerModules.plasma-manager
         flakeInputs.nixcord.homeModules.nixcord
         flakeInputs.stylix.homeModules.stylix
-        flakeInputs.zen-browser.homeModules.beta
         flakeInputs.spicetify-nix.homeManagerModules.spicetify
       ];
       extraSpecialArgs = specialArgs;
