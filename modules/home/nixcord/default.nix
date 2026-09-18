@@ -51,10 +51,6 @@
           trackSelf = true;
           showSeconds = true;
         };
-        channelTabs = {
-          showBookmarkBar = false;
-          noPomeloNames = true;
-        };
         consoleShortcuts.enable = true;
         cursorBuddy = {
           buddy = "fathorse";
