@@ -52,14 +52,15 @@ let
   # character symbols, directory/git colouring, last-commit, and every
   # language/toolchain module. All keyed off the generic theme names
   # above, so this is identical regardless of which theme gets passed in.
+  # 󱞪 
 
   mkPaletteBase = themeName: {
     palette = themeName;
     palettes.${themeName} = themes.${themeName};
 
     character = {
-      error_symbol = "[ 󱞪 :](bold danger)";
-      success_symbol = "[ 󱞪 :](bold ok)";
+      error_symbol = "[ λ :](bold danger)";
+      success_symbol = "[ λ :](bold ok)";
       vimcmd_replace_one_symbol = "[<](bold branch)";
       vimcmd_replace_symbol = "[<](bold branch)";
       vimcmd_symbol = "[<](bold ok)";
@@ -126,7 +127,7 @@ let
 
   # FORMATS — layout only. Each takes a theme name and layers its own
   # `format` string / module toggles on top of `mkPaletteBase`. Any of
-  # these four works with any theme above.
+  # these five works with any theme above.
 
   mkDefault =
     themeName:
@@ -165,6 +166,17 @@ let
       username.show_always = false;
       hostname.ssh_only = true;
       time.disabled = true;
+    };
+
+  mkBarebones =
+    themeName:
+    mkPaletteBase themeName
+    // {
+      format = "$directory$character";
+      character = {
+        error_symbol = "[λ](bold danger) :";
+        success_symbol = "[λ](bold ok) :";
+      };
     };
 
   mkFormat1 =
@@ -300,6 +312,8 @@ let
       mkDefault cfg.theme
     else if cfg.format == "minimal" then
       mkMinimal cfg.theme
+    else if cfg.format == "barebones" then
+      mkBarebones cfg.theme
     else if cfg.format == "format1" then
       mkFormat1 cfg.theme
     else if cfg.format == "format2" then
@@ -314,6 +328,7 @@ in
       type = lib.types.enum [
         "default"
         "minimal"
+        "barebones"
         "format1"
         "format2"
         "filled"
@@ -321,8 +336,9 @@ in
       default = "format1";
       description = ''
         Structural layout of the starship prompt. "default", "minimal",
-        "format1" (old tokyo_night layout), and "format2" (old catppuccin
-        layout) are all interchangeable with any `my.starship.theme`.
+        "barebones", "format1" (old tokyo_night layout), and "format2"
+        (old catppuccin layout) are all interchangeable with any
+        `my.starship.theme`.
         "filled" is a fixed powerline style with its own hardcoded
         colours — `my.starship.theme` has no effect on it.
       '';
