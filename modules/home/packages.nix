@@ -99,6 +99,8 @@ in
         bindfs
         tokei
         locker
+        haskell-language-server
+        ghc
         fzf
         msmtp
         iina
