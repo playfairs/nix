@@ -14,6 +14,7 @@ let
     ".." = "cd ..";
     "-" = "cd -";
     "l" = "ls -l";
+    "afk" = "echo 'dude this isnt fucking discord'";
     "la" = "ls -la";
     "lks" = "ls";
     "z" = "cd";
