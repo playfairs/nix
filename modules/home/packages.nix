@@ -95,6 +95,7 @@ in
 
         rustup
         discord-rpc
+        lolcat
         discord-canary
         bindfs
         tokei
