@@ -38,6 +38,7 @@ let
         "spotify"
         "nvidia-settings"
         "davinci-resolve"
+        "vscode"
         "steam-unwrapped"
         "steam_osx"
         "steam"

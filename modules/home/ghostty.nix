@@ -13,8 +13,9 @@
 
     settings = {
       theme = "Rose Pine";
-      background-opacity = 0.00;
       macos-titlebar-style = "hidden";
+      background-opacity = 0.60;
+      background-blur = "macos-glass-clear";
       quit-after-last-window-closed = true;
       window-save-state = "never";
       font-size = if darwin then 14 else 9;

@@ -34,6 +34,7 @@ let
     "laz" = "lazygit";
     "asteride-dev" = "nix run github:Aster-IDE/AsterIDE/dev";
     "gut" = "git";
+    "hls" = "haskell-language-server-9.10.3";
   };
 
   darwinAliases = lib.optionalAttrs darwin {

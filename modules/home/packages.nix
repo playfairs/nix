@@ -113,6 +113,7 @@ in
         shottr
         alacritty
         # neovim
+        vscode
         lastfm
 
         (writeShellScriptBin "hx-open" ''
