@@ -16,6 +16,11 @@
     nix-sweep.url = "github:jzbor/nix-sweep";
     nox.url = "github:playfairs/nox";
 
+    shitty = {
+      url = "github:playfairs/shitty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nushell = {
       url = "github:nushell/nushell?dir=scripts/nix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -3,6 +3,7 @@
   darwin,
   lib,
   flakeConfig,
+  shitty,
   ...
 }:
 let
@@ -61,6 +62,7 @@ let
 in
 {
   imports = [
+    shitty.homeModules.default
     ./elvish.nix
     ./starship.nix
   ];
@@ -83,8 +85,6 @@ in
   programs.zsh = {
     enable = true;
     initContent = ''
-      fastfetch
-
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
 
@@ -130,6 +130,15 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
+
+    shellAliases = commonAliases // posixAliases // darwinAliases;
+  };
+
+  programs.shit = {
+    enable = true;
+    initContent = ''
+      fastfetch
+    '';
 
     shellAliases = commonAliases // posixAliases // darwinAliases;
   };
@@ -184,6 +193,6 @@ in
   };
 
   home.file.".hushlogin".text = "";
-  my.starship.format = "barebones"; # "default" | "minimal" | "barebones" | "format1" | "format2" | "filled"
+  my.starship.format = "format2"; # "default" | "minimal" | "barebones" | "format1" | "format2" | "filled"
   my.starship.theme = "catppuccin"; # "tokyo_night" | "catppuccin" | "gruvbox" — ignored when format = "filled"
 }

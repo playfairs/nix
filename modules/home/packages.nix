@@ -6,6 +6,7 @@
   nix-sweep,
   lish,
   nox,
+  shitty,
   ...
 }:
 
@@ -35,6 +36,7 @@ in
       mercurial
       micro
       emacs
+      vim-full
       cloudflared
       # cargo
       listadmin
@@ -64,6 +66,7 @@ in
       unzip
       nil
       nixd
+      (shitty.packages.${pkgs.stdenv.hostPlatform.system}.default)
       # yt-dlp
       # ani-cli
       yazi
@@ -101,8 +104,10 @@ in
         tokei
         locker
         haskell-language-server
+        kitty
         ghc
         fzf
+        osu-lazer-bin
         msmtp
         iina
         duti

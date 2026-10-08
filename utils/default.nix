@@ -23,6 +23,7 @@ let
       lish
       nix-sweep
       nox
+      shitty
       ;
     inherit flakeConfig;
     extraOverlays = with flakeInputs; [
@@ -43,6 +44,8 @@ let
         "steam_osx"
         "steam"
         "bitwig-studio-unwrapped"
+        "osu-lazer-bin"
+        "osu-lazer"
         "discord"
         "discord-canary"
         "discord-development"

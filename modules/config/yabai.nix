@@ -9,7 +9,7 @@ let
 in
 lib.optionalAttrs (!linux) {
   services.yabai = {
-    enable = false;
+    enable = true;
 
     extraConfig = ''
       ${pkgs.jankyborders}/bin/borders active_color=0xFFC4A7E7 inactive_color=0x6e6a86ff width=10.0
@@ -41,8 +41,9 @@ lib.optionalAttrs (!linux) {
     enable = true;
 
     skhdConfig = ''
-      cmd - return : ${pkgs.ghostty-bin}/Applications/Ghostty.app/Contents/MacOS/ghostty
+      cmd - return : open -a ${pkgs.kitty}/Applications/kitty.app
       alt - return : yabai -m window --toggle native-fullscreen
     '';
   };
+
 }
