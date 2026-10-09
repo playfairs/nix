@@ -19,7 +19,7 @@
     settings = {
       background = "#191724";
       foreground = "#e0def4";
-      cursor = "#FFFFFF";
+      cursor = "#C4A7E7";
       selection_background = "#403d52";
       selection_foreground = "#e0def4";
 
@@ -45,9 +45,9 @@
       hide_window_decorations = "titlebar-only";
       remember_window_size = false;
 
-      cursor_shape = "block";
+      cursor_shape = "beam";
       cursor_trail = 4;
-      cursor_trail_decay = "0.1 0.4";
+      cursor_trail_decay = "0.1 0.3";
 
       bold_font = "HurmitNF-Bold";
 
