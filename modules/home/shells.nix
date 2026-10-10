@@ -88,34 +88,6 @@ in
       bindkey '^R' fzf-history-widget
       bindkey -s '^[[104;6u' 'hm\n'
 
-      fzf_open_hx() {
-        local file
-        file=$(fzf) && hx "$file"
-      }
-      bindkey -s '^F' 'fzf_open_hx\n'
-
-      hx () {
-        if [[ -e "$1" ]]; then
-          command hx "$@"
-          return
-        fi
-
-        local file
-
-        for ext in nix rs py js ts json toml yam yml md go html; do
-          file=$(fd "$1" -e $ext | head -n1)
-          [[ -n "$file" ]] && break
-        done
-
-        [[ -z "$file" ]] && file=$(fd "$1" | head -n1)
-
-        if [[ -n "$file" ]]; then
-          command hx "$file"
-        else
-          command hx "$1"
-        fi
-      }
-
       if [ -n "$SSH_CONNECTION" ]; then
         ( ~/.ssh-monitor/ssh-alert.sh >/dev/null 2>&1 & )
       fi

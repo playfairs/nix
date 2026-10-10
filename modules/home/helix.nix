@@ -57,7 +57,7 @@
     };
 
     settings = {
-      theme = "nyxvamp-veil";
+      theme = "rose_pine";
 
       editor = {
         path-completion = true;
