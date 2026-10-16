@@ -72,7 +72,7 @@
         "Editing {file_name}{file_extension}";
 
       "vscord.status.state.text.editing" =
-        "Editing {folder_and_file}:{current_line}:{current_column}";
+        "Editing {folder_and_file} on line {current_line}";
 
       "vscord.status.image.large.viewing.text" =
         "Editing a {LANG} file";
